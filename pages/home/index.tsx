@@ -17,12 +17,45 @@ const AllTweetsQuery = gql `
     }
     hashtags {
       contents
+      id
     }
    }
-
   }
   
 `
+
+interface User {
+  id: number, 
+  name: string,
+  username: string,
+  createdAt?: string,
+  profile: Profile,
+  tweets?: Array<Tweet>,
+  followedBy?: Array<User>
+  following: Array<User>
+}
+
+interface Profile {
+  id?: number, 
+  image?: string,
+  header_image?: string,
+  bio?: string,
+}
+
+interface Hashtag {
+  id: number,
+  contents: string, 
+  tweets?: Tweet
+}
+
+interface Tweet {
+  contents?: string,
+  createdAt: Date,
+  hashtags: Array<Hashtag>, 
+  id: number, 
+  image?: string,
+  user: User
+}
 
 const Home = () => {
 
@@ -34,13 +67,13 @@ const Home = () => {
 
   console.log(data)
 
-  const tweetFeed = data.tweets.map((val) => (
+  const tweetFeed = data.tweets.map((tweet: Tweet) => (
      <> 
       <div>
-          {val.contents}
+          {tweet.contents}
       </div>
       <div>
-          <strong>{val.user.name}</strong> @{val.user.username}
+          <strong>{tweet.user.name}</strong> @{tweet.user.username}
       </div>  
     </>
   ))
