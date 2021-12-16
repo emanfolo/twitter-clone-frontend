@@ -65,11 +65,11 @@ const Home = () => {
 
   if(error) return <p> Ooops, something went wrong {error.message} </p>
 
-  console.log(data)
+  // console.log(data)
 
   const tweetFeed = data.tweets.map((tweet: Tweet) => (
      <> 
-      <div>
+      <div >
           {tweet.contents}
       </div>
       <div>
@@ -85,9 +85,9 @@ const Home = () => {
   <h1>
     This will be the home page with tweets 
   </h1>
-  <body>
+  <div>
     {tweetFeed} 
-  </body>
+  </div>
   </>
 }
 

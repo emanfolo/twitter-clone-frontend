@@ -1,4 +1,6 @@
 import { gql, useMutation } from '@apollo/client';
+import { useState } from 'react';
+import bcryptjs from 'bcryptjs'
 
 const REGISTER_USER = gql`
     mutation Mutation($data: UserCreateInput!) {
@@ -21,36 +23,60 @@ const REGISTER_USER = gql`
 
 `
 
-// {
-//   "data": {
-//     "email": "test@gmail.com",
-//     "name": "testing",
-//     "username": "testguy",
-//     "profile": {
-//       "create": {
-//         "image": null,
-//         "header_image": null,
-//         "bio": null
-//       }
-//     },
-//     "password": "password"
-//   }
-// }
 
 
 const CreateUser = () => {
 
-  let email: any;
-  let username: any;
-  let name: any;
-  let password: any;
+  const [emailInputState, setEmailInputState] = useState('')
+  const [usernameInputState, setUsernameInputState] = useState('')
+  const [nameInputState, setNameInputState] = useState('')
+  const [passwordInputState, setPasswordInputState] = useState('')
+
   const [registerMutateFunction, { data, loading, error }] = useMutation(REGISTER_USER)
 
-  if (loading) return 'Loading...';
+  const encrypt = (password: string) => {
+    let hashedPassword = bcryptjs.hash(password, 12)
+    return hashedPassword
+  }
+
+  const sendParams = async () => {
+
+    let dbPass = null
+
+    dbPass = await encrypt(passwordInputState)
+
+    console.log(dbPass)
+
+
+    if(dbPass !== null){
+      registerMutateFunction({ variables: { 
+            data: {
+                    "email": emailInputState,
+                    "name": nameInputState,
+                    "username": usernameInputState,
+                    "profile": {
+                      "create": {
+                        "image": null,
+                        "header_image": null,
+                        "bio": null
+                      }
+                    },
+                    "password": dbPass
+                  }
+                } 
+              });
+    }
+    
+  }
+
+  // if (loading) return 'Loading...';
 
   if (error) return `Error! ${error.message}`;
 
   if(data) return <> {data.id} {data.username} {data.name} </>
+
+
+
 
   return (
   <> 
@@ -59,45 +85,41 @@ const CreateUser = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          registerMutateFunction({ variables: { 
-            data: {
-                    "email": email.value,
-                    "name": username.value,
-                    "username": name.value,
-                    "profile": {
-                      "create": {
-                        "image": null,
-                        "header_image": null,
-                        "bio": null
-                      }
-                    },
-                    "password": password.value
-                  }
-                } 
-              });
-          
+          sendParams()
         }}
       >
+        <label>
+          Email:
         <input
-          ref={node => {
-            email = node;
+          onChange={(e) =>{
+            setEmailInputState(e.target.value)
           }}
-        /> Email
+        /> 
+        </label>
+        <label>
+        Username:
         <input
-          ref={node => {
-            username = node;
+          onChange={(e) =>{
+            setUsernameInputState(e.target.value)
           }}
-        /> Username
+        /> 
+        </label>
+        <label>
+          Password:
         <input
-          ref={node => {
-            password = node;
+          onChange={(e) =>{
+            setPasswordInputState(e.target.value)
           }}
-        /> Password
+        /> 
+        </label>
+        <label>Name:
         <input
-          ref={node => {
-            name = node;
+          onChange={(e) =>{
+            setNameInputState(e.target.value)
           }}
-        /> Name
+        />
+        </label>
+
         <button type="submit">Register</button>
       </form>
     </div>
