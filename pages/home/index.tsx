@@ -1,27 +1,5 @@
-import { gql, useQuery } from "@apollo/client";
 
-const AllTweetsQuery = gql`
-  query {
-    tweets {
-      id
-      contents
-      createdAt
-      image
-      user {
-        id
-        username
-        name
-        profile {
-          image
-        }
-      }
-      hashtags {
-        contents
-        id
-      }
-    }
-  }
-`;
+
 
 interface User {
   id: number;
@@ -57,27 +35,20 @@ interface Tweet {
 }
 
 const Home = () => {
-  const { data, error, loading } = useQuery(AllTweetsQuery);
 
-  if (loading) return <p> Loading....</p>;
-
-  if (error) return <p> Ooops, something went wrong {error.message} </p>;
-
-  // console.log(data)
-
-  const tweetFeed = data.tweets.map((tweet: Tweet) => (
-    <>
-      <div>{tweet.contents}</div>
-      <div>
-        <strong>{tweet.user.name}</strong> @{tweet.user.username}
-      </div>
-    </>
-  ));
+  // const tweetFeed = data.tweets.map((tweet: Tweet) => (
+  //   <>
+  //     <div>{tweet.contents}</div>
+  //     <div>
+  //       <strong>{tweet.user.name}</strong> @{tweet.user.username}
+  //     </div>
+  //   </>
+  // ));
 
   return (
     <>
       <h1>This will be the home page with tweets</h1>
-      <div>{tweetFeed}</div>
+      <div>Insert tweets</div>
     </>
   );
 };
