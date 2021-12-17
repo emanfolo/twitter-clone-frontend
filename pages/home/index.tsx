@@ -1,4 +1,4 @@
-import { useContext} from 'react'
+import { useContext, useState, useEffect} from 'react'
 import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
 
@@ -38,8 +38,37 @@ interface Tweet {
 
 const Home = () => {
 
+  const router = useRouter()
 
-  // const tweetFeed = data.tweets.map((tweet: Tweet) => (
+  const {user, setUser} = useContext(UserContext)
+
+  const [tweetFeed, setTweetFeed] = useState([])
+  const [loading, setLoading] = useState(Boolean)
+
+  const getTweetFeed = async (authToken: string) => {
+    setLoading(true)
+    const url = 'http://localhost:4000/feed'
+    const res = await fetch(url, { 
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        }
+       });
+    const json = await res.json();
+    console.log(json)
+    setTweetFeed(json);
+    setLoading(false);
+  }
+
+  // if(user){
+  //   setInterval(getTweetFeed(user.accessToken), 15000)
+  // )
+  // }
+
+ 
+
+  // const tweetDisplay = tweetFeed.tweets.map((tweet: Tweet) => (
   //   <>
   //     <div>{tweet.contents}</div>
   //     <div>
@@ -48,18 +77,37 @@ const Home = () => {
   //   </>
   // ));
 
- const router = useRouter()
+  // if(!user) {
+  //   router.push('/user/login')
+  // }
+
+  //Eventually I want to block users from ever going onto this page
+
+  if(!user){
+    return <></>
+  }
 
 
-  const {user, setUser} = useContext(UserContext)
+  if(user){
 
-  return (
+     useEffect(() => {
+    getTweetFeed(user.accessToken);
+    }, [])
+
+    return (
   <>
     <h1>This will be the home page with tweets</h1>
     <pre>{JSON.stringify(user, null, 2)}</pre>
     <div>Insert tweets</div>
   </>
   ); 
+  }
+  
+  if (loading) {
+    return <>Loading...</>
+  } 
+
+  
 };
 
 export default Home;
