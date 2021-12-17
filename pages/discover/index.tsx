@@ -36,7 +36,7 @@ interface Tweet {
   user: User;
 }
 
-const Home = () => {
+const Discover = () => {
 
 
   // const tweetFeed = data.tweets.map((tweet: Tweet) => (
@@ -55,11 +55,11 @@ const Home = () => {
 
   return (
   <>
-    <h1>This will be the home page with tweets</h1>
+    <h1>This will be your discover page</h1>
     <pre>{JSON.stringify(user, null, 2)}</pre>
-    <div>Insert tweets</div>
+    <div>Insert search & trending</div>
   </>
   ); 
 };
 
-export default Home;
+export default Discover;
