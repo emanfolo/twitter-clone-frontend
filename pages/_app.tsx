@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { UserContext } from "./UserContext";
 import { useState, useMemo } from "react";
+import Layout from '../components/Layout'
 import Link from "next/link";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -11,39 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <div style={{display: 'flex', justifyContent: 'space-evenly', gap: '20px'}}>
-      <nav>
-        
-        <Link href="/home">
-          <a>Home</a>
-        </Link>
-        <Link href="/discover">
-          <a>Discover</a>
-        </Link>
-
-        {user ? (
-          <>
-            <Link href="/profile">
-              Profile
-            </Link>
-
-            <Link href="user/logout">
-              Logout
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link href="/user/login">
-              Log in
-            </Link>
-            <Link href="/user/new">
-              Register
-            </Link>
-          </>
-        )}
-      </nav>
-      </div>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </UserContext.Provider>
   );
 }

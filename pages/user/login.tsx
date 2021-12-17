@@ -10,8 +10,8 @@ const CreateUser = () => {
 
   const {user, setUser} = useContext(UserContext)
 
-  const [emailInputState, setEmailInputState] = useState("");
-  const [passwordInputState, setPasswordInputState] = useState("");
+  const [emailInputState, setEmailInputState] = useState("admin@gmail.com");
+  const [passwordInputState, setPasswordInputState] = useState("adminPassword");
 
   const checkInputs = () => {
    if (!emailInputState.includes('@') || emailInputState.length < 5){
@@ -54,8 +54,8 @@ const CreateUser = () => {
       Log in page
       <pre>{JSON.stringify(user, null, 2)}</pre>
       <div>
-          testingauth@gmail.com  
-          password
+          admin@gmail.com  
+          adminPassword
       </div>
       <div>
         <form
@@ -70,6 +70,7 @@ const CreateUser = () => {
               onChange={(e) => {
                 setEmailInputState(e.target.value);
               }}
+              placeholder={emailInputState}
             />
           </label>
           <label>
@@ -78,6 +79,7 @@ const CreateUser = () => {
               onChange={(e) => {
                 setPasswordInputState(e.target.value);
               }}
+              placeholder={passwordInputState}
             />
           </label>
           <button type="submit">Log in</button>
