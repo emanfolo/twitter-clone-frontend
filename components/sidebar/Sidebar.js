@@ -29,7 +29,7 @@ const Sidebar = () => {
 
         {user ? (
           <>
-          <SidebarLink text="Profile" Icon={PermIdentityIcon} Route={`/profile/${user.userDetails.id}`}/>
+          <SidebarLink text="Profile" Icon={PermIdentityIcon} Route={`/profile/${user.userDetails.username}`}/>
           <SidebarLink text="Logout" Icon={DeleteIcon} Route="/user/logout"/>
           <Button id="tweet">
               Tweet
