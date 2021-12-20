@@ -1,6 +1,5 @@
 const TweetCard = (props:any) => {
 
-  console.log(props)
   return (
   <> 
   <div>

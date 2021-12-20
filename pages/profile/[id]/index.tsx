@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect} from 'react'
-import { UserContext } from '../UserContext'
+import { UserContext } from '../../UserContext'
 import Router, { useRouter } from "next/router";
-import FeedContainer from '../../components/home/FeedContainer';
 
 
 interface User {
@@ -37,61 +36,46 @@ interface Tweet {
   user: User;
 }
 
-const Home = () => {
-
-  const router = useRouter()
+const Profile = () => {
 
   const {user, setUser} = useContext(UserContext)
 
-  const [tweetFeed, setTweetFeed] = useState<Array<Tweet>>([])
+
+  const [profile, setProfile] = useState<User>()
   const [loading, setLoading] = useState(Boolean)
 
-  const getTweetFeed = async (authToken: string) => {
-    setLoading(true)
-    const url = 'http://localhost:4000/feed'
+ const getProfile = async (authToken: string) => {
+   setLoading(true)
+    const url = 'http://localhost:4000/profile'
     const res = await fetch(url, { 
         method: 'GET',
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${authToken}`
         }
-       });
+      });
     const json = await res.json();
-    setTweetFeed(json);
+    console.log(json)
+    setProfile(json);
     setLoading(false);
-  }
-
-
-  //Eventually I want to block users from ever going onto this page
-
-  if(!user){
-    return <> You have to be logged in</>
-  }
+}
 
   if(user){
 
      useEffect(() => {
-    getTweetFeed(user.accessToken);
+    getProfile(user.accessToken);
     }, [])
+  }
 
-    return (
+ const router = useRouter()
+
+  return (
   <>
-    <h1>This will be the home page with tweets</h1>
-    <div>
-    <div>
-      <FeedContainer {...tweetFeed}/>
-    </div>
-    {/* <pre>{JSON.stringify(tweetFeed, null, 2)}</pre> */}
-    </div>
+    <h1>This will be your profile</h1>
+    <pre>{JSON.stringify(user, null, 2)}</pre>
+    <div>Insert profile</div>
   </>
   ); 
-  }
-  
-  if (loading) {
-    return <>Loading...</>
-  } 
-
-  
 };
 
-export default Home;
+export default Profile;
