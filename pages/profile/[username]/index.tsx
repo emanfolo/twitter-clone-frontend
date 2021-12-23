@@ -55,7 +55,6 @@ const Profile = () => {
         }
       });
     const json = await res.json();
-    console.log(json)
     setProfile(json);
     setLoading(false);
 }
