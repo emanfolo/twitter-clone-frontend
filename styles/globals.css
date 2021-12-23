@@ -16,8 +16,11 @@ a {
 } */
 
 .sidebar{
-  width: 250px;
-  min-width: 250px;
+  /* width: 250px;
+  min-width: 250px; */
+  width: 70%;
+  /* min-width: 30%; */
+  overflow: hidden;
   padding: 20px 20px;
   margin: 20px auto 0 auto;
   box-shadow: 0 0 6px hsl(210 14% 90%);
@@ -25,6 +28,8 @@ a {
 
 .sidebarlink{
   display: flex;
+  overflow: hidden;
+
   align-items: cover;
   cursor: pointer;
   border-radius: 30px;
@@ -38,6 +43,7 @@ a {
   font-weight: 700;
   font-size: 20px;
   margin-right: 20px;
+  
 }
 .sidebarlink > .MuiSvgIcon-root {
   padding: 20px;
@@ -51,4 +57,83 @@ a {
   color: white;
   font-weight: 700;
   text-transform: inherit;
+}
+::selection{
+  color: #fff;
+  background: #1da1f2;
+}
+.wrapper{
+  background: #fff;
+  max-width: 475px;
+  width: 100%;
+  border-radius: 15px;
+  padding: 25px 25px 15px 25px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+}
+.input-box{
+  padding-top: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.tweet-area{
+  position: relative;
+  resize: none;
+  min-height: 130px;
+  max-height: 170px;
+  min-width: 100%;
+  overflow-y: auto;
+  outline: none;
+  font-size: 17px;
+  word-wrap: break-word;
+  word-break: break-all;
+  
+}
+.tweet-area::-webkit-scrollbar{
+  width: 0px;
+}
+
+.bottom{
+  display: flex;
+  margin-top: 13px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom .content{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom .counter{
+  color: #333;
+  font-weight: 500;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid #aab8c2;
+}
+
+.TweetButton {
+  padding: 9px 18px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background: #1da1f2;
+  color: #fff;
+  cursor:grab;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: background 0.2s ease;
+}
+
+.TweetButton.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.TweetButton:hover{
+  background: #0d8bd9;
+  color: #fff;
 }

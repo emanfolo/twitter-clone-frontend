@@ -6,6 +6,8 @@ import Sidebar from './sidebar/Sidebar'
 const Layout = ({children}) => {
 
 
+
+
   return ( 
   <> 
   <div className="LayoutDiv" style={{display: 'flex', width: '100%', height: '100%'}}>

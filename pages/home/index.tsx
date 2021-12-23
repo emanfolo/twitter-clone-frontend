@@ -39,12 +39,13 @@ interface Tweet {
 
 const Home = () => {
 
-  const router = useRouter()
+
+
 
   const {user, setUser} = useContext(UserContext)
 
   const [tweetFeed, setTweetFeed] = useState<Array<Tweet>>([])
-  const [loading, setLoading] = useState(Boolean)
+  const [loading, setLoading] = useState<Boolean>(false)
 
   const getTweetFeed = async (authToken: string) => {
     setLoading(true)
@@ -76,7 +77,7 @@ const Home = () => {
 
     return (
   <>
-    <h1>This will be the home page with tweets</h1>
+    <h2>Home</h2>
     <div>
     <div>
       <FeedContainer {...tweetFeed}/>

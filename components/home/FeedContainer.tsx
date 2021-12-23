@@ -1,4 +1,6 @@
 import TweetCard from './TweetCard'
+import TweetBox from './TweetBox'
+import { useState } from 'react'
 
 interface User {
   id: number;
@@ -35,6 +37,11 @@ interface Tweet {
 
 const FeedContainer = (props: Array<Tweet>) => {
 
+  const [tweetInput, setTweetInput] = useState(String)
+  const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
+
+
+
   const tweetFeed = props
 
   const tweetsArray = Object.values(tweetFeed)
@@ -53,7 +60,7 @@ const FeedContainer = (props: Array<Tweet>) => {
 
   return <>
   <div>
-    Tweet feed
+    <TweetBox tweetInput={tweetInput} setTweetInput={setTweetInput} tweetButtonActive={tweetButtonActive} setTweetButtonActive={setTweetButtonActive}/>
   </div>
   <div>
     {tweetsDisplay}
