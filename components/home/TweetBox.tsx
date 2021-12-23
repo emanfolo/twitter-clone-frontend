@@ -1,5 +1,4 @@
 import React from 'react'
-import { useEffect } from 'react'
 
 // interface Props {
   
@@ -20,7 +19,6 @@ const TweetBox = (props:any) => {
       setTweetButtonActive(false)
     }
   }
-
   
   trackTweetButtonState();
 
@@ -35,7 +33,7 @@ const TweetBox = (props:any) => {
     <>
     <div className="wrapper">
     <div className="input-box">
-      <textarea className="tweet-area" placeholder="What's happening" onChange={(e)=> {setTweetInput(e.target.value)}}>
+      <textarea className="tweet-area" placeholder="What's happening" maxLength={240} onChange={(e)=> {setTweetInput(e.target.value)}}>
       </textarea>
     </div>
     <div className="bottom">

@@ -2,13 +2,16 @@ import { useState } from "react";
 import React, { useContext} from 'react'
 import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 
 
 const CreateUser = () => {
 
   const router = useRouter()
-
   const {user, setUser} = useContext(UserContext)
+
+
+  // const [user, setUser] = useCookies(["user"])
 
   const [emailInputState, setEmailInputState] = useState("admin@gmail.com");
   const [passwordInputState, setPasswordInputState] = useState("adminPassword");
@@ -40,23 +43,22 @@ const CreateUser = () => {
       })
       const result = await response.json()
       setUser(result)
+      
+      // setUser("user", JSON.stringify(result), {
+      //   path:"/",
+      //   maxAge: 3600,
+      //   sameSite: true
+      // })
       console.log(result)
       router.push('/home')
     };
   }
-
-// testingauth@gmail.com
-// password
 
 
   return (
     <>
       Log in page
       <pre>{JSON.stringify(user, null, 2)}</pre>
-      <div>
-          admin@gmail.com  
-          adminPassword
-      </div>
       <div>
         <form
           onSubmit={(e) => {

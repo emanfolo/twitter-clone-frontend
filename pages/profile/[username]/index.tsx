@@ -72,7 +72,7 @@ const Profile = () => {
   return (
   <>
     <h1>This will be your profile</h1>
-    <pre>{JSON.stringify(user, null, 2)}</pre>
+    <pre>{JSON.stringify(profile, null, 2)}</pre>
     <div>Insert profile</div>
   </>
   ); 

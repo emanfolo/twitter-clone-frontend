@@ -3,9 +3,7 @@ import { UserContext } from "../pages/UserContext";
 import { useState, useMemo } from "react";
 import Sidebar from './sidebar/Sidebar'
 
-const Layout = ({children}) => {
-
-
+const Layout = ({children}: any) => {
 
 
   return ( 
@@ -22,6 +20,7 @@ const Layout = ({children}) => {
   
   </> 
   );
+
 
 }
 

@@ -2,7 +2,17 @@
 
 import Link from "next/link";
 
-function SidebarLink({ text, Icon, Route }) {
+interface props {
+  active?: boolean,
+  Route: string,
+  text: string,
+  Icon: any,
+}
+
+function SidebarLink(props: props) {
+
+  const { text, Icon, Route } = props
+
   return(
     <>
     <Link href={Route} >

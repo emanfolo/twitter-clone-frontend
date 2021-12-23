@@ -14,6 +14,8 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz"
 import { Button } from "@material-ui/core"
 
 
+
+
 const Sidebar = () => {
 
   const {user, setUser} = useContext(UserContext)
@@ -25,7 +27,7 @@ const Sidebar = () => {
 
     <div className="sidebar">
         <SidebarLink text="Home" active={true} Icon={HomeIcon} Route="/home"/>
-        <SidebarLink text="Explore" Icon={SearchIcon} Route="/discover"/>
+        <SidebarLink text="Explore" Icon={SearchIcon} Route="/explore"/>
 
         {user ? (
           <>

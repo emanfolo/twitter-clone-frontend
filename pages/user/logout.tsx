@@ -20,7 +20,7 @@ const CreateUser = () => {
           token: user.refreshToken
        })
       })
-      setUser(null)
+      setUser("")
       router.push('/user/login')
   };
 }

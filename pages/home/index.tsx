@@ -2,6 +2,9 @@ import { useContext, useState, useEffect} from 'react'
 import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
 import FeedContainer from '../../components/home/FeedContainer';
+import { parseCookies } from '../../helpers';
+import Cookies from 'js-cookie';
+import { NextPage } from 'next'
 
 
 interface User {
@@ -36,6 +39,8 @@ interface Tweet {
   image?: string;
   user: User;
 }
+
+
 
 const Home = () => {
 
@@ -91,6 +96,15 @@ const Home = () => {
   if (loading) {
     return <>Loading...</>
   } 
+
+//  Home.getInitialProps = ({req}: any) => {
+//     const cookies = parseCookies(req);
+//     cookies.user
+//   }
+
+//   return {
+//     initialUserValue: cookies.user
+//   }
 
   
 };
