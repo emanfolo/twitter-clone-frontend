@@ -78,7 +78,7 @@ const Home = () => {
 
      useEffect(() => {
     getTweetFeed(user.accessToken);
-    }, [])
+    }, [tweetFeed])
 
     return (
   <>
@@ -87,7 +87,6 @@ const Home = () => {
     <div>
       <FeedContainer {...tweetFeed}/>
     </div>
-    {/* <pre>{JSON.stringify(tweetFeed, null, 2)}</pre> */}
     </div>
   </>
   ); 

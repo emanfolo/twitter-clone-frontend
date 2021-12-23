@@ -1,4 +1,6 @@
 import React from 'react'
+import { UserContext } from '../../pages/UserContext'
+import { useContext } from 'react'
 
 // interface Props {
   
@@ -9,6 +11,9 @@ import React from 'react'
 
 
 const TweetBox = (props:any) => {
+
+  const {user, setUser} = useContext(UserContext)
+
 
   const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit} = props
 
@@ -29,6 +34,22 @@ const TweetBox = (props:any) => {
   
   trackWordLimit()
 
+  const sendTweet = async (authToken: string) => {
+    const response = await fetch('http://localhost:4000/tweet/new', {
+      method: 'POST',
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        },
+      body: JSON.stringify( {
+          contents: tweetInput,
+          image: null,
+       })
+    });
+    const json = await response.json()
+    console.log(json)
+  }
+
   return (
     <>
     <div className="wrapper">
@@ -39,7 +60,12 @@ const TweetBox = (props:any) => {
     <div className="bottom">
       <div className="content">
         <span className="counter">{limit}</span>
-        {tweetButtonActive ? <button className="TweetButton active">Tweet</button> : <button className="TweetButton">Tweet</button>}
+        {
+        tweetButtonActive ? 
+        (<button className="TweetButton active" onClick={()=> {sendTweet(user.accessToken)}}>Tweet</button>) 
+        :
+        (<button className="TweetButton">Tweet</button>
+        )}
       </div>
       
     </div>
