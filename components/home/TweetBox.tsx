@@ -47,6 +47,7 @@ const TweetBox = (props:any) => {
        })
     });
     const json = await response.json()
+    setTweetInput("")
     console.log(json)
   }
 
@@ -54,7 +55,7 @@ const TweetBox = (props:any) => {
     <>
     <div className="wrapper">
     <div className="input-box">
-      <textarea className="tweet-area" placeholder="What's happening" maxLength={240} onChange={(e)=> {setTweetInput(e.target.value)}}>
+      <textarea className="tweet-area" placeholder="What's happening" maxLength={240} value={tweetInput} onChange={(e)=> {setTweetInput(e.target.value)}}>
       </textarea>
     </div>
     <div className="bottom">
