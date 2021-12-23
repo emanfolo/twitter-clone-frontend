@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 // interface Props {
   
@@ -10,9 +11,25 @@ import React from 'react'
 
 const TweetBox = (props:any) => {
 
-  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive} = props
+  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit} = props
 
-  console.log(tweetInput)
+  const trackTweetButtonState = () => {
+    if (tweetInput.length > 0) {
+      setTweetButtonActive(true)
+    } else if (tweetInput.length == 0) {
+      setTweetButtonActive(false)
+    }
+  }
+
+  
+  trackTweetButtonState();
+
+  const trackWordLimit = () => {
+    let remainingWords = (240 - tweetInput.length)
+    setLimit(remainingWords)
+  }
+  
+  trackWordLimit()
 
   return (
     <>
@@ -23,8 +40,8 @@ const TweetBox = (props:any) => {
     </div>
     <div className="bottom">
       <div className="content">
-        <span className="counter">100</span>
-        <button className="TweetButton">Tweet</button>
+        <span className="counter">{limit}</span>
+        {tweetButtonActive ? <button className="TweetButton active">Tweet</button> : <button className="TweetButton">Tweet</button>}
       </div>
       
     </div>

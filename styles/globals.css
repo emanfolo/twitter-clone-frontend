@@ -94,7 +94,7 @@ a {
 .bottom{
   display: flex;
   margin-top: 13px;
-  align-items: center;
+  align-items:center;
   justify-content: space-between;
 }
 
@@ -107,6 +107,7 @@ a {
 
 .bottom .counter{
   color: #333;
+  width: 4%;
   font-weight: 500;
   margin-right: 15px;
   padding-right: 15px;

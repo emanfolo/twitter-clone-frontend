@@ -39,6 +39,7 @@ const FeedContainer = (props: Array<Tweet>) => {
 
   const [tweetInput, setTweetInput] = useState(String)
   const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
+  const [limit, setLimit] = useState(240)
 
 
 
@@ -60,7 +61,7 @@ const FeedContainer = (props: Array<Tweet>) => {
 
   return <>
   <div>
-    <TweetBox tweetInput={tweetInput} setTweetInput={setTweetInput} tweetButtonActive={tweetButtonActive} setTweetButtonActive={setTweetButtonActive}/>
+    <TweetBox tweetInput={tweetInput} setTweetInput={setTweetInput} tweetButtonActive={tweetButtonActive} setTweetButtonActive={setTweetButtonActive} limit={limit} setLimit={setLimit}/>
   </div>
   <div>
     {tweetsDisplay}
