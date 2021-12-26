@@ -1,17 +1,25 @@
 import { useState } from "react";
-import React, { useContext} from 'react'
+import React, { useContext, useEffect} from 'react'
 import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
+// import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 
-const CreateUser = () => {
+const LogIn = () => {
 
   const router = useRouter()
   const {user, setUser} = useContext(UserContext)
 
+  // const [userStorage, setUserStorage] = useLocalStorage("user", "");
+
 
   // const [user, setUser] = useCookies(["user"])
+
+  // useEffect(() => {
+  //   // storing input name
+  //   localStorage.setItem(key, JSON.stringify(user));
+  // }, [key, user]);
 
   const [emailInputState, setEmailInputState] = useState("admin@gmail.com");
   const [passwordInputState, setPasswordInputState] = useState("adminPassword");
@@ -42,18 +50,21 @@ const CreateUser = () => {
        })
       })
       const result = await response.json()
+      localStorage.setItem('user', JSON.stringify(result))
       setUser(result)
-      
       // setUser("user", JSON.stringify(result), {
       //   path:"/",
       //   maxAge: 3600,
       //   sameSite: true
       // })
-      console.log(result)
       router.push('/home')
     };
   }
 
+  
+
+
+  
 
   return (
     <>
@@ -91,4 +102,4 @@ const CreateUser = () => {
   );
 };
 
-export default CreateUser;
+export default LogIn;

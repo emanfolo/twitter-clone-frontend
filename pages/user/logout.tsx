@@ -3,7 +3,7 @@ import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
 
 
-const CreateUser = () => {
+const LogOut = () => {
 
   const router = useRouter()
 
@@ -21,6 +21,7 @@ const CreateUser = () => {
        })
       })
       setUser("")
+      localStorage.clear()
       router.push('/user/login')
   };
 }
@@ -44,4 +45,4 @@ const CreateUser = () => {
   );
 };
 
-export default CreateUser;
+export default LogOut;

@@ -15,7 +15,6 @@ import { Button } from "@material-ui/core"
 
 
 
-
 const Sidebar = () => {
 
   const {user, setUser} = useContext(UserContext)
@@ -45,49 +44,8 @@ const Sidebar = () => {
         )}
         
     </div>
-      {/* <nav>
-        <div>
-        <Link href="/home">
-          <a>Home</a>
-        </Link>
-        </div>
-        <div>
-          <Link href="/discover">
-          <a>Discover</a>
-        </Link>
-        </div>
-        {user ? (
-          <>
-            <div>
-              <Link href="/profile">
-              Profile
-            </Link>
-            </div>
-            
-            <div>
-              <Link href="user/logout">
-              Logout
-            </Link>
-            </div>
-            
-          </>
-        ) : (
-          <>
-          <div>
-            <Link href="/user/login">
-              Log in
-            </Link>
-          </div>
-          <div>
-            <Link href="/user/new">
-            Register
-            </Link>
-          </div>
-          </>
-        )}
-      </nav> */}
   </>
   )
 }
 
-export default Sidebar
+export default Sidebar 

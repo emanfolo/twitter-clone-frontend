@@ -7,11 +7,33 @@ import Cookie from 'js-cookie'
 
 
 function MyApp({ Component, pageProps}: AppProps) {
-  const [user, setUser] = useState("");
+
+  function getStorageValue(key: any, defaultValue: any) {
+    // getting stored value
+    if (typeof window !== 'undefined'){
+      const saved = localStorage.getItem(key);
+      if (saved){
+      const initial = JSON.parse(saved);
+      return initial || defaultValue;
+    }
+    }
+  }
+
+  function setLocalStorage(key: any, value: any) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    // catch possible errors:
+  }
+}
+
+
+  const [user, setUser] = useState(() => getStorageValue('user', ''));
 
   useEffect(() => {
-    Cookie.set('user', JSON.stringify(user))
-  }, [user])
+    // storing input name
+    setLocalStorage('user', user);
+  }, [user]);
 
   const value = useMemo(() => ({user, setUser}), [user, setUser])
 

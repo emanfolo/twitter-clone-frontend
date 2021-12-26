@@ -51,11 +51,7 @@ const FeedContainer = (props: Array<Tweet>) => {
 
     const key = `tweet-${data.id}`
     return (
-    <>
-      <div>
-        <TweetCard key={key} tweetInfo={data} />
-      </div>
-    </>
+        <TweetCard  key={key} tweetInfo={data} />
     )
   });
 
