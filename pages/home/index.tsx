@@ -38,6 +38,24 @@ interface Tweet {
   id: number;
   image?: string;
   user: User;
+  likes: Array<Like>
+  retweets: Array<Retweet>
+}
+
+interface Retweet {
+  id: number
+  userID: number
+  user: User
+  tweetID: number
+  tweet: Tweet
+}
+
+interface Like {
+  id: number
+  userID: number
+  user: User
+  tweetID: number
+  tweet: Tweet
 }
 
 

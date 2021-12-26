@@ -31,11 +31,16 @@ function MyApp({ Component, pageProps}: AppProps) {
   const [user, setUser] = useState(() => getStorageValue('user', ''));
 
   useEffect(() => {
-    // storing input name
     setLocalStorage('user', user);
   }, [user]);
 
-  const value = useMemo(() => ({user, setUser}), [user, setUser])
+  setTimeout(function(){
+
+    setUser('');
+
+}, 1000 * 60 * 60)
+
+  // const value = useMemo(() => ({user, setUser}), [user, setUser])
 
   return (
   <UserContext.Provider value={{ user, setUser }}>

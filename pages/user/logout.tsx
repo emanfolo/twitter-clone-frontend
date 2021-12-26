@@ -21,7 +21,6 @@ const LogOut = () => {
        })
       })
       setUser("")
-      localStorage.clear()
       router.push('/user/login')
   };
 }
