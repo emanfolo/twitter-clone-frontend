@@ -154,6 +154,7 @@ const {tweetInfo} = props
         },
       body: JSON.stringify( {
           tweetID: tweetInfo.id,
+          notificationRecipient: tweetInfo.user.id
        })
     });
     const json = await response.json()
@@ -168,6 +169,7 @@ const {tweetInfo} = props
         },
       body: JSON.stringify( {
           tweetID: tweetInfo.id,
+          notificationRecipient: tweetInfo.user.id
        })
     });
     const json = await response.json()
