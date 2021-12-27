@@ -25,12 +25,13 @@ const Sidebar = () => {
 
 
     <div className="sidebar">
-        <SidebarLink text="Home" active={true} Icon={HomeIcon} Route="/home"/>
-        <SidebarLink text="Explore" Icon={SearchIcon} Route="/explore"/>
+   
 
         {user ? (
           <>
-          <SidebarLink text="Profile" Icon={PermIdentityIcon} Route={`/profile/${user.userDetails.username}`}/>
+          <SidebarLink text="Home" active={true} Icon={HomeIcon} Route="/home"/>
+          <SidebarLink text="Explore" Icon={SearchIcon} Route="/explore"/>
+          <SidebarLink text="Profile" Icon={PermIdentityIcon} Route={`/${user.userDetails.username}`}/>
           <SidebarLink text="Logout" Icon={DeleteIcon} Route="/user/logout"/>
           <Button id="tweet">
               Tweet
@@ -38,6 +39,7 @@ const Sidebar = () => {
           </>
         ): (
           <> 
+          <SidebarLink text="Explore" Icon={SearchIcon} Route="/explore"/>
           <SidebarLink text="Login" Icon={PermIdentityIcon} Route="/user/login"/>
           <SidebarLink text="Register" Icon={MoreHorizIcon} Route="/user/new"/>
           </>

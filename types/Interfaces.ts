@@ -6,6 +6,9 @@ export interface User {
   profile: Profile;
   followedBy?: Array<User>;
   following: Array<User>;
+  tweets: Array <Tweet>;
+  retweets: Array <Retweet>;
+  likes: Array <Like>;
 }
 
 export interface Profile {

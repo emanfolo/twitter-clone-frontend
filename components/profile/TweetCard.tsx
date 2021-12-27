@@ -12,13 +12,14 @@ import { useEffect, useState } from 'react'
 import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
 
-import LikeButton from './LikeButton';
-import RetweetButton from './RetweetButton';
+import LikeButton from '../home/LikeButton';
+import RetweetButton from '../home/RetweetButton';
 
-import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
+import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet} from "../../types/Interfaces";
 
 
-const TweetCard = (props: TweetInfo) => {
+const TweetCard = (props: any) => {
+
 
   const {user, setUser} = useContext(UserContext)
 
@@ -32,18 +33,22 @@ const TweetCard = (props: TweetInfo) => {
   }
 
 
-  const contentsParser = (tweet: TweetInfo) => {
-    if(tweet.tweetInfo.hashtags.length == 0) {
-      return tweet.tweetInfo.contents
-    } else if (tweet.tweetInfo.hashtags.length > 0 && tweet.tweetInfo.contents) {
-      return <Linkify options={{attributes: linkProps}}>{tweet.tweetInfo.contents}</Linkify>
+  const contentsParser = (tweetInfo: Tweet) => {
+    if(tweetInfo.hashtags.length == 0) {
+      return tweetInfo.contents
+    } else if (tweetInfo.hashtags.length > 0 && tweetInfo.contents) {
+      return <Linkify options={{attributes: linkProps}}>{tweetInfo.contents}</Linkify>
   }
 }
 
-  const {tweetInfo} = props
+  const {tweetInfo, username, name, profileDetails}  = props
 
-  const profilePage = `http://localhost:3000/${tweetInfo.user.username}`
-  const profilePicture = tweetInfo.user.profile.image
+  const {setButtonToggle, buttonToggle} = props
+
+
+  const profilePage = `http://localhost:3000/${username}`
+  const profilePicture = profileDetails.image
+
 
   
 
@@ -56,19 +61,19 @@ const TweetCard = (props: TweetInfo) => {
           <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
           <img src={profilePicture} height={30} width={30} />
           <div>
-            <strong>{tweetInfo.user.name}</strong> 
-            @{tweetInfo.user.username}
+            <strong>{name}</strong> 
+            @{username}
           </div>
-          <TimeAgo datetime={props.tweetInfo.createdAt}/>
+          <TimeAgo datetime={tweetInfo.createdAt}/>
           </div>
         </Link>
       </div>
       <div style={{margin: "5px" }}>
-        {contentsParser(props)}
+        {contentsParser(tweetInfo)}
       </div>
       <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
-        <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} />
-        <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} />
+        <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setButtonToggle={setButtonToggle}/>
+        <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setButtonToggle={setButtonToggle} />
       </div>
   </div>
   </div>

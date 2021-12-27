@@ -1,21 +1,27 @@
 import { useState, useEffect } from "react";
 import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
+import { useRouter } from "next/router";
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
 
 interface Props {
   tweetID: number;
   notificationRecipient: number;
   retweets: Array<Retweet>
+  setButtonToggle?: any
 }
 
 const RetweetButton = (props: Props) => {
+
+  const router = useRouter()
 
   const {user, setUser} = useContext(UserContext)
 
   const [retweetedState, setRetweetedState] = useState(Boolean)
 
   const {tweetID, notificationRecipient, retweets} = props
+  const {setButtonToggle} = props
+
 
   const retrieveRetweetState = () => {
 
@@ -27,50 +33,56 @@ const RetweetButton = (props: Props) => {
   }
 
   useEffect(() => {
-    retrieveRetweetState(), [user]
+    retrieveRetweetState(), [retweets]
   })
 
-  const toggleRetweet = async (authToken: string) => {
-      if (!retweetedState){
-        const response = await fetch('http://localhost:4000/retweet/new', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${authToken}`
-          },
-        body: JSON.stringify( {
-            tweetID: tweetID,
-            notificationRecipient: notificationRecipient
-        })
-      });
-      const json = await response.json()
-      setRetweetedState(true)
+  const toggleRetweet = async () => {
+    if (user){
+      const authToken = user.accessToken
+        if (!retweetedState){
+          const response = await fetch('http://localhost:4000/retweet/new', {
+          method: 'POST',
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${authToken}`
+            },
+          body: JSON.stringify( {
+              tweetID: tweetID,
+              notificationRecipient: notificationRecipient
+          })
+        });
+        setButtonToggle("retweeted")
+        setRetweetedState(true)
 
-      } else if (retweetedState) {
-        const response = await fetch('http://localhost:4000/retweet/delete', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${authToken}`
-          },
-        body: JSON.stringify( {
-            tweetID: tweetID,
-            notificationRecipient: notificationRecipient
-        })
-      });
-      const json = await response.json()
-      setRetweetedState(false)
+        } else if (retweetedState) {
+          const response = await fetch('http://localhost:4000/retweet/delete', {
+          method: 'POST',
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${authToken}`
+            },
+          body: JSON.stringify( {
+              tweetID: tweetID,
+              notificationRecipient: notificationRecipient
+          })
+        });
+        setButtonToggle("removed retweet")
+        setRetweetedState(false)
+
+        }
+      } else if (!user){
+        console.log("please log in")
+        router.push("http://localhost:3000/user/login")
       }
     }
 
 
 
-
   return (
     <>
-      {retweetedState ? <button style={{color: 'green'}} onClick={(()=> toggleRetweet(user.accessToken))}> 
+      {retweetedState ? <button style={{color: 'green'}} onClick={(()=> toggleRetweet())}> 
       Retweet {retweets.length} 
-      </button> : <button onClick={(()=> toggleRetweet(user.accessToken))}> 
+      </button> : <button onClick={(()=> toggleRetweet())}> 
       Retweet {retweets.length} 
       </button> }
     </>
