@@ -129,9 +129,7 @@ const {tweetInfo} = props
 
 
   const retrieveLikeState = () => {
-    // for (let i = 0; i < tweetInfo.likes.length; i++){
 
-    // }
     if (tweetInfo.likes.find(element => element.userID == user.userDetails.id) == undefined){
       setLikedState(false)
     } else {
