@@ -12,77 +12,14 @@ import { useEffect, useState } from 'react'
 import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
 
+import LikeButton from './LikeButton';
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  createdAt?: string;
-  profile: Profile;
-  followedBy?: Array<User>;
-  following: Array<User>;
-}
-
-interface Profile {
-  id?: number;
-  image?: string;
-  header_image?: string;
-  bio?: string;
-}
-
-interface Hashtag {
-  id: number;
-  contents: string;
-}
-
-interface TweetInfo {
-  tweetInfo: {
-  contents?: string;
-  createdAt: Date;
-  hashtags: Array<Hashtag>;
-  retweets: Array<Retweet>;
-  likes: Array<Like>;
-  id: number;
-  image?: string;
-  user: User;
-  }
-}
-
-interface Tweet {
-  contents?: string;
-  createdAt: Date;
-  hashtags: Array<Hashtag>;
-  id: number;
-  image?: string;
-  user: User;
-  likes: Array<Like>
-  retweets: Array<Retweet>
-}
-
-interface Retweet {
-  id: number
-  userID: number
-  user: User
-  tweetID: number
-  tweet: Tweet
-}
-
-interface Like {
-  id: number
-  userID: number
-  user: User
-  tweetID: number
-  tweet: Tweet
-}
-
+import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
 
 
 const TweetCard = (props: TweetInfo) => {
 
   const {user, setUser} = useContext(UserContext)
-
-
-  const [likedState, setLikedState] = useState(Boolean)
 
   const router = useRouter()
 
@@ -128,52 +65,8 @@ const {tweetInfo} = props
 // username: "bot419"
 
 
-  const retrieveLikeState = () => {
-
-    if (tweetInfo.likes.find(element => element.userID == user.userDetails.id) == undefined){
-      setLikedState(false)
-    } else {
-      setLikedState(true)
-    }
-  }
-
-  useEffect(() => {
-    retrieveLikeState(), [user]
-  })
 
 
-  const toggleLike = async (authToken: string) => {
-    if (!likedState){
-      const response = await fetch('http://localhost:4000/like/new', {
-      method: 'POST',
-      headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${authToken}`
-        },
-      body: JSON.stringify( {
-          tweetID: tweetInfo.id,
-          notificationRecipient: tweetInfo.user.id
-       })
-    });
-    const json = await response.json()
-    setLikedState(true)
-
-    } else if (likedState) {
-      const response = await fetch('http://localhost:4000/like/delete', {
-      method: 'POST',
-      headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${authToken}`
-        },
-      body: JSON.stringify( {
-          tweetID: tweetInfo.id,
-          notificationRecipient: tweetInfo.user.id
-       })
-    });
-    const json = await response.json()
-    setLikedState(false)
-    }
-  }
 
   const profilePage = `http://localhost:3000/profile/${tweetInfo.user.username}`
   const profilePicture = tweetInfo.user.profile.image
@@ -203,7 +96,7 @@ const {tweetInfo} = props
         <button>
             Retweet {tweetInfo.retweets.length}
         </button>
-              {likedState ? <button style={{color: 'red'}} onClick={(()=> toggleLike(user.accessToken))}> Like {tweetInfo.likes.length} </button> : <button onClick={(()=> toggleLike(user.accessToken))}> Like {tweetInfo.likes.length} </button> }
+              <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} />
       </div>
   </div>
   </div>
