@@ -18,7 +18,7 @@ import RetweetButton from './RetweetButton';
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
 
 
-const TweetCard = (props: TweetInfo) => {
+const TweetCard = (props: any) => {
 
   const {user, setUser} = useContext(UserContext)
 
@@ -40,10 +40,13 @@ const TweetCard = (props: TweetInfo) => {
   }
 }
 
-  const {tweetInfo} = props
+  const {tweetInfo, retweetInfo, setStateChanged} = props
 
   const profilePage = `http://localhost:3000/${tweetInfo.user.username}`
   const profilePicture = tweetInfo.user.profile.image
+  const profilePictureDisplay = () => {
+    return profilePicture ? profilePicture : './DefaultImage.jpeg'
+  }
 
   
 
@@ -51,10 +54,11 @@ const TweetCard = (props: TweetInfo) => {
   <> 
   <div style={{"borderStyle": 'groove', width:'50%'}}>
     <div style={{margin: "25px"}}>
+      {retweetInfo ? <div>{`${retweetInfo.user.name} Retweeted`}</div> : <></> }
       <div>
         <Link href={profilePage}>
           <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
-          <img src={profilePicture} height={30} width={30} />
+          {<img src={profilePictureDisplay()} height={30} width={30} />}
           <div>
             <strong>{tweetInfo.user.name}</strong> 
             @{tweetInfo.user.username}
@@ -67,8 +71,8 @@ const TweetCard = (props: TweetInfo) => {
         {contentsParser(props)}
       </div>
       <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
-        <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} />
-        <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} />
+        <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
+        <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
       </div>
   </div>
   </div>

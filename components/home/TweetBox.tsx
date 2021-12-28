@@ -16,6 +16,7 @@ const TweetBox = (props:any) => {
 
 
   const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit} = props
+  const {setStateChanged} = props
 
   const trackTweetButtonState = () => {
     if (tweetInput.length > 0) {
@@ -48,6 +49,7 @@ const TweetBox = (props:any) => {
     });
     const json = await response.json()
     setTweetInput("")
+    setStateChanged("new tweet")
     console.log(json)
   }
 

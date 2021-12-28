@@ -8,6 +8,7 @@ interface Props {
   tweetID: number;
   notificationRecipient: number;
   likes: Array<Like>;
+  setStateChanged: Function;
 }
 
 
@@ -21,7 +22,7 @@ const LikeButton = (props: Props) => {
 
     const [likedState, setLikedState] = useState(Boolean)
 
-    const {tweetID, notificationRecipient, likes} = props
+    const {tweetID, notificationRecipient, likes, setStateChanged} = props
 
 
 
@@ -56,6 +57,7 @@ const LikeButton = (props: Props) => {
               notificationRecipient: notificationRecipient
           })
         });
+        setStateChanged('Like')
         setLikedState(true)
 
         } else if (likedState) {
@@ -70,6 +72,7 @@ const LikeButton = (props: Props) => {
               notificationRecipient: notificationRecipient
           })
         });
+        setStateChanged('Unlike')
         setLikedState(false)
         }
       } else if (!user){

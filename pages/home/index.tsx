@@ -10,55 +10,30 @@ import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet } from "../../t
 
 const Home = () => {
 
-
-
-
-  // const {user, setUser} = useContext(UserContext)
-
-  // const [tweetFeed, setTweetFeed] = useState<Array<Tweet>>([])
-  // const [loading, setLoading] = useState<Boolean>(false)
-
-  // const getTweetFeed = async (authToken: string) => {
-  //   setLoading(true)
-  //   const url = 'http://localhost:4000/feed'
-  //   const res = await fetch(url, { 
-  //       method: 'GET',
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Authorization": `Bearer ${authToken}`
-  //       }
-  //      });
-  //   const json = await res.json();
-  //   setTweetFeed(json);
-  //   setLoading(false);
-  // }
-
-
-  //Eventually I want to block users from ever going onto this page
-
-  // if(!user){
-  //   return <> You have to be logged in</>
-  // }
-
-  // if(user){
-
-  //    useEffect(() => {
-  //   getTweetFeed(user.accessToken);
-  //   }, [tweetFeed])
-
   const [tweetInput, setTweetInput] = useState(String)
   const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
   const [limit, setLimit] = useState(240)
+
+  const [stateChanged, setStateChanged] = useState(String)
 
     return (
   <>
     <h2>Home</h2>
     <div>
-      <TweetBox tweetInput={tweetInput} setTweetInput={setTweetInput} tweetButtonActive={tweetButtonActive} setTweetButtonActive={setTweetButtonActive} limit={limit} setLimit={setLimit}/>
+      <TweetBox tweetInput={tweetInput} 
+      setTweetInput={setTweetInput} 
+      tweetButtonActive={tweetButtonActive} 
+      setTweetButtonActive={setTweetButtonActive} 
+      limit={limit} 
+      setLimit={setLimit}
+      setStateChanged={setStateChanged}
+      />
   </div>
     <div>
     <div>
-      <FeedContainer />
+      <FeedContainer 
+      setStateChanged={setStateChanged}
+      stateChanged={stateChanged}/>
     </div>
     </div>
   </>

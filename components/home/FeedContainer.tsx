@@ -6,12 +6,13 @@ import { UserContext } from '../../pages/UserContext';
 import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
 
 
-const FeedContainer = () => {
+const FeedContainer = (props: any) => {
 
   const {user, setUser} = useContext(UserContext)
   const [feed, setFeed] = useState(Array)
-  const [stateChanged, setStateChanged] = useState(String)
+  
 
+  const {stateChanged, setStateChanged} = props
 
   const getFeed = async () => {
     const authToken: string = user.accessToken
@@ -29,8 +30,9 @@ const FeedContainer = () => {
 
 
   useEffect(() => {
+      console.log('api call')
       getFeed()
-      }, [feed]
+      }, [stateChanged]
   )
 
 if (feed.length > 0){
@@ -38,7 +40,7 @@ if (feed.length > 0){
 
     const key = `tweet-${data.id}`
     return (
-        <TweetCard  key={key} tweetInfo={data.tweet} />
+        <TweetCard  key={key} tweetInfo={data.tweet} retweetInfo={data.retweet} setStateChanged={setStateChanged}/>
     )
   });
 

@@ -43,6 +43,9 @@ const TweetCard = (props: any) => {
 
   const profilePage = `http://localhost:3000/${tweetInfo.user.username}`
   const profilePicture = tweetInfo.user.profile.image
+  const profilePictureDisplay = () => {
+    return profilePicture ? profilePicture : './DefaultImage.jpeg'
+  }
 
 
   return (
@@ -54,7 +57,7 @@ const TweetCard = (props: any) => {
       <div>
         <Link href={profilePage}>
           <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
-          <img src={profilePicture} height={30} width={30} />
+          <img src={profilePictureDisplay()} height={30} width={30} />
           <div>
             <strong>{tweetInfo.user.name}</strong> 
             @{tweetInfo.user.username}
