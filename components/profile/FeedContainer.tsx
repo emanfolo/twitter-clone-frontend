@@ -25,7 +25,6 @@ const FeedContainer = (props: any) => {
       });
     const json = await res.json();
     setFeed(json);
-    console.log('api call')
   }
 
 

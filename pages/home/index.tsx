@@ -10,12 +10,16 @@ import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet } from "../../t
 
 const Home = () => {
 
+  const {user, setUser} = useContext(UserContext)
+
+
   const [tweetInput, setTweetInput] = useState(String)
   const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
   const [limit, setLimit] = useState(240)
 
   const [stateChanged, setStateChanged] = useState(String)
 
+  if (user){
     return (
   <>
     <h2>Home</h2>
@@ -38,22 +42,11 @@ const Home = () => {
     </div>
   </>
   ); 
+  } else {
+    return <> Please log in or sign up</>
+  }
+    
 }
-  
-  // if (loading) {
-  //   return <>Loading...</>
-  // } 
 
-//  Home.getInitialProps = ({req}: any) => {
-//     const cookies = parseCookies(req);
-//     cookies.user
-//   }
-
-//   return {
-//     initialUserValue: cookies.user
-//   }
-
-  
-// };
 
 export default Home;

@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect} from 'react'
 import { UserContext } from '../../UserContext'
 import Router, { useRouter } from "next/router";
-import TweetCard from '../../../components/home/TweetCard'
+import TweetCard from '../../../components/profile/TweetCard'
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet } from "../../../types/Interfaces";
 

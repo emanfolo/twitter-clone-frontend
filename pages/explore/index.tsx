@@ -1,63 +1,36 @@
-import { useContext} from 'react'
+import { useContext, useState} from 'react'
 import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
+import SearchBar from '../../components/explore/SearchBar';
 
+import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  createdAt?: string;
-  profile: Profile;
-  tweets?: Array<Tweet>;
-  followedBy?: Array<User>;
-  following: Array<User>;
-}
-
-interface Profile {
-  id?: number;
-  image?: string;
-  header_image?: string;
-  bio?: string;
-}
-
-interface Hashtag {
-  id: number;
-  contents: string;
-  tweets?: Tweet;
-}
-
-interface Tweet {
-  contents?: string;
-  createdAt: Date;
-  hashtags: Array<Hashtag>;
-  id: number;
-  image?: string;
-  user: User;
-}
 
 const Explore = () => {
 
+  const [searchInput, setSearchInput] = useState(String)
+  console.log(searchInput)
 
-  // const tweetFeed = data.tweets.map((tweet: Tweet) => (
-  //   <>
-  //     <div>{tweet.contents}</div>
-  //     <div>
-  //       <strong>{tweet.user.name}</strong> @{tweet.user.username}
-  //     </div>
-  //   </>
-  // ));
-
- const router = useRouter()
+  const router = useRouter()
 
 
   const {user, setUser} = useContext(UserContext)
 
+  const search = () => {
+    if (searchInput.length > 0){
+      router.push(`/search/${searchInput}`)
+    } else {
+      console.log('please enter correct params')
+    }
+    
+  }
+
   return (
   <>
-    <h1>This will be your Explore page</h1>
-    <pre>{JSON.stringify(user, null, 2)}</pre>
-    <div>Insert search & trending</div>
+    <h1>Explore</h1>
+    <SearchBar />
+    <div>Trending</div>
+    <div> Top hashtags</div>
   </>
   ); 
 };
