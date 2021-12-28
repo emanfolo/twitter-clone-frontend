@@ -1,38 +1,56 @@
 import TweetCard from './TweetCard'
 import TweetBox from './TweetBox'
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { UserContext } from '../../pages/UserContext';
 
 import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
 
 
-const FeedContainer = (props: Array<Tweet>) => {
+const FeedContainer = () => {
 
-  const [tweetInput, setTweetInput] = useState(String)
-  const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
-  const [limit, setLimit] = useState(240)
+  const {user, setUser} = useContext(UserContext)
+  const [feed, setFeed] = useState(Array)
+  const [stateChanged, setStateChanged] = useState(String)
 
 
+  const getFeed = async () => {
+    const authToken: string = user.accessToken
+    const url = `http://localhost:4000/feed`
+    const res = await fetch(url, { 
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        }
+      });
+    const json = await res.json();
+    setFeed(json);
+  }
 
-  const tweetFeed = props
 
-  const tweetsArray = Object.values(tweetFeed)
+  useEffect(() => {
+      getFeed()
+      }, [feed]
+  )
 
-  const tweetsDisplay = tweetsArray.map((data) => {
+if (feed.length > 0){
+  const tweetsDisplay = feed.map((data: any) => {
 
     const key = `tweet-${data.id}`
     return (
-        <TweetCard  key={key} tweetInfo={data} />
+        <TweetCard  key={key} tweetInfo={data.tweet} />
     )
   });
 
   return <>
   <div>
-    <TweetBox tweetInput={tweetInput} setTweetInput={setTweetInput} tweetButtonActive={tweetButtonActive} setTweetButtonActive={setTweetButtonActive} limit={limit} setLimit={setLimit}/>
-  </div>
-  <div>
     {tweetsDisplay}
   </div>
   </>
+} else {
+  return <> Please make some tweets</>
+}
+
 }
 
 export default FeedContainer

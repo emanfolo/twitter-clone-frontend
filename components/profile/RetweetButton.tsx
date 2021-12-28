@@ -21,7 +21,7 @@ const RetweetButton = (props: Props) => {
 
   const {tweetID, notificationRecipient, retweets, setStateChanged} = props
 
-
+if (user && user.accessToken.length > 1){
   const retrieveRetweetState = () => {
 
     if (retweets.find(retweet => retweet.userID == user.userDetails.id) == undefined){
@@ -30,10 +30,13 @@ const RetweetButton = (props: Props) => {
       setRetweetedState(true)
     }
   }
-
-  useEffect(() => {
+useEffect(() => {
     retrieveRetweetState(), [retweets]
   })
+}
+  
+
+  
 
   const toggleRetweet = async () => {
     if (user){
