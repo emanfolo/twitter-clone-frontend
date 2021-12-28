@@ -64,8 +64,9 @@ a {
 }
 .wrapper{
   background: #fff;
-  max-width: 475px;
-  width: 100%;
+  /* max-width: 475px; */
+  /* max-width: 500px; */
+  width: 90%;
   border-radius: 15px;
   padding: 25px 25px 15px 25px;
   box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
@@ -140,4 +141,53 @@ a {
 .TweetButton:hover{
   background: #0d8bd9;
   color: #fff;
+}
+
+.searchBar {
+  display: flex;
+  /* height: 8%;  */
+  height: 90px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  
+}
+
+
+.searchBar > input {
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+  text-align: center;
+  font-size: inherit;
+}
+
+.trendingHeader{
+  font-size: 150%;
+  text-align: center;
+  margin: 5%;
+
+}
+
+.trending{
+  display: flex;
+  overflow: hidden;
+
+  align-items: center;
+  cursor: pointer;
+  
+  border-radius: 30px;
+}
+.trending:hover{
+  background-color: #e8f5fe;
+  color: #50b7f5;
+  transition: color 100ms ease-out;
+}
+.trending > h2{
+  font-weight: 700;
+  font-size:110%;
+  text-align: center;
+  margin-left: 5%;
+
+  
 }

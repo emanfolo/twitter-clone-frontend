@@ -8,6 +8,11 @@ const SearchBar = () => {
 
   const router = useRouter()
 
+  const handleKeyPress = (event: any) => {
+  if(event.key === 'Enter'){
+    search()
+    }
+  }
 
 
   const search = () => {
@@ -16,14 +21,16 @@ const SearchBar = () => {
     } else {
       console.log('please enter correct params')
     }
-    
   }
 
   return (
   <>
-    <div >
-        <input  type="text" placeholder="Search" onChange={((e)=> {setSearchInput(e.target.value)})}/>
-        <button style={{height: '18px'}} type="submit" onClick={((e)=> {search()})}> </button>
+    <div className='searchBar' >
+        <input type="text" 
+        placeholder="Search Flitter" 
+        onChange={((e)=> {setSearchInput(e.target.value)})}
+        onKeyPress={((e)=> {handleKeyPress(e)})}
+        />
     </div>
   </>
   ); 

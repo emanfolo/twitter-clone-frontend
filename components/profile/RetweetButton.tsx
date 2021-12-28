@@ -82,9 +82,9 @@ useEffect(() => {
 
   return (
     <>
-      {retweetedState ? <button style={{color: 'green'}} onClick={(()=> toggleRetweet())}> 
+      {retweetedState ? <button style={{color: 'green', cursor: 'pointer'}} onClick={(()=> toggleRetweet())}> 
       Retweet {retweets.length} 
-      </button> : <button onClick={(()=> toggleRetweet())}> 
+      </button> : <button style={{cursor: 'pointer'}} onClick={(()=> toggleRetweet())}> 
       Retweet {retweets.length} 
       </button> }
     </>

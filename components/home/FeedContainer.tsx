@@ -45,7 +45,7 @@ if (feed.length > 0){
   });
 
   return <>
-  <div>
+  <div style={{display: 'flex', 'flexDirection': 'column'}}>
     {tweetsDisplay}
   </div>
   </>

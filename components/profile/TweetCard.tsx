@@ -50,13 +50,13 @@ const TweetCard = (props: any) => {
 
   return (
   <> 
-  <div style={{"borderStyle": 'groove', width:'50%'}}>
+  <div style={{"borderStyle": 'groove', width:'100%'}}>
     {/* <pre>{JSON.stringify(tweetInfo, null, 2)}</pre>    */}
     <div style={{margin: "25px"}}>
       {retweetInfo ? <div>{`${retweetInfo.user.name} Retweeted`}</div> : <></> }
       <div>
         <Link href={profilePage}>
-          <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
+          <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px', cursor: 'pointer'}}>
           <img src={profilePictureDisplay()} height={30} width={30} />
           <div>
             <strong>{tweetInfo.user.name}</strong> 

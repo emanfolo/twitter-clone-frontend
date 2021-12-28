@@ -15,15 +15,17 @@ const Layout = ({children}: any) => {
 
   return ( 
   <> 
-  <div className="LayoutDiv" style={{display: 'flex', width: '100%', height: '100%'}}>
-  <div style={{width: '30%'}}>
+  <div className="LayoutDiv" style={{display: 'flex', width: '100%', height: 'auto'}}>
+  <div style={{width: '30%'}} className="leftSide">
     {/* <DynamicSiderbarWithNoSSR /> */}
     <Sidebar />
   </div>
   
-  <div className="content"style={{width: '70%'}} >
+  <div className="content"style={{width: '40%'}} >
     { children }
   </div>
+
+  <div className="rightSide" style={{width: '30%'}}> Right Sided Content</div>
   </div>
   
   </> 
