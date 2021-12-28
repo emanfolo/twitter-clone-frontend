@@ -37,9 +37,8 @@ const Profile = () => {
   }
   
     useEffect(() => {
-      console.log('Im making an api call')
       getProfile();
-      }, [buttonToggle, username])
+      }, [username])
 
     
 
@@ -50,19 +49,11 @@ const Profile = () => {
     return (
     <>
       <div>
-        <ProfileCard />
+        <ProfileCard profile={profile} />
       </div>
       <div>
-        <FeedContainer 
-        buttonToggle={buttonToggle} 
-        setButtonToggle={setButtonToggle}
-        // retweetToggle={retweetToggle}
-        // setRetweetToggle={setRetweetToggle}
-        tweets={profile.tweets} retweets={profile.retweets} 
-        username={profile.username} name={profile.name} 
-        profileDetails={profile.profile}/>
+        <FeedContainer />
       </div>
-      <pre>{JSON.stringify(profile, null, 2)}</pre>
     </>
     ); 
   } else {

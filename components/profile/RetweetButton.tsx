@@ -7,7 +7,8 @@ import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/In
 interface Props {
   tweetID: number;
   notificationRecipient: number;
-  retweets: Array<Retweet>
+  retweets: Array<Retweet>;
+  setStateChanged: Function;
 }
 
 const RetweetButton = (props: Props) => {
@@ -18,7 +19,7 @@ const RetweetButton = (props: Props) => {
 
   const [retweetedState, setRetweetedState] = useState(Boolean)
 
-  const {tweetID, notificationRecipient, retweets} = props
+  const {tweetID, notificationRecipient, retweets, setStateChanged} = props
 
 
   const retrieveRetweetState = () => {
@@ -49,6 +50,7 @@ const RetweetButton = (props: Props) => {
               notificationRecipient: notificationRecipient
           })
         });
+        setStateChanged("Post retweeted")
         setRetweetedState(true)
 
         } else if (retweetedState) {
@@ -63,6 +65,7 @@ const RetweetButton = (props: Props) => {
               notificationRecipient: notificationRecipient
           })
         });
+        setStateChanged("Post unretweeted")
         setRetweetedState(false)
 
         }

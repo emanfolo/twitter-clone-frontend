@@ -1,33 +1,53 @@
 import TweetCard from '../profile/TweetCard'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router';
 
 import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
 
 
 const FeedContainer = (props: any) => {
 
-  const [tweetInput, setTweetInput] = useState(String)
-  const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
-  const [limit, setLimit] = useState(240)
+  const [feed, setFeed] = useState(Array)
+
+  const [stateChanged, setStateChanged] = useState(String)
+
+  const router = useRouter()
+  const { username } = router.query
+
+    
+    const getFeed = async () => {
+    const url = `http://localhost:4000/feed/${username}`
+    const res = await fetch(url, { 
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+    const json = await res.json();
+    setFeed(json);
+    console.log('api call')
+  }
+
+
+  useEffect(() => {
+      getFeed()
+      }, [stateChanged]
+  )
+
+  console.log(feed)
 
 
 
-  const {tweets, retweets, username, name, profileDetails} = props
-
-  const {setButtonToggle, buttonToggle} = props
-
-  const tweetsDisplay = tweets.map((data:any) => {
+if (feed.length > 0){
+  const tweetsDisplay = feed.map((data:any) => {
 
     const key = `tweet-${data.id}`
     return (
         <TweetCard 
         key={key} 
-        tweetInfo={data} 
-        profileDetails={profileDetails} 
-        username={username} 
-        name={name}
-        buttonToggle={buttonToggle} 
-        setButtonToggle={setButtonToggle}
+        tweetInfo={data.tweet}
+        retweetInfo={data.retweet}
+        setStateChanged={setStateChanged}
         />
     )
   });
@@ -37,7 +57,10 @@ const FeedContainer = (props: any) => {
     {tweetsDisplay}
   </div>
   </>
-  return <> Hi</>
+} else {
+  return <> Please make some tweets</>
+}
+  
 }
 
 export default FeedContainer
