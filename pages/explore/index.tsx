@@ -4,6 +4,7 @@ import Router, { useRouter } from "next/router";
 import SearchBar from '../../components/explore/SearchBar';
 
 import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
+import Trending from '../../components/explore/Trending';
 
 
 const Explore = () => {
@@ -29,8 +30,7 @@ const Explore = () => {
   <>
     <h1>Explore</h1>
     <SearchBar />
-    <div>Trending</div>
-    <div> Top hashtags</div>
+    <Trending />
   </>
   ); 
 };
