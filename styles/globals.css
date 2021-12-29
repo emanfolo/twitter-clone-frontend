@@ -23,16 +23,16 @@ a {
   overflow: hidden;
   padding: 20px 20px;
   margin: 20px auto 0 auto;
-  box-shadow: 0 0 6px hsl(210 14% 90%);
+  /* box-shadow: 0 0 6px hsl(210 14% 90%); */
 }
 
 .sidebarlink{
   display: flex;
   overflow: hidden;
-
   align-items: cover;
   cursor: pointer;
   border-radius: 30px;
+  margin-bottom: 5px;
 }
 .sidebarlink:hover{
   background-color: #e8f5fe;
@@ -204,7 +204,35 @@ a {
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-color: #aab8c2;
-  
+  text-align: left;
+  cursor: pointer;
+
+}
+
+.notificationCard .headline {
+  font-weight: bolder;
+  margin-left: 10%;
+  /* width:fit-content; */
+  display: flex;
+  white-space: pre-wrap;
+}
+
+.notificationCard .headline > div:hover {
+  color: #50b7f5;
+}
+
+.notificationCard .content {
+  margin-left: 10%;
+
+}
+
+.notificationCard > img {
+  margin-top: 2%;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  margin-left: 10%;
+
 }
 
 .middle{
