@@ -4,6 +4,7 @@ import Router, { useRouter } from "next/router";
 import TweetCard from '../../../components/profile/TweetCard'
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet } from "../../../types/Interfaces";
+import SearchBar from '../../../components/explore/SearchBar';
 
 
 const HashtagSearch = () => {
@@ -41,7 +42,7 @@ const HashtagSearch = () => {
 
   return (
   <>
-    <h2>This is a hashtag search</h2>
+    <SearchBar/>
     <div>{tweetsDisplay}</div>
   </>
   ); 

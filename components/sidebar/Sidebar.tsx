@@ -31,6 +31,7 @@ const Sidebar = () => {
           <>
           <SidebarLink text="Home" active={true} Icon={HomeIcon} Route="/home"/>
           <SidebarLink text="Explore" Icon={SearchIcon} Route="/explore"/>
+          <SidebarLink text="Notifications" Icon={PermIdentityIcon} Route="/notifications"/>
           <SidebarLink text="Profile" Icon={PermIdentityIcon} Route={`/${user.userDetails.username}`}/>
           <SidebarLink text="Logout" Icon={DeleteIcon} Route="/user/logout"/>
           <Button id="tweet">

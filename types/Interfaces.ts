@@ -62,3 +62,39 @@ export interface Like {
   tweetID: number
   tweet: Tweet
 }
+
+export interface FeedItem {
+  id: number
+  user: User
+  userID: number
+  type: String
+  tweetID?: String 
+  tweet?: Tweet 
+  retweetID?: number
+  retweet?: Retweet 
+  createdAt: Date 
+}
+
+export interface Mention {
+  id: number
+  username: String 
+  user: User 
+  tweets: Array<Tweet>
+  notification?: Notification
+}
+
+export interface Notification {
+  id: number
+  createdAt: Date
+  recipientID: number
+  recipient: User
+  type: String
+  mentionID?: number
+  mention?: Mention
+  likeID?: number
+  like?: Like
+  retweetID?: number
+  retweet?: Retweet
+  replyID?: number
+  reply?: Tweet
+}

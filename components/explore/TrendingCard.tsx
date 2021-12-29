@@ -19,34 +19,26 @@ const TrendingCard = (props: any) => {
   }
 
   const linkCreator = (topic: string) => {
-    if (topic[0] == '#'){
-      return (
-      <>
-      <Link href={`/explore/hashtag/${data.split('#')[1]}`}>
-        <div className="trending">
-            <h2>
-              {data}
-            </h2>
-        </div>
-      </Link>
-      </>)
+    let route;
+    if(topic[0] == '#'){
+      route = `/explore/hashtag/${data.split('#')[1]}`
     } else {
-      return (
-      <>
-      <Link href={`/search/${data}`}>
-        <div className="trending">
-            <h2>
-              {data}
-            </h2>
-        </div>
-      </Link>
-      </>)
+      route = `/search/${data}`
     }
+    return route
   }
+
 
   return <>
 
-    {linkCreator(data)}
+    {/* {linkCreator(data)} */}
+      <Link href={linkCreator(data)}>
+        <div className="trending">
+            <h2>
+              {data}
+            </h2>
+        </div>
+      </Link>
 
   </>
 

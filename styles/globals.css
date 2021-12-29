@@ -188,6 +188,41 @@ a {
   font-size:110%;
   text-align: center;
   margin-left: 5%;
+}
 
+.notificationFeed {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  text-align: center;
+}
+
+.notificationCard {
+  min-height: 100px;
+  max-height: 140px;
+  /* border-width: thin; */
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #aab8c2;
   
+}
+
+.middle{
+  border: 1px solid;
+  border-color: #aab8c2;
+}
+
+.leftSide{
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-color: #aab8c2;
+
+}
+
+.rightSide{
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-color: #aab8c2;
+  
+
 }

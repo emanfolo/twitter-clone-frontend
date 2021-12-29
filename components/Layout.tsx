@@ -21,11 +21,11 @@ const Layout = ({children}: any) => {
     <Sidebar />
   </div>
   
-  <div className="content"style={{width: '40%'}} >
+  <div className="middle"style={{width: '40%'}} >
     { children }
   </div>
 
-  <div className="rightSide" style={{width: '30%'}}> Right Sided Content</div>
+  <div className="rightSide" style={{width: '30%', display:'flex', justifyContent:'center'}}> Right Sided Content</div>
   </div>
   
   </> 
