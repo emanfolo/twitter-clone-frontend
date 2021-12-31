@@ -80,9 +80,9 @@ const RetweetButton = (props: Props) => {
   return (
     <>
       {retweetedState ? <button style={{color: 'green', cursor: 'pointer'}} onClick={(()=> toggleRetweet())}> 
-      Retweet {retweets.length} 
+      RT {retweets.length} 
       </button> : <button style={{cursor: 'pointer'}}  onClick={(()=> toggleRetweet())}> 
-      Retweet {retweets.length} 
+      RT {retweets.length} 
       </button> }
     </>
   )

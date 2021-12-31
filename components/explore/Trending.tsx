@@ -3,6 +3,9 @@ import TrendingCard from "./TrendingCard"
 
 const Trending = () => {
 
+    console.log(window.innerHeight)
+
+
   const [loading, setLoading] = useState(Boolean)
   const [trending, setTrending] = useState(Object)
 

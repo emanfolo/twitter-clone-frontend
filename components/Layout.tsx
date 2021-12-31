@@ -17,16 +17,16 @@ const Layout = ({children}: any) => {
   return ( 
   <> 
   <div className="LayoutDiv" >
-  <div style={{width: '30%'}} className="leftSide">
+  <div style={{}} className="leftSide">
     {/* <DynamicSiderbarWithNoSSR /> */}
     <Sidebar />
   </div>
   
-  <div className="middle"style={{width: '40%'}} >
+  <div className="middle" >
     { children }
   </div>
 
-  <div className="rightSide" style={{width: '30%', display:'flex', justifyContent:'center'}}> Right Sided Content</div>
+  <div className="rightSide" > Right Sided Content</div>
   </div>
   
   </> 

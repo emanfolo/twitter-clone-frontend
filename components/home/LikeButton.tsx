@@ -84,9 +84,9 @@ const LikeButton = (props: Props) => {
   return (
     <>
       {likedState ? <button style={{color: 'red', cursor: 'pointer'}} onClick={(()=> toggleLike())}> 
-      Like {likes.length} 
+      L {likes.length} 
       </button> : <button style={{cursor: 'pointer'}}  onClick={(()=> toggleLike())}> 
-      Like {likes.length} 
+      L {likes.length} 
       </button> }
     </>
   )

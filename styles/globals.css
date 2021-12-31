@@ -11,6 +11,11 @@ a {
   text-decoration: none;
 }
 
+/* #__next {
+  min-height: 100%;
+
+} */
+
 /* * {
   box-sizing: border-box;
 } */
@@ -26,21 +31,25 @@ a {
   border-left: 1px solid;
   border-right: 1px solid;
   border-color: #aab8c2;
+  width: 42%;
+  /* min-height: 768px; */
 }
 
 .leftSide{
   border-bottom: 1px solid;
   border-left: 1px solid;
   border-color: #aab8c2;
-
+  width: 25%;
 }
 
 .rightSide{
   border-bottom: 1px solid;
   border-right: 1px solid;
   border-color: #aab8c2;
+  width: 33%;
+  display: flex;
+  justify-content: center;
   
-
 }
 
 .sidebar{
@@ -113,15 +122,17 @@ a {
   padding-top: 10px;
   padding-bottom: 3px;
   align-items: center;
-  align-content: space-around;
+  align-content: space-between;
   min-height: fit-content;
 }
 
 .tweet-area-input {
   min-height: 100%;
   height: fit-content;
+  overflow-x: hidden;
   width: 85%;
   border-bottom: 1px solid #e6e6e6;
+  margin-right: 2%;
 
   /* display: flex;
   align-items: baseline; */
@@ -131,9 +142,9 @@ a {
   position: relative;
   resize: none;
   min-height: fit-content;
-  max-height: fit-content;
-  width: 95%;
-  overflow-y: visible;
+  max-height: max-content;
+  max-width: 95%;
+  overflow-y: auto;
   outline: none;
   font-size: 17px;
   word-wrap: break-word;
@@ -145,8 +156,9 @@ a {
 }
 
 .tweet-area-image {
-  width: 10%;
+  width: fit-content;
   padding-left: 2%;
+  padding-right: 2%;
 }
 
 .tweet-area-image > img {
@@ -217,7 +229,6 @@ a {
   justify-content: center;
   
 }
-
 
 .searchBar > input {
   height: 50%;
@@ -299,4 +310,86 @@ a {
   margin-left: 10%;
 
 }
+
+.tweetCard {
+  /* border: 1px solid;
+  border-color: lawngreen; */
+  border-top: 1px solid;
+  border-color: #aab8c2;
+  width: 100%;
+  height: max-content;
+}
+
+.userDetails {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nameAndTime {
+  width: fit-content;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px; 
+  cursor: pointer;
+  width: 85%;
+    /* white-space: pre-wrap; */
+
+}
+
+.nameAndTime > div {
+  color: grey;
+}
+
+.nameAndTime > div:hover {
+  color: #50b7f5;
+}
+
+.tweetCardImage {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tweetCardImage > img {
+  background-color: black;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.tweetCardImage > img:hover {
+  opacity: 0.5;
+}
+
+.tweetCardContents {
+  margin: 5px;
+  padding: 2%;
+}
+
+.tweetCardContents > a:hover{
+  color: #50b7f5;
+}
+
+.tweetCardButtons {
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  gap: '10px';
+}
+
+.retweetInfo {
+  margin-left: 1%;
+  padding: 2%;
+  cursor: pointer;
+}
+
+.retweetInfo:hover {
+  color: #50b7f5;
+}
+
+
+
+
 
