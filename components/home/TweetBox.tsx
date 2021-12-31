@@ -53,13 +53,25 @@ const TweetBox = (props:any) => {
     setStateChanged(`new tweet${json.id}`)
   }
 
+  const profilePicture = user.userDetails.profile.image
+
+  const displayProfilePicture = () => { return profilePicture ? profilePicture : './DefaultImage.jpeg'}
+
   return (
     <>
     <div className="wrapper">
-    <div className="input-box">
-      <textarea className="tweet-area" placeholder="What's happening" maxLength={240} value={tweetInput} onChange={(e)=> {setTweetInput(e.target.value)}}>
-      </textarea>
-    </div>
+    {/* <div className="input-box"> */}
+      <div className='tweet-area'>
+        <div className='tweet-area-image'>
+          <img src={displayProfilePicture()}/>
+        </div>
+        <div className='tweet-area-input'>
+          <textarea placeholder="What's happening" maxLength={240} value={tweetInput} onChange={(e)=> {setTweetInput(e.target.value)}}>
+          </textarea>
+        </div>
+      </div>
+      
+    {/* </div> */}
     <div className="bottom">
       <div className="content">
         <span className="counter">{limit}</span>

@@ -10,12 +10,13 @@ const DynamicSiderbarWithNoSSR = dynamic(
   {ssr: false}
 )
 
+
 const Layout = ({children}: any) => {
 
 
   return ( 
   <> 
-  <div className="LayoutDiv" style={{display: 'flex', width: '100%', height: 'auto'}}>
+  <div className="LayoutDiv" >
   <div style={{width: '30%'}} className="leftSide">
     {/* <DynamicSiderbarWithNoSSR /> */}
     <Sidebar />

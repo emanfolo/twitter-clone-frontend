@@ -52,12 +52,12 @@ const TweetCard = (props: any) => {
 
   return (
   <> 
-  <div style={{"borderStyle": 'groove', width:'100%'}}>
-    <div style={{margin: "25px"}}>
+  <div className='tweetCard' style={{"borderStyle": 'groove', width:'100%'}}>
+    {/* <div style={{margin: "25px"}}> */}
       {retweetInfo ? <div>{`${retweetInfo.user.name} Retweeted`}</div> : <></> }
-      <div>
+      <div className='nameAndTime'>
         <Link href={profilePage}>
-          <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px', cursor: 'pointer'}}>
+          <div className='tweetCardImage' style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px', cursor: 'pointer'}}>
           {<img src={profilePictureDisplay()} height={30} width={30} />}
           <div>
             <strong>{tweetInfo.user.name}</strong> 
@@ -67,14 +67,14 @@ const TweetCard = (props: any) => {
           </div>
         </Link>
       </div>
-      <div style={{margin: "5px" }}>
+      <div className='contents' style={{margin: "5px" }}>
         {contentsParser(props)}
       </div>
-      <div style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
+      <div className='buttons' style={{display: 'flex', justifyContent: 'left', alignItems: 'baseline', gap: '10px'}}>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
       </div>
-  </div>
+  {/* </div> */}
   </div>
   </>
   )

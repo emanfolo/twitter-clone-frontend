@@ -22,8 +22,9 @@ const Home = () => {
   if (user){
     return (
   <>
-    <h2>Home</h2>
-    <div>
+    <div className='HomeHeading'>
+      <h2>Home</h2>
+    </div>
       <TweetBox tweetInput={tweetInput} 
       setTweetInput={setTweetInput} 
       tweetButtonActive={tweetButtonActive} 
@@ -32,7 +33,6 @@ const Home = () => {
       setLimit={setLimit}
       setStateChanged={setStateChanged}
       />
-  </div>
     <div>
     <div>
       <FeedContainer 
