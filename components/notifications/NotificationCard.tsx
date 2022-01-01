@@ -15,6 +15,7 @@ const NotificationCard = (props: any) => {
   return <>
   
   <div className="notificationCard">
+    { typeOfNotif == 'retweet' ? <> R Icon </> : <> L Icon</> }
     <Link href={`/${notificationInfo.user.username}`}>
           <img src={notificationInfo.user.profile.image}></img>
     </Link>

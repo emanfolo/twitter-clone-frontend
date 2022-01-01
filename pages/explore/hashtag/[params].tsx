@@ -30,11 +30,13 @@ const HashtagSearch = () => {
     }, [params])
 
    const tweetsDisplay = hashtagTweets.map((data:any) => {
-
-    const key = `tweet-${data.id}`
+    if(data.type == "Tweet"){
+      const key = `tweet-${data.id}`
     return (
         <TweetCard key={key} tweetInfo={data.tweet} />
     )
+    }
+    
   });
 
 

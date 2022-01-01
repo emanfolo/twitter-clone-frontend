@@ -69,9 +69,11 @@ const TweetCard = (props: any) => {
       <div className='tweetCardContents' >
         {contentsParser(tweetInfo)}
       </div>
-      <div className='tweetCardButtons' >
-        <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged}/>
-        <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged}/>
+      <div className='tweetCardBottom'>
+        <button> Reply </button>
+        <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
+        <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
+        <button> ... </button>
       </div>
   </div>
   </>
