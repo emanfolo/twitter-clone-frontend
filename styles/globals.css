@@ -426,6 +426,7 @@ a {
 }
 
 .close {
+  margin-left: 3%;
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
@@ -438,14 +439,18 @@ a {
   cursor: pointer;
 }
 
-.replyRecipientCard {
+.replyForm {
+  margin-top: 5%;
+  margin-left: 2%;
   display: grid;
   /* gap: 15px; */
   white-space: pre-wrap;
   height: 80%;
-  grid-template-rows: [row1-start] 35% [row1-end row2-start] 65% [row2-end];
+  grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row3-start-row3-end] 50% [row3-end];
   grid-template-columns: [first] 60px [line2] auto [end]
+
 }
+
 .replyRecipientInfo {
   grid-row: 1;
   grid-column: 2;
@@ -462,14 +467,6 @@ a {
   margin-bottom: 4px;
 }
 
-.replyNameAndTime > div {
-  color: grey;
-}
-
-.replyNameAndTime > div:hover {
-  color: #50b7f5;
-}
-
 .replyRecipientImage {
   grid-row: 1;
   grid-column: 1;
@@ -481,5 +478,45 @@ a {
   height: 100%;
   width: 100%;
   border-radius: 50%;
+}
+
+.tweetReplyForm {
+  grid-row: 3;
+  grid-column: 2
+}
+
+.tweetReplyFormCurrentUser {
+  grid-row: 3;
+  grid-column: 1;
+
+
+  height: 45px;
+  width: 45px;
+}
+
+.tweetReplyFormCurrentUser > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.dividerLine {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.replyingToInfo {
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  cursor: pointer;
+}
+
+.replyingToInfo > div {
+  color: #50b7f5;
+}
+
+.replyingToInfo > div:hover {
+  color: #50b7f5;
 }
 
