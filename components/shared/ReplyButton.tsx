@@ -31,7 +31,7 @@ const ReplyButton = (props: Props) => {
       <div className="replyModal">
         <div className="replyModalContent">
           <span onClick={(()=> {toggleModalClass()})} className="close">&times;</span>
-        <TweetReplyForm tweetInfo={tweetInfo.tweetInfo}/>
+        <TweetReplyForm tweetInfo={tweetInfo}/>
         </div>
         
       </div>
