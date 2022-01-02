@@ -10,13 +10,15 @@ import { useContext } from 'react'
 
 
 
-const TweetBox = (props:any) => {
+const ReplyTweetBox = (props:any) => {
 
   const {user, setUser} = useContext(UserContext)
 
 
-  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit} = props
-  const {setStateChanged} = props
+  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit, tweetID} = props
+  const {setStateChanged, toggleModalClass} = props
+
+  console.log(tweetID)
 
   const trackTweetButtonState = () => {
     if (tweetInput.length > 0) {
@@ -45,12 +47,14 @@ const TweetBox = (props:any) => {
       body: JSON.stringify( {
           contents: tweetInput,
           image: null,
+          replyTo: tweetID
        })
     });
     const json = await response.json()
     setTweetInput("")
     console.log(json)
     setStateChanged(`new tweet${json.id}`)
+    toggleModalClass() 
   }
 
   const profilePicture = user.userDetails.profile.image
@@ -61,11 +65,8 @@ const TweetBox = (props:any) => {
     <>
     <div className="wrapper">
       <div className='tweet-area'>
-        <div className='tweet-area-image'>
-          <img src={displayProfilePicture()}/>
-        </div>
         <div className='tweet-area-input'>
-          <textarea placeholder="What's happening" maxLength={240} value={tweetInput} onChange={(e)=> {setTweetInput(e.target.value)}}>
+          <textarea placeholder="Tweet your reply" maxLength={240} value={tweetInput} onChange={(e)=> {setTweetInput(e.target.value)}}>
           </textarea>
         </div>
       </div>
@@ -77,7 +78,7 @@ const TweetBox = (props:any) => {
         tweetButtonActive ? 
         (<button className="TweetButton active" onClick={()=> {sendTweet(user.accessToken)}}>Tweet</button>) 
         :
-        (<button className="TweetButton">Tweet</button>
+        (<button className="TweetButton">Reply</button>
         )}
       </div>
       
@@ -87,4 +88,4 @@ const TweetBox = (props:any) => {
   )
 }
 
-export default TweetBox
+export default ReplyTweetBox

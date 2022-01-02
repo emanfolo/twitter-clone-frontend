@@ -11,19 +11,10 @@ a {
   text-decoration: none;
 }
 
-/* #__next {
-  min-height: 100%;
-
-} */
-
-/* * {
-  box-sizing: border-box;
-} */
-
 .LayoutDiv {
   display: flex;
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .middle{
@@ -32,7 +23,6 @@ a {
   border-right: 1px solid;
   border-color: #aab8c2;
   width: 42%;
-  /* min-height: 768px; */
 }
 
 .leftSide{
@@ -53,14 +43,10 @@ a {
 }
 
 .sidebar{
-  /* width: 250px;
-  min-width: 250px; */
   width: 70%;
-  /* min-width: 30%; */
   overflow: hidden;
   padding: 20px 20px;
   margin: 20px auto 0 auto;
-  /* box-shadow: 0 0 6px hsl(210 14% 90%); */
 }
 
 .sidebarlink{
@@ -106,13 +92,8 @@ a {
 
 .wrapper{
   background: #fff;
-  /* max-width: 475px; */
-  /* max-width: 500px; */
   width: 100%;
   border-radius: 15px;
-  /* padding: 25px 25px 15px 25px; */
-  /* box-shadow: 0px 10px 15px rgba(0,0,0,0.1); */
-  /* margin-right: 2%; */
   margin-bottom:5%;
 }
 
@@ -133,9 +114,6 @@ a {
   width: 85%;
   border-bottom: 1px solid #e6e6e6;
   margin-right: 2%;
-
-  /* display: flex;
-  align-items: baseline; */
 }
 
 .tweet-area-input > textarea{
@@ -166,7 +144,6 @@ a {
   max-width: 40px;
   max-height: 40px;
   border-radius: 50%;
-  /* margin-left: 10%; */
 }
 
 
@@ -192,7 +169,6 @@ a {
   font-weight: 500;
   margin-right: 15px;
   padding-right: 15px;
-  /* border-right: 1px solid #aab8c2; */
 }
 
 .TweetButton {
@@ -222,7 +198,6 @@ a {
 
 .searchBar {
   display: flex;
-  /* height: 8%;  */
   height: 90px;
   align-items: center;
   align-content: center;
@@ -276,7 +251,6 @@ a {
 .notificationCard {
   min-height: 100px;
   max-height: 140px;
-  /* border-width: thin; */
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-color: #aab8c2;
@@ -288,7 +262,6 @@ a {
 .notificationCard .headline {
   font-weight: bolder;
   margin-left: 10%;
-  /* width:fit-content; */
   display: flex;
   white-space: pre-wrap;
 }
@@ -312,8 +285,6 @@ a {
 }
 
 .tweetCard {
-  /* border: 1px solid;
-  border-color: lawngreen; */
   border-top: 1px solid;
   border-color: #aab8c2;
   width: 100%;
@@ -334,8 +305,6 @@ a {
   gap: 10px; 
   cursor: pointer;
   width: 85%;
-    /* white-space: pre-wrap; */
-
 }
 
 .nameAndTime > div {
@@ -413,7 +382,7 @@ a {
 
 .replyModal {
   padding: 20px;
-  width: 400px; 
+  width: 500px; 
   height: 300px;
 }
 
@@ -443,7 +412,6 @@ a {
   margin-top: 5%;
   margin-left: 2%;
   display: grid;
-  /* gap: 15px; */
   white-space: pre-wrap;
   height: 80%;
   grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row3-start-row3-end] 50% [row3-end];
@@ -488,8 +456,6 @@ a {
 .tweetReplyFormCurrentUser {
   grid-row: 3;
   grid-column: 1;
-
-
   height: 45px;
   width: 45px;
 }
@@ -503,6 +469,11 @@ a {
 .dividerLine {
   grid-row: 2;
   grid-column: 1;
+  width: 50%; 
+  margin: auto; 
+  transform: rotate(90deg); 
+  justify-self: center;
+  margin-left: 10%;
 }
 
 .replyingToInfo {
@@ -520,3 +491,8 @@ a {
   color: #50b7f5;
 }
 
+.moreInfoModal {
+  padding: 20px;
+  width: 500px; 
+  height: 300px;
+}

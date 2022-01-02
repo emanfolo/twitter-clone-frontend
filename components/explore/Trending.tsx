@@ -3,9 +3,6 @@ import TrendingCard from "./TrendingCard"
 
 const Trending = () => {
 
-    console.log(window.innerHeight)
-
-
   const [loading, setLoading] = useState(Boolean)
   const [trending, setTrending] = useState(Object)
 
@@ -31,6 +28,7 @@ if (trending){
 
   const trendingDisplay = trendingTopics.map((data: any) => {
     let key = data
+    console.log(key)
     return <> 
     <TrendingCard key={key} data={data}/>
     </>

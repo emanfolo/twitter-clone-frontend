@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { TweetInfo } from "../../types/Interfaces"
+import TweetBox from "../home/TweetBox"
+import ReplyTweetBox from "./ReplyTweetBox"
 import TweetReplyForm from "./TweetReplyForm"
 
 interface Props {
   tweetInfo: TweetInfo
+  setStateChanged: Function
 }
 
 const ReplyButton = (props: Props) => {
@@ -18,8 +21,9 @@ const ReplyButton = (props: Props) => {
     return modalOpen ? "replyModalOpen" : "replyModalClosed"
   }
 
-  const {tweetInfo} = props
+  const {tweetInfo, setStateChanged} = props
 
+  
 
   return <>
 
@@ -31,9 +35,16 @@ const ReplyButton = (props: Props) => {
       <div className="replyModal">
         <div className="replyModalContent">
           <span onClick={(()=> {toggleModalClass()})} className="close">&times;</span>
-        <TweetReplyForm tweetInfo={tweetInfo}/>
+        <TweetReplyForm tweetInfo={tweetInfo} toggleModalClass={toggleModalClass} setStateChanged={setStateChanged}/>
+        {/* <TweetBox tweetInput={tweetInput} 
+      setTweetInput={setTweetInput} 
+      tweetButtonActive={tweetButtonActive} 
+      setTweetButtonActive={setTweetButtonActive} 
+      limit={limit}
+      setLimit={setLimit} /> */}
+      
+
         </div>
-        
       </div>
 
     </div> 

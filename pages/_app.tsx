@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import { UserContext } from "./UserContext";
 import { useState, useMemo, useEffect } from "react";
 import Layout from '../components/Layout'
-import Cookie from 'js-cookie'
 
 
 function MyApp({ Component, pageProps}: AppProps) {
@@ -40,7 +39,6 @@ function MyApp({ Component, pageProps}: AppProps) {
 
 }, 1000 * 60 * 60)
 
-  // const value = useMemo(() => ({user, setUser}), [user, setUser])
 
   return (
   <UserContext.Provider value={{ user, setUser }}>

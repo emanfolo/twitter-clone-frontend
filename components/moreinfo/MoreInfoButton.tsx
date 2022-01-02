@@ -19,7 +19,7 @@ const MoreInfoButton = () => {
 
     <div id="myModal" className={useModalClass()}> 
 
-      <div className="replyModalContent">
+      <div className="moreInfoModalContent">
         <span onClick={(()=> {toggleModalClass()})} className="close">&times;</span>
         <p>Some text in the Modal..</p>
       </div>

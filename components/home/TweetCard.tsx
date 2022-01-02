@@ -16,8 +16,8 @@ import LikeButton from './LikeButton';
 import RetweetButton from './RetweetButton';
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
-import ReplyButton from '../shared/ReplyButton';
-import MoreInfoButton from '../shared/MoreInfoButton';
+import ReplyButton from '../reply/ReplyButton';
+import MoreInfoButton from '../moreinfo/MoreInfoButton';
 
 
 const TweetCard = (props: any) => {
@@ -57,23 +57,27 @@ const TweetCard = (props: any) => {
   <div className='tweetCard'>
       {retweetInfo ? <div className='retweetInfo'>{`${retweetInfo.user.name} Retweeted`}</div> : <></> }
       <div className='userDetails'>
-        <Link href={profilePage}>
+        
           <>
+          <Link href={profilePage}>
           <div className='tweetCardImage'>
             <img src={profilePictureDisplay()} />
           </div>
+          </Link>
+          <Link href={profilePage}>
           <div className='nameAndTime'>
             <div>{tweetInfo.user.name} </div>@{tweetInfo.user.username}
             <TimeAgo datetime={props.tweetInfo.createdAt}/>
           </div>
+          </Link>
           </>
-        </Link>
+        
       </div>
       <div className='tweetCardContents' >
         {contentsParser(props)}
       </div>
       <div className='tweetCardBottom'>
-        <ReplyButton tweetInfo={tweetInfo}/>
+        <ReplyButton tweetInfo={tweetInfo} setStateChanged={setStateChanged}/>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
         <MoreInfoButton />
