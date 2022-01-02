@@ -10,7 +10,8 @@ const NotificationCard = (props: any) => {
 
   const notificationInfo = data[typeOfNotif]
 
-  console.log(notificationInfo.user.username)
+  console.log(data)
+
 
   return <>
   

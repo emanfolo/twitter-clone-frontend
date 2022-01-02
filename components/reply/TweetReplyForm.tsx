@@ -23,6 +23,8 @@ const TweetReplyForm = (props: any) => {
   const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
   const [limit, setLimit] = useState(240)
 
+  console.log(tweetInfo)
+
 
 
 
@@ -42,6 +44,7 @@ const TweetReplyForm = (props: any) => {
       limit={limit}
       setLimit={setLimit}
       tweetID={tweetInfo.id} 
+      notificationRecipient={tweetInfo.user.id}
       setStateChanged={setStateChanged}
       toggleModalClass={toggleModalClass}/> 
     </div>

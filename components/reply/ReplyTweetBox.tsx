@@ -15,10 +15,10 @@ const ReplyTweetBox = (props:any) => {
   const {user, setUser} = useContext(UserContext)
 
 
-  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit, tweetID} = props
+  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit, tweetID, notificationRecipient} = props
   const {setStateChanged, toggleModalClass} = props
 
-  console.log(tweetID)
+  // console.log(notificationRecipient)
 
   const trackTweetButtonState = () => {
     if (tweetInput.length > 0) {
@@ -47,7 +47,8 @@ const ReplyTweetBox = (props:any) => {
       body: JSON.stringify( {
           contents: tweetInput,
           image: null,
-          replyTo: tweetID
+          replyTo: tweetID,
+          notificationRecipient: notificationRecipient,
        })
     });
     const json = await response.json()

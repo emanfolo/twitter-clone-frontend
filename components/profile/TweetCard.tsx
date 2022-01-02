@@ -16,6 +16,8 @@ import LikeButton from '../profile/LikeButton';
 import RetweetButton from '../profile/RetweetButton';
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet} from "../../types/Interfaces";
+import ReplyButton from '../reply/ReplyButton';
+import MoreInfoButton from '../moreinfo/MoreInfoButton';
 
 
 const TweetCard = (props: any) => {
@@ -70,10 +72,10 @@ const TweetCard = (props: any) => {
         {contentsParser(tweetInfo)}
       </div>
       <div className='tweetCardBottom'>
-        <button> Reply </button>
+        <ReplyButton tweetInfo={tweetInfo} setStateChanged={setStateChanged}/>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
-        <button> ... </button>
+        <MoreInfoButton />
       </div>
   </div>
   </>
