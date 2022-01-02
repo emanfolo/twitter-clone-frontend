@@ -481,6 +481,7 @@ a {
   grid-column: 2;
   display: flex;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .replyingToInfo > div {
@@ -496,3 +497,30 @@ a {
   width: 500px; 
   height: 300px;
 }
+
+.moreInfoModalOpen{
+  display: flex;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+}
+
+
+.moreInfoModalClosed{
+  display: none;
+}
+
+.moreInfoModalContent {
+  border-radius: 12px;
+  padding: 5%;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: tomato;
+}
+

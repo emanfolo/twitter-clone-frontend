@@ -9,15 +9,15 @@ const MoreInfoButton = () => {
   }
 
   const useModalClass = () => {
-    return modalOpen ? "replyModalOpen" : "replyModalClosed"
+    return modalOpen ? "moreInfoModalOpen" : "moreInfoModalClosed"
   }
 
   return <>
 
-    <button id="replyButton" onClick={(()=> toggleModalClass())}> ... </button>
+    <button id="moreInfoButton" onClick={(()=> toggleModalClass())}> ... </button>
 
 
-    <div id="myModal" className={useModalClass()}> 
+    <div id="myMoreInfoModal" className={useModalClass()}> 
 
       <div className="moreInfoModalContent">
         <span onClick={(()=> {toggleModalClass()})} className="close">&times;</span>
@@ -25,6 +25,7 @@ const MoreInfoButton = () => {
       </div>
 
     </div> 
+     
 
   </>
 }
