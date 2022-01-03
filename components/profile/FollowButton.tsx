@@ -6,6 +6,9 @@ const FollowButton = (props: any) => {
     const {user, setUser} = useContext(UserContext)
 
     const {setStateChanged} = props
+    
+    const [followState, setFollowState] = useState(Boolean)
+
 
 
   return <>
