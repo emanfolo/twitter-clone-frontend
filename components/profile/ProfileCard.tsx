@@ -3,6 +3,7 @@ import { UserContext } from '../../pages/UserContext';
 import Router, { useRouter } from "next/router";
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from '../../types/Interfaces';
+import FollowButton from './FollowButton';
 
 interface Props {
   profile: Profile
@@ -12,9 +13,7 @@ const ProfileCard = (props: any) => {
 
   const {user, setUser} = useContext(UserContext)
 
-  const { profile } = props
-
-  console.log(props)
+  const { profile, setStateChanged } = props
 
   const profilePicture = profile.profile.image
   const profilePictureDisplay = () => {
@@ -23,9 +22,9 @@ const ProfileCard = (props: any) => {
 
   const followOrEdit = () => {
     if (user.userDetails.username == profile.username){
-      return 'Edit'
+      return <> <button> Edit</button></>
     } else {
-      return 'Follow'
+      return <> <FollowButton setStateChanged={setStateChanged}/> </>
     }
   }
 
@@ -49,9 +48,7 @@ const ProfileCard = (props: any) => {
                 @{profile.username}
               </div>
               <div className='followButton'>
-                <button>
                   {followOrEdit()}
-                </button>
               </div>
               
             </div>

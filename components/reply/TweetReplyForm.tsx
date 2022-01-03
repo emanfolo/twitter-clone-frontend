@@ -12,7 +12,6 @@ const TweetReplyForm = (props: any) => {
 
   const {tweetInfo, setStateChanged, toggleModalClass} = props
 
-  console.log(tweetInfo)
 
   const profilePicture = user.userDetails.profile.image
   const profilePictureDisplay = () => {
@@ -22,8 +21,6 @@ const TweetReplyForm = (props: any) => {
   const [tweetInput, setTweetInput] = useState(String)
   const [tweetButtonActive, setTweetButtonActive] = useState(Boolean)
   const [limit, setLimit] = useState(240)
-
-  console.log(tweetInfo)
 
 
 

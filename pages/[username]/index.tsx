@@ -17,7 +17,7 @@ const Profile = () => {
   const router = useRouter()
   const { username } = router.query
 
-  const [buttonToggle, setButtonToggle] = useState(String)
+  const [stateChanged, setStateChanged] = useState(String)
 
 
 
@@ -38,7 +38,7 @@ const Profile = () => {
   
     useEffect(() => {
       getProfile();
-      }, [username])
+      }, [stateChanged, username])
 
     
 
@@ -49,7 +49,7 @@ const Profile = () => {
     return (
     <>
       <div>
-        <ProfileCard profile={profile} />
+        <ProfileCard profile={profile} setStateChanged={setStateChanged}/>
       </div>
       <div>
         <FeedContainer />

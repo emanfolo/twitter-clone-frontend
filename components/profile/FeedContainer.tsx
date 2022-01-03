@@ -33,7 +33,6 @@ const FeedContainer = (props: any) => {
       }, [stateChanged]
   )
 
-  console.log(feed)
 
 
 
