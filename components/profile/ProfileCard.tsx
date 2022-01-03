@@ -19,12 +19,11 @@ const ProfileCard = (props: any) => {
   const profilePictureDisplay = () => {
     return profilePicture ? profilePicture : './DefaultImage.jpeg'
   }
-
   const followOrEdit = () => {
     if (user.userDetails.username == profile.username){
       return <> <button> Edit</button></>
     } else {
-      return <> <FollowButton setStateChanged={setStateChanged}/> </>
+      return <> <FollowButton profileFollowing={profile.following} profileFollowedBy={profile.followedBy} profileID={profile.id} setStateChanged={setStateChanged}/> </>
     }
   }
 
@@ -39,15 +38,11 @@ const ProfileCard = (props: any) => {
         </div>
         <div className='bottomHalf'>
             <div className='nameAndFollow'>
-              {/* <div className='profilePicture'>
-                <img src={profilePictureDisplay()}/>
-                
-              </div> */}
               <div className='name'>
                 <strong>{profile.name} <br/></strong>
                 @{profile.username}
               </div>
-              <div className='followButton'>
+              <div className='followOrEditButtonContainer'>
                   {followOrEdit()}
               </div>
               

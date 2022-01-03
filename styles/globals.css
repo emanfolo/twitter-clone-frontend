@@ -575,9 +575,19 @@ a {
   
 }
 
-.followButton {
+.followOrEditButtonContainer {
   /* width: 40%; */
   align-self: center;
+}
+
+.followButton {
+  background-color: black;
+  color: white;
+}
+
+.unfollowButton {
+  background-color: white;
+  color: black;
 }
 
 .bioAndFollowers {
@@ -602,6 +612,5 @@ a {
   font-size: 10pt;
   white-space: pre-wrap;
   margin-bottom: 5%;
-
 }
 

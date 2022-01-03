@@ -53,20 +53,24 @@ const TweetCard = (props: any) => {
   return (
   <> 
   <div className='tweetCard'>
-    {/* <pre>{JSON.stringify(tweetInfo, null, 2)}</pre>    */}
-      {retweetInfo ? <div className='retweetInfo' >{`${retweetInfo.user.name} Retweeted`}</div> : <></> }
+      {retweetInfo ?
+      <Link href={`/${retweetInfo.user.username}`}>
+         <div className='retweetInfo'>{`${retweetInfo.user.name} Retweeted`}</div> 
+      </Link> : <></> }
       <div className='userDetails'>
+         <>
         <Link href={profilePage}>
-          <>
           <div className='tweetCardImage'>
             <img src={profilePictureDisplay()} height={30} width={30} />
           </div>
+        </Link>
+        <Link href={profilePage}>
           <div className='nameAndTime'>
             <div>{tweetInfo.user.name} </div>@{tweetInfo.user.username}
             <TimeAgo datetime={props.tweetInfo.createdAt}/>
           </div>
-          </>
         </Link>
+        </>
       </div>
       <div className='tweetCardContents' >
         {contentsParser(tweetInfo)}

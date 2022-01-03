@@ -50,12 +50,16 @@ const TweetCard = (props: any) => {
     return profilePicture ? profilePicture : './DefaultImage.jpeg'
   }
 
+  console.log(retweetInfo)
   
 
   return (
   <> 
   <div className='tweetCard'>
-      {retweetInfo ? <div className='retweetInfo'>{`${retweetInfo.user.name} Retweeted`}</div> : <></> }
+    {retweetInfo ?
+      <Link href={`/${retweetInfo.user.username}`}>
+         <div className='retweetInfo'>{`${retweetInfo.user.name} Retweeted`}</div> 
+      </Link> : <></> }
       <div className='userDetails'>
         
           <>
