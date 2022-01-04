@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useContext} from 'react'
 import { UserContext } from '../UserContext'
+import { useRouter } from "next/router";
 
 
 const CreateUser = () => {
+
+  const router = useRouter()
 
   const {user, setUser} = useContext(UserContext)
 
@@ -48,6 +51,7 @@ const CreateUser = () => {
       })
       const result = await response.json()
       setUser(result)
+      router.push('/user/createprofile')
   };
 }
 

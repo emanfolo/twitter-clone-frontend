@@ -23,7 +23,7 @@ const Home = () => {
     return (
   <>
     <div className='HomeHeading'>
-      <h2>Home</h2>
+      <h2>Home </h2>
     </div>
       <TweetBox tweetInput={tweetInput} 
       setTweetInput={setTweetInput} 
