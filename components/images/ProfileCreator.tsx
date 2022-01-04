@@ -25,7 +25,7 @@ const ProfileCreator = (props: any) => {
   }
 
   const storeURL = async (type: string, imageURL: string) => {
-    const apiURL = `'http://localhost:4000/profile/image/${type}'`
+    const apiURL = `http://localhost:4000/profile/image/${type}`
     const authToken = user.accessToken
     const response = await fetch(apiURL, {
       method: 'POST',
@@ -34,7 +34,7 @@ const ProfileCreator = (props: any) => {
         "Authorization": `Bearer ${authToken}`
       },
       body: JSON.stringify( {
-      type: imageURL,
+      image: imageURL,
       })
     })
     console.log(response)
@@ -55,6 +55,19 @@ const ProfileCreator = (props: any) => {
   }
 
   const createProfile = async () => {
+    const apiURL = 'http://localhost:4000/profile/bio'
+    const authToken = user.accessToken
+    const response = await fetch(apiURL, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`
+      },
+      body: JSON.stringify({
+      bio: bio,
+      })
+    })
+    console.log(response)
     router.push('/explore')
   }
 
