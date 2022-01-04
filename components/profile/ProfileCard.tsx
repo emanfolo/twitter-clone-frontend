@@ -4,6 +4,7 @@ import Router, { useRouter } from "next/router";
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from '../../types/Interfaces';
 import FollowButton from './FollowButton';
+import EditProfileButton from './EditProfileButton';
 
 interface Props {
   profile: Profile
@@ -21,7 +22,7 @@ const ProfileCard = (props: any) => {
   }
   const followOrEdit = () => {
     if (user.userDetails.username == profile.username){
-      return <> <button> Edit</button></>
+      return <> <EditProfileButton /> </>
     } else {
       return <> <FollowButton profileFollowing={profile.following} profileFollowedBy={profile.followedBy} profileID={profile.id} setStateChanged={setStateChanged}/> </>
     }
