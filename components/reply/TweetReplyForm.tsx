@@ -17,8 +17,8 @@ const TweetReplyForm = (props: any) => {
 
 const profilePictureDisplay = () => {
   if(user){
-    const profilePicture = user.userDetails
-    return profilePicture ? profilePicture.profile.image : './DefaultImage.jpeg'
+    const profilePicture = user.profile
+    return profilePicture ? profilePicture.image : './DefaultImage.jpeg'
   } else {
     return './DefaultImage.jpeg'
     // router.push('/login')

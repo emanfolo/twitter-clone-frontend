@@ -51,7 +51,6 @@ const SearchResults = () => {
     )
   });
     return <> 
-    <SearchBar/>
     {tweetsDisplay} 
     </>
   } else if (loading){

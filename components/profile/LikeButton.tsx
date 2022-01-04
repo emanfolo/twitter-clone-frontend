@@ -30,7 +30,7 @@ const LikeButton = (props: Props) => {
     if (user){
       const retrieveLikeState = () => {
 
-        if (likes.find(like => like.userID == user.userDetails.id) == undefined){
+        if (likes.find(like => like.userID == user.id) == undefined){
           setLikedState(false)
         } else {
           setLikedState(true)

@@ -51,7 +51,6 @@ const HashtagSearch = () => {
 
   return (
   <>
-    <SearchBar/>
     <div>{tweetsDisplay}</div>
   </>
   ); 

@@ -16,6 +16,7 @@ export interface Profile {
   image?: string;
   header_image?: string;
   bio?: string;
+  user: User;
 }
 
 export interface Hashtag {

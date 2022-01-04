@@ -24,7 +24,7 @@ const RetweetButton = (props: Props) => {
 
   const retrieveRetweetState = () => {
 
-    if (retweets.find(retweet => retweet.userID == user.userDetails.id) == undefined){
+    if (retweets.find(retweet => retweet.userID == user.id) == undefined){
       setRetweetedState(false)
     } else {
       setRetweetedState(true)

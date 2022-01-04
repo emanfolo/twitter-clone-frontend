@@ -18,27 +18,39 @@ a {
 }
 
 .middle{
-  border-bottom: 1px solid;
+  /* border-top: 1px solid; */
+  /* border-bottom: 1px solid; */
   border-left: 1px solid;
   border-right: 1px solid;
   border-color: #aab8c2;
   width: 42%;
+  margin-left: 25%;
 }
 
 .leftSide{
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
   border-left: 1px solid;
   border-color: #aab8c2;
   width: 25%;
+  overflow: auto;
+  max-height: 100vh;
+  position: fixed;
+  float: left;
 }
 
 .rightSide{
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
   border-right: 1px solid;
   border-color: #aab8c2;
   width: 33%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: fixed;
+  overflow: auto;
+  max-height: 100vh;
+  margin-left: 67%;
+  float: right;
   
 }
 
@@ -217,14 +229,17 @@ a {
   font-size: 150%;
   text-align: center;
   margin: 5%;
+}
 
+.trendingContainer {
+  margin: 5%;
 }
 
 .trending{
   display: flex;
   overflow: hidden;
 
-  align-items: center;
+  /* align-items: center; */
   cursor: pointer;
   
   border-radius: 30px;
@@ -286,6 +301,32 @@ a {
   border-radius: 50%;
   margin-left: 10%;
 
+}
+
+.accountsContainer {
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  /* margin-left: 1%;
+  margin-right: 5%; */
+  cursor: pointer;
+}
+
+.accountsContainer > div {
+  width: 250px;
+  height: 30%;
+  border: solid 3px #e8f5fe;
+  border-radius: 10%;
+  overflow: hidden;
+}
+
+.accountsContainer > :hover {
+  width: 250px;
+  height: 30%;
+  border: solid 3px #50b7f5;
 }
 
 .tweetCard {
@@ -648,6 +689,7 @@ a {
   justify-content: space-between;
   margin-left: 4%;
   margin-right: 4%;
+  margin-top: 2%;
 }
 
 .name  {
@@ -684,6 +726,7 @@ a {
 }
 
 .bioAndFollowers > .bio {
+  margin-top: 1%;
   width: 100%;
   min-height: 15%;
   font-size: 10pt;
@@ -695,7 +738,7 @@ a {
   display: flex;
   flex-direction: row;
   font-size: 10pt;
-  white-space: pre-wrap;
   margin-bottom: 5%;
+  gap: 4px;
 }
 

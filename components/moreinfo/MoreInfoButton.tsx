@@ -10,7 +10,7 @@ const MoreInfoButton = (props: any) => {
   const [modalOpen, setModalOpen] = useState(false)
 
   const {tweetCreatorID, tweetID, setStateChanged, stateChanged, following, followedBy} = props
-  const currentUserID = user.userDetails.id
+  const currentUserID = user.id
 
   const toggleModalClass = () => {
     modalOpen ? setModalOpen(false) : setModalOpen(true)

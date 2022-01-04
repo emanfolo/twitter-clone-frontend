@@ -1,10 +1,7 @@
 import { useContext, useState} from 'react'
 import { UserContext } from '../UserContext'
 import Router, { useRouter } from "next/router";
-import SearchBar from '../../components/explore/SearchBar';
-
-import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
-import Trending from '../../components/explore/Trending';
+import AccountsToFollow from '../../components/explore/AccountsToFollow';
 
 
 const Explore = () => {
@@ -28,8 +25,7 @@ const Explore = () => {
 
   return (
   <>
-    <SearchBar />
-    <Trending />
+    <AccountsToFollow />
   </>
   ); 
 };

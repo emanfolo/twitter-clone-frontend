@@ -46,7 +46,7 @@ const TweetBox = (props:any) => {
     setStateChanged(`new tweet${json.id}`)
   }
 
-  const profilePicture = user.userDetails.profile.image
+  const profilePicture = user.profile.image
 
   const displayProfilePicture = () => { return profilePicture ? profilePicture : './DefaultImage.jpeg'}
 

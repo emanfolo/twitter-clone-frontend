@@ -38,7 +38,9 @@ if (trending){
   <div className="trendingHeader">
     Trending topics
   </div>
-  {trendingDisplay}
+  <div className="trendingContainer">
+    {trendingDisplay}
+  </div>
   </>
 } else if(loading){
   return <> Loading...</>

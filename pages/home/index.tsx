@@ -5,6 +5,7 @@ import FeedContainer from '../../components/home/FeedContainer';
 import TweetBox from '../../components/home/TweetBox';
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet } from "../../types/Interfaces";
+import LogIn from '../user/login';
 
 
 
@@ -43,7 +44,7 @@ const Home = () => {
   </>
   ); 
   } else {
-    return <> Please log in or sign up</>
+    return <> <LogIn /></>
   }
     
 }

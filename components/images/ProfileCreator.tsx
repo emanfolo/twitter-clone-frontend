@@ -41,7 +41,7 @@ const ProfileCreator = (props: any) => {
   }
 
   const handleUpload = async (file: any, type: string) => {
-    const username = user.userDetails.username
+    const username = user.username
     const filename = type == "profile" ? `${username}-profile-picture` : `${username}-header-picture`
     if (file){
       try {
