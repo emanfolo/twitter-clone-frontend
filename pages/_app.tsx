@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps}: AppProps) {
 
   return (
   <UserContext.Provider value={{ user, setUser }}>
-      <Layout>
+      <Layout >
         <Component {...pageProps} />
       </Layout>
    </UserContext.Provider>

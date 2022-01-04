@@ -1,32 +1,31 @@
 import Link from "next/link";
 import { UserContext } from "../pages/UserContext";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useContext } from "react";
 import Sidebar from './sidebar/Sidebar'
 
-import dynamic from 'next/dynamic'
-
-const DynamicSiderbarWithNoSSR = dynamic(
-  () => import('../components/sidebar/Sidebar'),
-  {ssr: false}
-)
+import { useRouter } from "next/router";
+import Trending from "./explore/Trending";
 
 
-const Layout = ({children}: any) => {
+const Layout = ({children}: any, props: any) => {
 
+  const router = useRouter()
 
   return ( 
   <> 
   <div className="LayoutDiv" >
   <div style={{}} className="leftSide">
-    {/* <DynamicSiderbarWithNoSSR /> */}
     <Sidebar />
   </div>
   
   <div className="middle" >
     { children }
   </div>
-
-  <div className="rightSide" > Right Sided Content</div>
+  
+  <div className="rightSide" >
+    <Trending />
+  </div>
+    
   </div>
   
   </> 
