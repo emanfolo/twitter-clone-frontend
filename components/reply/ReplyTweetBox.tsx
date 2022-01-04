@@ -58,10 +58,6 @@ const ReplyTweetBox = (props:any) => {
     toggleModalClass() 
   }
 
-  const profilePicture = user.userDetails.profile.image
-
-  const displayProfilePicture = () => { return profilePicture ? profilePicture : './DefaultImage.jpeg'}
-
   return (
     <>
     <div className="wrapper">

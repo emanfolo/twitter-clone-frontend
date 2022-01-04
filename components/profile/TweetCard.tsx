@@ -22,6 +22,8 @@ import MoreInfoButton from '../moreinfo/MoreInfoButton';
 
 const TweetCard = (props: any) => {
 
+  const {user} = useContext(UserContext)
+
   const router = useRouter()
 
   const linkProps = {
@@ -48,8 +50,6 @@ const TweetCard = (props: any) => {
   const profilePictureDisplay = () => {
     return profilePicture ? profilePicture : './DefaultImage.jpeg'
   }
-
-  console.log(props)
 
 
   return (
@@ -81,8 +81,7 @@ const TweetCard = (props: any) => {
         <ReplyButton tweetInfo={tweetInfo} setStateChanged={setStateChanged}/>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
-        <MoreInfoButton followedBy={tweetInfo.user.followedBy} following={tweetInfo.user.following} tweetID={tweetInfo.id} tweetCreatorID={tweetInfo.user.id} setStateChanged={setStateChanged} stateChanged={stateChanged}/>
-      </div>
+        {user ? <MoreInfoButton followedBy={tweetInfo.user.followedBy} following={tweetInfo.user.following} tweetID={tweetInfo.id} tweetCreatorID={tweetInfo.user.id} setStateChanged={setStateChanged} /> : <> </> }       </div>
   </div>
   </>
   )

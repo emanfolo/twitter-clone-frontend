@@ -5,17 +5,24 @@ import { UserContext } from "../../pages/UserContext"
 import { useContext, useState } from "react"
 import ReplyTweetBox from "./ReplyTweetBox"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 const TweetReplyForm = (props: any) => {
+
+  const router = useRouter()
 
   const {user, setUser} = useContext(UserContext)
 
   const {tweetInfo, setStateChanged, toggleModalClass} = props
 
-
-  const profilePicture = user.userDetails.profile.image
-  const profilePictureDisplay = () => {
-    return profilePicture ? profilePicture : './DefaultImage.jpeg'
+const profilePictureDisplay = () => {
+  if(user){
+    const profilePicture = user.userDetails
+    return profilePicture ? profilePicture.profile.image : './DefaultImage.jpeg'
+  } else {
+    return './DefaultImage.jpeg'
+    // router.push('/login')
+  } 
   }
 
   const [tweetInput, setTweetInput] = useState(String)

@@ -19,7 +19,7 @@ const MoreInfoButton = (props: any) => {
   const useModalClass = () => {
     return modalOpen ? "moreInfoModalOpen" : "moreInfoModalClosed"
   }
-
+  
   const displayDeleteOrFollowButton = () => {
     return tweetCreatorID == currentUserID ? 
     <DeleteTweetButton tweetID={tweetID} setStateChanged={setStateChanged} /> 

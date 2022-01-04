@@ -15,7 +15,7 @@ const MiniFollowButton = (props: any) => {
     const [followState, setFollowState] = useState(Boolean)
 
     const currentUserID = user.userDetails.id
-    
+
     if (user){
       const retrieveFollowState = () => {
         if (followedBy.find((element: { id: any }) => element.id == currentUserID) == undefined){
