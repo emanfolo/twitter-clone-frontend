@@ -8,29 +8,56 @@ const NotificationCard = (props: any) => {
 
   const typeOfNotif = data.type.toLowerCase()
 
+  // if (typeOfNotif == "follow"){
+
+  // }
   const notificationInfo = data[typeOfNotif]
 
-  console.log(data)
+  // console.log(data)
+  console.log(notificationInfo)
 
+  const iconDisplay = () => {
+    return typeOfNotif == 'retweet' ? <> R Icon </> : typeOfNotif == 'like' ? <> L Icon</> : <> F Icon </>
+  }
+
+  const dataSource = () => {
+    return typeOfNotif == 'follow' ? notificationInfo : notificationInfo.user
+  }
+
+  const link = () => {
+    return typeOfNotif == 'follow' ? `/${notificationInfo.username}` : `/tweet/${notificationInfo.tweet.id}`
+  }
+
+  const headerDisplay = () => {
+    return typeOfNotif == 'follow' ? 'followed you' : typeOfNotif == 'retweet' ? 'retweeted your tweet' : 'liked your tweet'
+  }
+
+  const contents = () => {
+    return typeOfNotif == 'follow' ? <> <div>Profile</div></> : <> {notificationInfo.tweet.contents}</>
+  }
+
+  const contentsClassName = () => {
+    return typeOfNotif == 'follow' ? 'contentFollow' : 'content'
+  }
 
   return <>
   
   <div className="notificationCard">
-    { typeOfNotif == 'retweet' ? <> R Icon </> : <> L Icon</> }
-    <Link href={`/${notificationInfo.user.username}`}>
-          <img src={notificationInfo.user.profile.image}></img>
+    {iconDisplay()}
+    <Link href={`/${dataSource().username}`}>
+          <img src={dataSource().profile.image}></img>
     </Link>
       <div className="headline">
-        <Link href={`/${notificationInfo.user.username}`}>
-          <div> {`${notificationInfo.user.name}`} </div> 
+        <Link href={`/${dataSource().username}`}>
+          <div> {`${dataSource().name}`} </div> 
         </Link>
-        <Link href={`/tweet/${notificationInfo.tweet.id}`}>
-        { typeOfNotif == 'retweet' ? `${typeOfNotif}ed your tweet` : `${typeOfNotif}d your tweet` }
+        <Link href={link()}>
+          {headerDisplay()}
         </Link>
       </div>
-    <Link href={`/tweet/${notificationInfo.tweet.id}`}>
-    <div className="content">
-      {notificationInfo.tweet.contents}
+    <Link href={link()}>
+    <div className={contentsClassName()}>
+      {contents()}
     </div>
     </Link>
   </div>
