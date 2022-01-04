@@ -1,8 +1,14 @@
 import { useState } from "react"
+import { UserContext } from '../../pages/UserContext'
+import { useContext } from 'react'
 
-const MoreInfoButton = () => {
+const MoreInfoButton = (props: any) => {
 
+  const {user} = useContext(UserContext)
   const [modalOpen, setModalOpen] = useState(false)
+
+  const {tweetCreatorID} = props
+  const currentUserID = user.userDetails.id
 
   const toggleModalClass = () => {
     modalOpen ? setModalOpen(false) : setModalOpen(true)
@@ -12,19 +18,20 @@ const MoreInfoButton = () => {
     return modalOpen ? "moreInfoModalOpen" : "moreInfoModalClosed"
   }
 
+  console.log(tweetCreatorID)
+  console.log(currentUserID)
+
+  const displayDeleteOrFollowButton = () => {
+    return tweetCreatorID == currentUserID ? <button> Delete Tweet</button> : <button> Follow/Unfollow </button>
+  }
+
   return <>
-
-    <button id="moreInfoButton" onClick={(()=> toggleModalClass())}> ... </button>
-
-
-    <div id="myMoreInfoModal" className={useModalClass()}> 
-
-      <div className="moreInfoModalContent">
-        <span onClick={(()=> {toggleModalClass()})} className="close">&times;</span>
-        <p>Some text in the Modal..</p>
+    <div className="dropdown">
+      <button className="dropbtn">...</button>
+      <div className="dropdown-content">
+        {displayDeleteOrFollowButton()}
       </div>
-
-    </div> 
+    </div>
      
 
   </>

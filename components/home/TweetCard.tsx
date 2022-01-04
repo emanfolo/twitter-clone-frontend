@@ -84,7 +84,7 @@ const TweetCard = (props: any) => {
         <ReplyButton tweetInfo={tweetInfo} setStateChanged={setStateChanged}/>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
-        <MoreInfoButton />
+        <MoreInfoButton tweetCreatorID={tweetInfo.user.id}/>
       </div>
   </div>
   </>
