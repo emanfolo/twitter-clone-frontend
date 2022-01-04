@@ -2,18 +2,12 @@ import Link from "next/link"
 
 const NotificationCard = (props: any) => {
 
-  // console.log(props)
-
   const { data } = props
 
   const typeOfNotif = data.type.toLowerCase()
 
-  // if (typeOfNotif == "follow"){
-
-  // }
   const notificationInfo = data[typeOfNotif]
 
-  // console.log(data)
   console.log(notificationInfo)
 
   const iconDisplay = () => {

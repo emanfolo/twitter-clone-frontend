@@ -48,10 +48,7 @@ const TweetCard = (props: any) => {
   const profilePicture = tweetInfo.user.profile.image
   const profilePictureDisplay = () => {
     return profilePicture ? profilePicture : './DefaultImage.jpeg'
-  }
-
-  console.log(retweetInfo)
-  
+  }  
 
   return (
   <> 
@@ -84,7 +81,7 @@ const TweetCard = (props: any) => {
         <ReplyButton tweetInfo={tweetInfo} setStateChanged={setStateChanged}/>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
-        <MoreInfoButton tweetCreatorID={tweetInfo.user.id}/>
+        <MoreInfoButton tweetID={tweetInfo.id} tweetCreatorID={tweetInfo.user.id} setStateChanged={setStateChanged}/>
       </div>
   </div>
   </>

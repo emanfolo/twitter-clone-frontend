@@ -272,8 +272,12 @@ a {
 
 .notificationCard .content {
   margin-left: 10%;
-
 }
+
+.notificationCard .contentFollow {
+  margin-left: 10%;
+}
+
 
 .notificationCard > img {
   margin-top: 2%;

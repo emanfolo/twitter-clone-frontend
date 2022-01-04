@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
+import DeleteTweetButton from "./DeleteTweetButton"
 
 const MoreInfoButton = (props: any) => {
 
   const {user} = useContext(UserContext)
   const [modalOpen, setModalOpen] = useState(false)
 
-  const {tweetCreatorID} = props
+  const {tweetCreatorID, tweetID, setStateChanged} = props
   const currentUserID = user.userDetails.id
 
   const toggleModalClass = () => {
@@ -18,11 +19,11 @@ const MoreInfoButton = (props: any) => {
     return modalOpen ? "moreInfoModalOpen" : "moreInfoModalClosed"
   }
 
-  console.log(tweetCreatorID)
-  console.log(currentUserID)
-
   const displayDeleteOrFollowButton = () => {
-    return tweetCreatorID == currentUserID ? <button> Delete Tweet</button> : <button> Follow/Unfollow </button>
+    return tweetCreatorID == currentUserID ? 
+    <DeleteTweetButton tweetID={tweetID} setStateChanged={setStateChanged} /> 
+    : 
+    <button> Follow/Unfollow </button>
   }
 
   return <>
