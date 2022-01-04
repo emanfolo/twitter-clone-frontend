@@ -71,9 +71,12 @@ const ProfileCreator = (props: any) => {
     router.push('/explore')
   }
 
+  console.log(user)
+
+
   return <>
     <div style={{display: 'flex', flexDirection: 'column', margin:'5%', gap:'10px'}} >
-    <div> Create your profile </div>
+    <div> Edit your profile </div>
     <input type="file" onChange={handleProfileImageInput} ></input>
     <input type="file" onChange={handleHeaderImageInput} ></input>
     <textarea placeholder="Enter a bio" value={bio} onChange={(e)=> {setBio(e.target.value)}} />

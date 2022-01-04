@@ -3,5 +3,5 @@ export const s3Config = {
         region: 'eu-west-2',
         accessKeyId:'AKIA4MR4FJPEM6B3LTFE',
         secretAccessKey: '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',
-        s3Url: 'https://twitter-clone-image-storage.s3.eu-west-2.amazonaws.com/'     /* Optional */
+        s3Url: 'https://twitter-clone-image-storage.s3.eu-west-2.amazonaws.com'     /* Optional */
     }

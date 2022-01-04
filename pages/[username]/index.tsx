@@ -42,7 +42,7 @@ const Profile = () => {
 
     
 
-
+  console.log(profile)
   // Find out if a user is on their own profile page, and change the follow or edit display based on that
 
   if(profile){
