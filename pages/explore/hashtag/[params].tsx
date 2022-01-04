@@ -10,6 +10,8 @@ import SearchBar from '../../../components/explore/SearchBar';
 const HashtagSearch = () => {
 
   const [hashtagTweets, setHashtagTweets ] = useState<Array<Tweet>>([])
+  const [stateChanged, setStateChanged] = useState(String)
+
 
   const router = useRouter()
   const { params } = router.query
@@ -27,13 +29,18 @@ const HashtagSearch = () => {
 
   useEffect(() => {
     tweetsByHashtag();
-    }, [params])
+    }, [stateChanged, params])
 
    const tweetsDisplay = hashtagTweets.map((data:any) => {
     if(data.type == "Tweet"){
       const key = `tweet-${data.id}`
     return (
-        <TweetCard key={key} tweetInfo={data.tweet} />
+        <TweetCard 
+        key={key} 
+        tweetInfo={data.tweet}
+        setStateChanged={setStateChanged}
+        stateChanged={stateChanged}
+        />
     )
     }
     
