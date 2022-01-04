@@ -40,7 +40,7 @@ if (feed.length > 0){
 
     const key = `tweet-${data.id}`
     return (
-        <TweetCard  key={key} tweetInfo={data.tweet} retweetInfo={data.retweet} setStateChanged={setStateChanged}/>
+        <TweetCard key={key} tweetInfo={data.tweet} retweetInfo={data.retweet} setStateChanged={setStateChanged}/>
     )
   });
 

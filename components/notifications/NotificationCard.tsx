@@ -8,8 +8,6 @@ const NotificationCard = (props: any) => {
 
   const notificationInfo = data[typeOfNotif]
 
-  console.log(notificationInfo)
-
   const iconDisplay = () => {
     return typeOfNotif == 'retweet' ? <> R Icon </> : typeOfNotif == 'like' ? <> L Icon</> : <> F Icon </>
   }

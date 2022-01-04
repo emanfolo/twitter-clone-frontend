@@ -41,18 +41,14 @@ const Profile = () => {
       }, [stateChanged, username])
 
     
-
-  console.log(profile)
-  // Find out if a user is on their own profile page, and change the follow or edit display based on that
-
   if(profile){
     return (
     <>
       <div>
-        <ProfileCard profile={profile} setStateChanged={setStateChanged}/>
+        <ProfileCard profile={profile} setStateChanged={setStateChanged} stateChanged={stateChanged}/>
       </div>
       <div>
-        <FeedContainer />
+        <FeedContainer setStateChanged={setStateChanged} stateChanged={stateChanged} />
       </div>
     </>
     ); 

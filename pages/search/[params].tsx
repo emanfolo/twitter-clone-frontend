@@ -31,12 +31,8 @@ const SearchResults = () => {
 
   useEffect(() => {
       getSearchResults()
-      }, [params]
-  )
-
-  console.log(searchResult)
-
-  
+      }, [params, stateChanged]
+  )  
 
 
   if (searchResult.length > 0){
@@ -50,6 +46,7 @@ const SearchResults = () => {
         tweetInfo={data.tweet}
         retweetInfo={data.retweet}
         setStateChanged={setStateChanged}
+        stateChanged={stateChanged}
         />
     )
   });

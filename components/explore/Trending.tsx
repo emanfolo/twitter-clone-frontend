@@ -28,7 +28,6 @@ if (trending){
 
   const trendingDisplay = trendingTopics.map((data: any) => {
     let key = data
-    console.log(key)
     return <> 
     <TrendingCard key={key} data={data}/>
     </>

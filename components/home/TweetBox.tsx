@@ -2,13 +2,6 @@ import React from 'react'
 import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
 
-// interface Props {
-  
-// }
-
-
-
-
 
 const TweetBox = (props:any) => {
 

@@ -4,29 +4,31 @@ import { useRouter } from "next/router"
 
 const MiniFollowButton = (props: any) => {
 
+    const {following, followedBy, tweetCreatorID } = props
+
     const router = useRouter()
 
     const {user} = useContext(UserContext)
 
-    const {setStateChanged, profileID, profileFollowing, profileFollowedBy} = props
+    const {setStateChanged, stateChanged} = props
     
     const [followState, setFollowState] = useState(Boolean)
 
     const currentUserID = user.userDetails.id
-
+    
     if (user){
-      const retrieveLikeState = () => {
-        if (profileFollowedBy.find((element: { id: any }) => element.id == currentUserID) == undefined){
+      const retrieveFollowState = () => {
+        if (followedBy.find((element: { id: any }) => element.id == currentUserID) == undefined){
           setFollowState(false)
         } else {
           setFollowState(true)
         }
       }
       useEffect(() => {
-      retrieveLikeState(), [user]
+      console.log('resetting follow state')
+      retrieveFollowState(), [stateChanged]
     })
     }
-
     
 
     const toggleFollow = async () => {
@@ -40,7 +42,7 @@ const MiniFollowButton = (props: any) => {
               "Authorization": `Bearer ${authToken}`
             },
           body: JSON.stringify( {
-              followRecipient: profileID
+              followRecipient: tweetCreatorID
           })
         });
         setStateChanged('Followed')
@@ -54,7 +56,7 @@ const MiniFollowButton = (props: any) => {
               "Authorization": `Bearer ${authToken}`
             },
           body: JSON.stringify( {
-              followRecipient: profileID
+              followRecipient: tweetCreatorID
           })
         });
         setStateChanged('Unfollowed')
@@ -69,11 +71,11 @@ const MiniFollowButton = (props: any) => {
 
   return <>
     {followState ? 
-    <button className="unfollowButton" onClick={(() => toggleFollow())}>
+    <button className="miniUnfollowButton" onClick={(() => toggleFollow())}>
       Unfollow
     </button> 
     :
-    <button className="followButton" onClick={(() => toggleFollow())}>
+    <button className="miniFollowButton" onClick={(() => toggleFollow())}>
       Follow
     </button>
     }

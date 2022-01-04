@@ -40,7 +40,7 @@ const TweetCard = (props: any) => {
   }
 }
 
-  const {tweetInfo, retweetInfo, setStateChanged}  = props
+  const {tweetInfo, retweetInfo, setStateChanged, stateChanged}  = props
   
 
   const profilePage = `http://localhost:3000/${tweetInfo.user.username}`
@@ -48,6 +48,8 @@ const TweetCard = (props: any) => {
   const profilePictureDisplay = () => {
     return profilePicture ? profilePicture : './DefaultImage.jpeg'
   }
+
+  console.log(props)
 
 
   return (
@@ -79,7 +81,7 @@ const TweetCard = (props: any) => {
         <ReplyButton tweetInfo={tweetInfo} setStateChanged={setStateChanged}/>
         <RetweetButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} retweets={tweetInfo.retweets} setStateChanged={setStateChanged} />
         <LikeButton tweetID={tweetInfo.id} notificationRecipient={tweetInfo.user.id} likes={tweetInfo.likes} setStateChanged={setStateChanged} />
-        <MoreInfoButton tweetCreatorID={tweetInfo.user.id}/>
+        <MoreInfoButton followedBy={tweetInfo.user.followedBy} following={tweetInfo.user.following} tweetID={tweetInfo.id} tweetCreatorID={tweetInfo.user.id} setStateChanged={setStateChanged} stateChanged={stateChanged}/>
       </div>
   </div>
   </>

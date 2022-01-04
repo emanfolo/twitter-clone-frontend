@@ -14,7 +14,7 @@ const ProfileCard = (props: any) => {
 
   const {user, setUser} = useContext(UserContext)
 
-  const { profile, setStateChanged } = props
+  const { profile, setStateChanged, stateChanged } = props
 
   const profilePicture = profile.profile.image
   const profilePictureDisplay = () => {
@@ -24,7 +24,7 @@ const ProfileCard = (props: any) => {
     if (user.userDetails.username == profile.username){
       return <> <EditProfileButton /> </>
     } else {
-      return <> <FollowButton profileFollowing={profile.following} profileFollowedBy={profile.followedBy} profileID={profile.id} setStateChanged={setStateChanged}/> </>
+      return <> <FollowButton profileFollowing={profile.following} profileFollowedBy={profile.followedBy} profileID={profile.id} setStateChanged={setStateChanged} stateChanged={stateChanged}/> </>
     }
   }
 

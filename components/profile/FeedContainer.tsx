@@ -9,10 +9,10 @@ const FeedContainer = (props: any) => {
 
   const [feed, setFeed] = useState(Array)
 
-  const [stateChanged, setStateChanged] = useState(String)
-
   const router = useRouter()
   const { username } = router.query
+
+  const {stateChanged, setStateChanged} = props
 
     
     const getFeed = async () => {
@@ -33,9 +33,6 @@ const FeedContainer = (props: any) => {
       }, [stateChanged]
   )
 
-
-
-
 if (feed.length > 0){
   const tweetsDisplay = feed.map((data:any) => {
 
@@ -46,6 +43,7 @@ if (feed.length > 0){
         tweetInfo={data.tweet}
         retweetInfo={data.retweet}
         setStateChanged={setStateChanged}
+        stateChanged={stateChanged}
         />
     )
   });

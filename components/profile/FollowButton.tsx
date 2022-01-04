@@ -8,14 +8,14 @@ const FollowButton = (props: any) => {
 
     const {user} = useContext(UserContext)
 
-    const {setStateChanged, profileID, profileFollowing, profileFollowedBy} = props
+    const {setStateChanged, profileID, profileFollowing, profileFollowedBy, stateChanged} = props
     
     const [followState, setFollowState] = useState(Boolean)
 
     const currentUserID = user.userDetails.id
 
     if (user){
-      const retrieveLikeState = () => {
+      const retrieveFollowState = () => {
         if (profileFollowedBy.find((element: { id: any }) => element.id == currentUserID) == undefined){
           setFollowState(false)
         } else {
@@ -23,7 +23,7 @@ const FollowButton = (props: any) => {
         }
       }
       useEffect(() => {
-      retrieveLikeState(), [user]
+      retrieveFollowState(), [user, stateChanged]
     })
     }
 

@@ -71,9 +71,6 @@ const ProfileCreator = (props: any) => {
     router.push('/explore')
   }
 
-  console.log(user)
-
-
   return <>
     <div style={{display: 'flex', flexDirection: 'column', margin:'5%', gap:'10px'}} >
     <div> Edit your profile </div>

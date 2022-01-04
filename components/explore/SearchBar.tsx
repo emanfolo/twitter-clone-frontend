@@ -4,7 +4,6 @@ import Router, { useRouter } from "next/router";
 const SearchBar = () => {
 
     const [searchInput, setSearchInput] = useState(String)
-  console.log(searchInput)
 
   const router = useRouter()
 
