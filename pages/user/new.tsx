@@ -15,19 +15,34 @@ const CreateUser = () => {
   const [usernameInputState, setUsernameInputState] = useState("");
   const [nameInputState, setNameInputState] = useState("");
   const [passwordInputState, setPasswordInputState] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const toggleModalClass = () => {
+    modalOpen ? setModalOpen(false) : setModalOpen(true)
+  }
+
+  const useModalClass = () => {
+    return modalOpen ? "errorModalOpen" : "errorModalClosed"
+  }
 
   const checkInputs = () => {
    if (!emailInputState.includes('@') || emailInputState.length < 5){
-      console.log('Invalid params, please enter in your full details')
+      setErrorMessage('Invalid params, please enter in a valid email address')
+      toggleModalClass()
       return false
     } else if (passwordInputState.length < 8){
-      console.log('Invalid params, please enter in your full details')
+      setErrorMessage('Invalid params, your password must be at least 8 characters')
+      toggleModalClass()
       return false
     } else if (usernameInputState.length < 4) {
-      console.log('Invalid params, please enter in your full details')
+      setErrorMessage('Invalid params, your username must be at least 4 characters')
+      toggleModalClass()
       return false
     } else if (nameInputState.length < 1){
-      console.log('Invalid params, please enter in your full details')
+      setErrorMessage('Invalid params, please enter in a valid name')
+      toggleModalClass()
       return false
     } else {
       return true
@@ -55,54 +70,81 @@ const CreateUser = () => {
   };
 }
 
-// testingauth@gmail.com
-// password
 
   return (
     <>
-      Sign up page
-      <div>
+      <div className="logInHeader">
+        <h2>Please enter in your details below</h2>
+      </div>
+      
+      <div className="logInForm">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             sendParams();
           }}
         >
-          <label>
-            Email:
+          <div className="logInInputDiv"> 
             <input
               onChange={(e) => {
                 setEmailInputState(e.target.value);
               }}
+              value={emailInputState}
+              placeholder="Email"
             />
-          </label>
-          <label>
-            Username:
-            <input
-              onChange={(e) => {
-                setUsernameInputState(e.target.value);
-              }}
-            />
-          </label>
-          <label>
-            Password:
+          </div>
+          <div className="logInInputDiv" >
             <input
               onChange={(e) => {
                 setPasswordInputState(e.target.value);
               }}
+              value={passwordInputState}
+              placeholder="Password"
+              type={"password"}
             />
-          </label>
-          <label>
-            Name:
+          </div>
+          <div className="logInInputDiv" >
+            <input
+              onChange={(e) => {
+                setUsernameInputState(e.target.value);
+              }}
+              value={usernameInputState}
+              placeholder="Username"
+            />
+          </div>
+          <div className="logInInputDiv" >
             <input
               onChange={(e) => {
                 setNameInputState(e.target.value);
               }}
+              value={nameInputState}
+              placeholder="Name"
             />
-          </label>
-          <button type="submit">Register</button>
+          </div>
+          <div className="logInButton" >
+            <button type="submit">Register</button>
+          </div>
         </form>
       </div>
+
+      <div id="myModal" className={useModalClass()}> 
+
+      <div className="errorModal">
+        <div className="errorModalContent">
+          <h2>
+            Error:
+          </h2>
+          <div>
+            {errorMessage}
+          </div>
+          <div className="okayContainer">
+              <div onClick={(()=> {toggleModalClass()})} className="okay">Okay</div>
+          </div>
+          
+        </div>
+      </div>
+
+    </div> 
     </>
   );
 };

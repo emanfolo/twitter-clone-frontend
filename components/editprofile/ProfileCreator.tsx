@@ -72,12 +72,18 @@ const ProfileCreator = (props: any) => {
   }
 
   return <>
-    <div style={{display: 'flex', flexDirection: 'column', margin:'5%', gap:'10px'}} >
-    <div> Edit your profile </div>
-    <input type="file" onChange={handleProfileImageInput} ></input>
-    <input type="file" onChange={handleHeaderImageInput} ></input>
+    <div className='profileCreator' >
+    <h2> Edit your profile </h2>
+    <div>
+     <h4> Add a profile picture</h4> 
+      <input type="file" onChange={handleProfileImageInput} ></input>
+    </div>
+    <div>
+      <h4> Add a header picture</h4>
+      <input type="file" onChange={handleHeaderImageInput} ></input>
+    </div>
     <textarea placeholder="Enter a bio" value={bio} onChange={(e)=> {setBio(e.target.value)}} />
-    <button onClick={()=> {handleUpload(selectedProfileImage, 'profile'); handleUpload(selectedHeaderImage, 'header'); createProfile()}} >Save</button>
+    <button className='blackButton' onClick={()=> {handleUpload(selectedProfileImage, 'profile'); handleUpload(selectedHeaderImage, 'header'); createProfile()}} >Save</button>
     </div>
   </>
 }

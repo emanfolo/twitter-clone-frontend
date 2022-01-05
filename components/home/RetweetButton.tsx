@@ -3,6 +3,7 @@ import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
 import { useRouter } from "next/router";
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 interface Props {
   tweetID: number;
@@ -80,9 +81,9 @@ const RetweetButton = (props: Props) => {
   return (
     <>
       {retweetedState ? <button style={{color: 'green', cursor: 'pointer'}} onClick={(()=> toggleRetweet())}> 
-      RT {retweets.length} 
+      <AutorenewIcon/> {retweets.length} 
       </button> : <button style={{cursor: 'pointer'}}  onClick={(()=> toggleRetweet())}> 
-      RT {retweets.length} 
+      <AutorenewIcon/> {retweets.length} 
       </button> }
     </>
   )

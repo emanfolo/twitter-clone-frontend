@@ -3,6 +3,8 @@ import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
 import DeleteTweetButton from "./DeleteTweetButton"
 import MiniFollowButton from "./MiniFollowButton"
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz"
+
 
 const MoreInfoButton = (props: any) => {
 
@@ -24,13 +26,12 @@ const MoreInfoButton = (props: any) => {
     return tweetCreatorID == currentUserID ? 
     <DeleteTweetButton tweetID={tweetID} setStateChanged={setStateChanged} /> 
     : 
-    // <button> Follow/Unfollow </button>
     <MiniFollowButton following={following} followedBy={followedBy} tweetCreatorID={tweetCreatorID} setStateChanged={setStateChanged} stateChanged={stateChanged} />
   }
 
   return <>
     <div className="dropdown">
-      <button className="dropbtn">...</button>
+      <button className="dropbtn">{<MoreHorizIcon />}</button>
       <div className="dropdown-content">
         {displayDeleteOrFollowButton()}
       </div>

@@ -11,6 +11,7 @@ a {
   text-decoration: none;
 }
 
+
 /* Layout */
 
 .LayoutDiv {
@@ -49,7 +50,47 @@ a {
   max-height: 100vh;
   margin-left: 67%;
   float: right;
-  
+}
+
+@media(max-width: 1080px){
+  .LayoutDiv {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.middle{
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #f1f3f5;
+  width: 60%;
+  margin-left: 40%;
+}
+
+.leftSide{
+  border-left: 1px solid;
+  border-color: #e9f6ff;
+  width: 40%;
+  overflow: auto;
+  max-height: 100vh;
+  position: fixed;
+  float: left;
+}
+
+.rightSide{
+  border-right: 1px solid;
+  border-color: #aab8c2;
+  width: 33%;
+  display: none;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: fixed;
+  overflow: auto;
+  max-height: 100vh;
+  margin-left: 67%;
+  float: right;
+}
+
 }
 
 /* Log in  */
@@ -357,7 +398,7 @@ a {
 
 .searchBar {
   display: flex;
-  height: 90px;
+  min-height: 90px;
   align-items: center;
   align-content: center;
   justify-content: center;
@@ -365,7 +406,7 @@ a {
 }
 
 .searchBar > input {
-  height: 50%;
+  min-height: 6vh;
   width: 80%;
   border-radius: 30px;
   text-align: center;
@@ -417,6 +458,7 @@ a {
 }
 
 .notificationCard {
+  display: flex;
   min-height: 100px;
   max-height: 140px;
   border-top: 1px solid;
@@ -424,35 +466,43 @@ a {
   border-color: #aab8c2;
   text-align: left;
   cursor: pointer;
-
 }
 
-.notificationCard .headline {
+.notification {
+  width: 85%;
+}
+
+.notification .headline {
   font-weight: bolder;
-  margin-left: 10%;
   display: flex;
   white-space: pre-wrap;
 }
 
-.notificationCard .headline > div:hover {
+.notification .headline > div:hover {
   color: #50b7f5;
 }
 
-.notificationCard .content {
+
+.notification .contentFollow {
   margin-left: 10%;
 }
 
-.notificationCard .contentFollow {
-  margin-left: 10%;
-}
-
-.notificationCard > img {
+.notification > img {
+  min-height: 5vh;
+  min-width: 5vh;
   margin-top: 2%;
   max-width: 40px;
   max-height: 40px;
   border-radius: 50%;
-  margin-left: 10%;
+}
 
+.iconDisplay {
+  min-width: 15%;
+  min-height: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 /* Explore */
@@ -570,6 +620,12 @@ a {
   margin-bottom: 2%;
 }
 
+.tweetCardBottom > button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 .replyModalClosed {
   display: none; 
 }
@@ -658,7 +714,7 @@ a {
 }
 
 .tweetReplyForm {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 2
 }
 
@@ -701,7 +757,7 @@ a {
   color: #50b7f5;
 }
 
-.moreInfoModal {
+/* .moreInfoModal {
   padding: 20px;
   width: 500px; 
   height: 300px;
@@ -717,10 +773,10 @@ a {
   z-index: 1; 
   left: 0;
   top: 0;
-}
+} */
 
 
-.moreInfoModalClosed{
+/* .moreInfoModalClosed{
   display: none;
 }
 
@@ -735,15 +791,16 @@ a {
   background-color: #fff;
   border: 1px solid;
   border-color: tomato;
-}
+} */
 
 .dropbtn {
-  background-color: white;
+  /* background-color: white; */
+  background: none;
   color: black;
   border: none;
   height: 25px;
   width: 25px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .dropdown > button {
@@ -770,6 +827,7 @@ a {
   padding: 12px 16px;
   text-decoration: none;
   border: none;
+  background: none;
 }
 
 .dropdown-content button:hover {
@@ -786,7 +844,6 @@ a {
 
 
 .dropdown:hover .dropbtn {
-  background-color: #e8f5fe;
   color: #50b7f5;
   transition: color 100ms ease-out;
 }
@@ -844,12 +901,28 @@ a {
   align-self: center;
 }
 
-.followButton {
+.followOrEditButtonContainer > button {
+  border-radius: 20px;
+  min-height: 4vh;
+  min-width: 10vh;
+  font-weight: 700;
+  border-width: 1px;
+  cursor: pointer;
+
+}
+
+.blackButton {
   background-color: black;
   color: white;
 }
 
-.unfollowButton {
+.blackButton:hover{
+  background-color: #000000;
+  opacity: 80%;
+  transition:ease-out;
+}
+
+.whiteButton {
   background-color: white;
   color: black;
 }
@@ -879,3 +952,63 @@ a {
   gap: 4px;
 }
 
+/* ProfileEditor */
+
+.profileCreator{
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  gap: 10px;
+}
+
+.profileCreator > input {
+  max-width: 5vw;
+}
+
+.profileCreator > button {
+  width: 5vw;
+  height: 4vh;
+  border-radius: 20px;
+}
+
+.profileCreator > textarea {
+  margin-top: 5vh;
+  resize: none;
+  height: 10vh;
+
+}
+.profileCreator > textarea:hover,
+.profileCreator > textarea:focus {
+  outline-width: 0;
+  border-color: #50b7f5;
+  transition: color 100ms ease-out;
+}
+
+/* LogOut */
+
+.logOut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.logOut > button {
+  border-radius: 20px;
+  min-height: 5vh;
+  min-width: 20vh;
+  font-weight: 700;
+  border-width: 1px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+
+}
+
+.logOut > button:hover {
+  background-color: #000000;
+  opacity: 80%;
+  transition:ease-out;
+
+}

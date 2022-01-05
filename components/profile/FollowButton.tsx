@@ -69,11 +69,11 @@ const FollowButton = (props: any) => {
 
   return <>
     {followState ? 
-    <button className="unfollowButton" onClick={(() => toggleFollow())}>
+    <button className="whiteButton" onClick={(() => toggleFollow())}>
       Unfollow
     </button> 
     :
-    <button className="followButton" onClick={(() => toggleFollow())}>
+    <button className="blackButton" onClick={(() => toggleFollow())}>
       Follow
     </button>
     }

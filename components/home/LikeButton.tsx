@@ -3,7 +3,7 @@ import { UserContext } from '../../pages/UserContext'
 import { useContext } from 'react'
 import { useRouter } from "next/router";
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
-
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 interface Props {
   tweetID: number;
   notificationRecipient: number;
@@ -84,9 +84,9 @@ const LikeButton = (props: Props) => {
   return (
     <>
       {likedState ? <button style={{color: 'red', cursor: 'pointer'}} onClick={(()=> toggleLike())}> 
-      L {likes.length} 
+      <FavoriteBorderOutlinedIcon/> {likes.length} 
       </button> : <button style={{cursor: 'pointer'}}  onClick={(()=> toggleLike())}> 
-      L {likes.length} 
+      <FavoriteBorderOutlinedIcon/> {likes.length} 
       </button> }
     </>
   )

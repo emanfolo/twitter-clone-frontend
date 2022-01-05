@@ -3,6 +3,7 @@ import { TweetInfo } from "../../types/Interfaces"
 import TweetBox from "../home/TweetBox"
 import ReplyTweetBox from "./ReplyTweetBox"
 import TweetReplyForm from "./TweetReplyForm"
+import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
 
 interface Props {
   tweetInfo: TweetInfo
@@ -27,7 +28,7 @@ const ReplyButton = (props: Props) => {
 
   return <>
 
-    <button id="replyButton" onClick={(()=> toggleModalClass())}> Reply </button>
+    <button id="replyButton" onClick={(()=> toggleModalClass())}> <ReplyOutlinedIcon/> </button>
 
 
     <div id="myModal" className={useModalClass()}> 

@@ -1,6 +1,8 @@
 import { useContext, useState} from 'react'
 import Router, { useRouter } from "next/router";
 
+
+
 const SearchBar = () => {
 
     const [searchInput, setSearchInput] = useState(String)
@@ -24,7 +26,7 @@ const SearchBar = () => {
 
   return (
   <>
-    <div className='searchBar' >
+    <div className='searchBar' >        
         <input type="text" 
         placeholder="Search Flitter" 
         onChange={((e)=> {setSearchInput(e.target.value)})}

@@ -1,16 +1,22 @@
 import Link from "next/link"
-import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import AddIcon from '@mui/icons-material/Add';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 const NotificationCard = (props: any) => {
 
+
   const { data } = props
+
 
   const typeOfNotif = data.type.toLowerCase()
 
   const notificationInfo = data[typeOfNotif]
 
+  console.log(notificationInfo)
+
+
   const iconDisplay = () => {
-    return typeOfNotif == 'retweet' ? <> R Icon </> : typeOfNotif == 'like' ? <> <FavoriteIcon/></> : <> F Icon </>
+    return typeOfNotif == 'retweet' ? <> <AutorenewIcon/> </> : typeOfNotif == 'like' ? <> <FavoriteTwoToneIcon/></> : <> <AddIcon /></>
   }
 
   const dataSource = () => {
@@ -22,11 +28,11 @@ const NotificationCard = (props: any) => {
   }
 
   const headerDisplay = () => {
-    return typeOfNotif == 'follow' ? 'followed you' : typeOfNotif == 'retweet' ? 'retweeted your tweet' : 'liked your tweet'
+    return typeOfNotif == 'follow' ? ' followed you' : typeOfNotif == 'retweet' ? 'retweeted your tweet' : 'liked your tweet'
   }
 
   const contents = () => {
-    return typeOfNotif == 'follow' ? <> <div>Profile</div></> : <> {notificationInfo.tweet.contents}</>
+    return typeOfNotif == 'follow' ? <></> : <> {notificationInfo.tweet.contents}</>
   }
 
   const contentsClassName = () => {
@@ -36,8 +42,11 @@ const NotificationCard = (props: any) => {
   return <>
   
   <div className="notificationCard">
-    {iconDisplay()}
-    <Link href={`/${dataSource().username}`}>
+    <div className="iconDisplay">
+      {iconDisplay()}
+    </div>
+    <div className="notification">
+      <Link href={`/${dataSource().username}`}>
           <img src={dataSource().profile.image}></img>
     </Link>
       <div className="headline">
@@ -53,6 +62,8 @@ const NotificationCard = (props: any) => {
       {contents()}
     </div>
     </Link>
+    </div>
+    
   </div>
   
   

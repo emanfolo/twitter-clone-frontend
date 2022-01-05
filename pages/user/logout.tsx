@@ -25,13 +25,12 @@ const LogOut = () => {
   };
 }
 
-// testingauth@gmail.com
-// password
-
   return (
     <>
-      <div>
+      <div className='logOut' >
         <h2>Are you sure you want to log out</h2>
+      
+      
         <button onClick = {() => {
           logOut()
         }}>
