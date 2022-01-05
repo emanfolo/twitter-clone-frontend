@@ -1,4 +1,4 @@
-import ProfileCreator from "../../components/images/ProfileCreator"
+import ProfileCreator from "../../components/editprofile/ProfileCreator"
 
 const CreateProfile = () => {
   return <>

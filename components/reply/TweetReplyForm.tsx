@@ -21,7 +21,6 @@ const profilePictureDisplay = () => {
     return profilePicture ? profilePicture.image : './DefaultImage.jpeg'
   } else {
     return './DefaultImage.jpeg'
-    // router.push('/login')
   } 
   }
 

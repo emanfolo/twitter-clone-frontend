@@ -36,14 +36,6 @@ const ReplyButton = (props: Props) => {
         <div className="replyModalContent">
           <span onClick={(()=> {toggleModalClass()})} className="close">&times;</span>
         <TweetReplyForm tweetInfo={tweetInfo} toggleModalClass={toggleModalClass} setStateChanged={setStateChanged}/>
-        {/* <TweetBox tweetInput={tweetInput} 
-      setTweetInput={setTweetInput} 
-      tweetButtonActive={tweetButtonActive} 
-      setTweetButtonActive={setTweetButtonActive} 
-      limit={limit}
-      setLimit={setLimit} /> */}
-      
-
         </div>
       </div>
 

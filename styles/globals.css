@@ -52,6 +52,139 @@ a {
   
 }
 
+/* Log in  */
+
+.logInHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.logInForm {
+  display: flex;
+  justify-content: center;
+  min-height: 50vh;
+  min-width: 80%;
+}
+
+.logInForm > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  min-width: 80%;
+}
+
+.logInButton {
+  display: flex;
+  justify-content: center;
+
+}
+
+.logInButton > button {
+  min-height: 8vh;
+  min-width: 25vw;
+  max-width: 25vw;
+  background-color: hsl(0, 0%, 0%);
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 13pt;
+}
+
+.logInButton > button:hover{
+  background-color: #000000;
+  opacity: 80%;
+  transition:ease-out;
+}
+
+.logInInputDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  min-width: 80%;
+}
+
+.logInInputDiv > input {
+  min-height: 8vh;
+  min-width: 25vw;
+  max-width: 25vw;
+  border-radius: 8px;
+  font-size: 12pt;
+}
+
+.logInInputDiv > input:focus {
+  outline-width: 0;
+  border-color: #50b7f5;
+  transition: color 100ms ease-out;
+}
+
+.errorModalClosed {
+  display: none; 
+}
+
+.errorModalOpen {
+  display: flex; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  background-color: rgba(0,0,0,0.4); 
+  justify-content: center;
+  align-items: center;
+
+}
+
+.errorModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 300px; 
+  height: 300px;
+}
+
+.errorModalContent {
+  
+  border-radius: 12px;
+  padding: 5%;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+
+.okayContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+}
+
+.okay {
+  height: 7vh;
+  width: 15vh;
+  background-color: hsl(0, 0%, 0%);
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 8pt;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.okay:hover,
+.okay:focus {
+  color: #fff;
+  opacity: 80%;
+  text-decoration: none;
+  cursor: pointer;
+  transition:ease-out;
+}
+
 /* Sidebar */
 
 .sidebar{
@@ -239,6 +372,12 @@ a {
   font-size: inherit;
 }
 
+.searchBar > input:focus {
+  outline-width: 0;
+  border-color: #50b7f5;
+  transition: color 100ms ease-out;
+}
+
 .trendingHeader{
   font-size: 150%;
   text-align: center;
@@ -348,7 +487,7 @@ a {
 
 .tweetCard {
   border-top: 1px solid;
-  border-color: #aab8c2;
+  border-color: #f1f3f5;
   width: 100%;
   height: max-content;
   

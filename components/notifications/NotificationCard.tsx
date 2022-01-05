@@ -1,4 +1,5 @@
 import Link from "next/link"
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const NotificationCard = (props: any) => {
 
@@ -9,7 +10,7 @@ const NotificationCard = (props: any) => {
   const notificationInfo = data[typeOfNotif]
 
   const iconDisplay = () => {
-    return typeOfNotif == 'retweet' ? <> R Icon </> : typeOfNotif == 'like' ? <> L Icon</> : <> F Icon </>
+    return typeOfNotif == 'retweet' ? <> R Icon </> : typeOfNotif == 'like' ? <> <FavoriteIcon/></> : <> F Icon </>
   }
 
   const dataSource = () => {
