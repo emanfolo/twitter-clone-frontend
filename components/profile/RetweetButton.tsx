@@ -37,6 +37,7 @@ useEffect(() => {
   })
 }
   
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
 
   
 
@@ -44,7 +45,7 @@ useEffect(() => {
     if (user){
       const authToken = user.accessToken
         if (!retweetedState){
-          const response = await fetch('http://localhost:4000/retweet/new', {
+          const response = await fetch(`${apiURL}/retweet/new`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
@@ -59,7 +60,7 @@ useEffect(() => {
         setRetweetedState(true)
 
         } else if (retweetedState) {
-          const response = await fetch('http://localhost:4000/retweet/delete', {
+          const response = await fetch(`${apiURL}/retweet/delete`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
@@ -76,7 +77,7 @@ useEffect(() => {
         }
       } else if (!user){
         console.log("please log in")
-        router.push("http://localhost:3000/user/login")
+        router.push("/user/login")
       }
     }
 

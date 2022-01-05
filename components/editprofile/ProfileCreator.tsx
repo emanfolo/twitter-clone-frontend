@@ -10,6 +10,7 @@ const ProfileCreator = (props: any) => {
   const {user} = useContext(UserContext)
   const router = useRouter()
 
+
   const s3 = new ReactS3Client(s3Config)
 
   const [selectedProfileImage, setSelectedProfileImage] = useState(null)
@@ -24,10 +25,12 @@ const ProfileCreator = (props: any) => {
     setSelectedHeaderImage(e.target.files[0])
   }
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+  
+
   const storeURL = async (type: string, imageURL: string) => {
-    const apiURL = `http://localhost:4000/profile/image/${type}`
     const authToken = user.accessToken
-    const response = await fetch(apiURL, {
+    const response = await fetch(`${apiURL}/profile/image/${type}`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -55,9 +58,8 @@ const ProfileCreator = (props: any) => {
   }
 
   const createProfile = async () => {
-    const apiURL = 'http://localhost:4000/profile/bio'
     const authToken = user.accessToken
-    const response = await fetch(apiURL, {
+    const response = await fetch(`${apiURL}/profile/bio`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

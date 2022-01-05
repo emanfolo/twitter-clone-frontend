@@ -20,11 +20,12 @@ const Profile = () => {
   const [stateChanged, setStateChanged] = useState(String)
 
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
 
 
   const getProfile = async () => {
     setLoading(true)
-    const url = `http://localhost:4000/profile/${username}`
+    const url = `${apiURL}/profile/${username}`
     const res = await fetch(url, { 
         method: 'GET',
         headers: {

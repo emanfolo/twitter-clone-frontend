@@ -5,13 +5,15 @@ import Router, { useRouter } from "next/router";
 
 const LogOut = () => {
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
   const router = useRouter()
 
   const {user, setUser} = useContext(UserContext)
 
   const logOut = async () => {
     if (user) {
-      const response = await fetch('http://localhost:4000/user/logout', {
+      const response = await fetch(`${apiURL}/user/logout`, {
         method: 'DELETE',
         headers : { 
         'Content-Type': 'application/json'
@@ -34,6 +36,7 @@ const LogOut = () => {
         <button onClick = {() => {
           logOut()
         }}>
+          
             Log out
         </button>
       </div>

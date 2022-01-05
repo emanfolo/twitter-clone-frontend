@@ -14,10 +14,12 @@ const FeedContainer = (props: any) => {
 
   const {stateChanged, setStateChanged} = props
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
+
   const getFeed = async () => {
     const authToken: string = user.accessToken
-    const url = `http://localhost:4000/feed`
-    const res = await fetch(url, { 
+    const res = await fetch(`${apiURL}/feed`, { 
         method: 'GET',
         headers: {
           "Content-Type": "application/json",

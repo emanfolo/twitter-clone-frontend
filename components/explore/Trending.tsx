@@ -6,10 +6,13 @@ const Trending = () => {
   const [loading, setLoading] = useState(Boolean)
   const [trending, setTrending] = useState(Object)
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
+
 
   const getTrendingTopics = async () => {
     setLoading(true)
-    const response = await fetch ('http://localhost:4000/trending')
+    const response = await fetch (`${apiURL}/trending`)
     const json = await response.json()
     setTrending(json)
     setLoading(false)

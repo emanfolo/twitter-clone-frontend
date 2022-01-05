@@ -40,13 +40,15 @@ const LikeButton = (props: Props) => {
       retrieveLikeState(), [user]
     })
     }
+
+   const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
     
 
     const toggleLike = async () => {
       if (user){
         const authToken = user.accessToken
         if (!likedState){
-          const response = await fetch('http://localhost:4000/like/new', {
+          const response = await fetch(`${apiURL}/like/new`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
@@ -61,7 +63,7 @@ const LikeButton = (props: Props) => {
         setLikedState(true)
 
         } else if (likedState) {
-          const response = await fetch('http://localhost:4000/like/delete', {
+          const response = await fetch(`${apiURL}/like/delete`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
@@ -77,7 +79,7 @@ const LikeButton = (props: Props) => {
         }
       } else if (!user){
         console.log("please log in")
-        router.push("http://localhost:3000/user/login")
+        router.push("/user/login")
       }
     }
 

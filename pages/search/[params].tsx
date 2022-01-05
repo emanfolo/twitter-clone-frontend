@@ -12,9 +12,12 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(Boolean)
   const [stateChanged, setStateChanged] = useState(String)
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
+
   const getSearchResults = async () => {
     setLoading(true)
-    const response = await fetch ('http://localhost:4000/search', {
+    const response = await fetch (`${apiURL}/search`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

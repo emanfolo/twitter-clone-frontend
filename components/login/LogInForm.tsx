@@ -36,9 +36,14 @@ const LogInForm = () => {
     }
   }
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
+  console.log(apiURL)
+
+
   const sendParams = async () => {
     if (checkInputs()) {
-      const response = await fetch('http://localhost:4000/user/login', {
+      const response = await fetch(`${apiURL}/user/login`, {
         method: 'POST',
         headers : { 
         'Content-Type': 'application/json',

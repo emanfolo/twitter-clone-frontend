@@ -10,10 +10,13 @@ const DeleteTweetButton = (props: any) => {
 
   const {setStateChanged, tweetID} = props
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
+
   const deleteTweet = async () => {
     if(user){
       const authToken = user.accessToken
-      const response = await fetch('http://localhost:4000/tweet/delete', {
+      const response = await fetch(`${apiURL}/tweet/delete`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
@@ -26,7 +29,7 @@ const DeleteTweetButton = (props: any) => {
         setStateChanged(`Tweet-${tweetID} deleted`)
     } else if (!user){
         console.log("please log in")
-        router.push("http://localhost:3000/user/login")
+        router.push("/user/login")
       }
     
   }

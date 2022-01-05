@@ -12,11 +12,11 @@ const NotificationFeed = () => {
 
   const [notifications, setNotifications] = useState<Array<Notification>>([])
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
   const getNotifications = async () => {
     const authToken: string = user.accessToken
-
-    const url = 'http://localhost:4000/notification/all'
-    const res = await fetch(url, { 
+    const res = await fetch(`${apiURL}/notification/all`, { 
         method: 'GET',
         headers: {
           "Content-Type": "application/json",

@@ -28,8 +28,11 @@ const TweetBox = (props:any) => {
   
   trackWordLimit()
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
+
   const sendTweet = async (authToken: string) => {
-    const response = await fetch('http://localhost:4000/tweet/new', {
+    const response = await fetch(`${apiURL}/tweet/new`, {
       method: 'POST',
       headers: {
           "Content-Type": "application/json",

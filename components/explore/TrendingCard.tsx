@@ -14,7 +14,7 @@ const TrendingCard = (props: any) => {
   const linkProps = {
   onClick: (event: any) => {
     const tag = event.target.href.split('#')[1]
-    router.push(`http://localhost:3000/explore/hashtag/${tag}`)
+    router.push(`/explore/hashtag/${tag}`)
    },
   }
 

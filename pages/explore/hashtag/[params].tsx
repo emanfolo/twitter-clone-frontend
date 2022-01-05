@@ -15,12 +15,13 @@ const HashtagSearch = () => {
 
   const router = useRouter()
   const { params } = router.query
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
 
-  
+
   const tweetsByHashtag = async () => {
     if (params != undefined) {
       console.log(params)
-      const response = await fetch(`http://localhost:4000/hashtag/${params}`)
+      const response = await fetch(`${apiURL}/hashtag/${params}`)
       const json = await response.json()
       console.log(json)
       setHashtagTweets(json)

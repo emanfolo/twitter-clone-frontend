@@ -31,12 +31,14 @@ const MiniFollowButton = (props: any) => {
     })
     }
     
+    const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+
 
     const toggleFollow = async () => {
       if (user){
         const authToken = user.accessToken
         if (!followState){
-          const response = await fetch('http://localhost:4000/follow/new', {
+          const response = await fetch(`${apiURL}/follow/new`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
@@ -50,7 +52,7 @@ const MiniFollowButton = (props: any) => {
         setFollowState(true)
 
         } else if (followState) {
-          const response = await fetch('http://localhost:4000/follow/delete', {
+          const response = await fetch(`${apiURL}/follow/delete`, {
           method: 'DELETE',
           headers: {
               "Content-Type": "application/json",
@@ -65,7 +67,7 @@ const MiniFollowButton = (props: any) => {
         }
       } else if (!user){
         console.log("please log in")
-        router.push("http://localhost:3000/user/login")
+        router.push("/user/login")
       }
     }
 

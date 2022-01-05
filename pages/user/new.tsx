@@ -49,9 +49,12 @@ const CreateUser = () => {
     }
   }
 
+  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+ 
+
   const sendParams = async () => {
     if (checkInputs()) {
-      const response = await fetch('http://localhost:4000/user/register', {
+      const response = await fetch(`${apiURL}/user/register`, {
         method: 'POST',
         headers : { 
         'Content-Type': 'application/json',
