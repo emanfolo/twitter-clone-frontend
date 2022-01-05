@@ -51,9 +51,10 @@ const LogIn = () => {
 
   return (
     <>
-      Log in page
-      <pre>{JSON.stringify(user, null, 2)}</pre>
-      <div>
+      <div className="logInHeader">
+      <h2> Welcome to flitter </h2>
+      </div>
+      <div className="logInForm"> 
         <form
           onSubmit={(e) => {
             e.preventDefault();

@@ -30,8 +30,6 @@ const LogOut = () => {
 
   return (
     <>
-      Log in page
-      <pre>{JSON.stringify(user, null, 2)}</pre>
       <div>
         <h2>Are you sure you want to log out</h2>
         <button onClick = {() => {

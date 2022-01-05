@@ -6,6 +6,7 @@ import Link from "next/link"
 const AccountsToFollow = () => {
 
   const [profiles, setProfiles] = useState<Array<User>>()
+  const [stateChanged, setStateChanged] = useState("")
 
   const getProfiles = async () => {
     const apiURL = 'http://localhost:4000/profile/recommended'
@@ -26,7 +27,7 @@ const AccountsToFollow = () => {
     return <>
       <Link href={`/${data.username}`}>
         <div>
-          <ProfileCard profile={data} key={data.id} />
+          <ProfileCard profile={data} key={data.id} setStateChanged={setStateChanged} />
         </div>
       </Link>
       

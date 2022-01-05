@@ -23,7 +23,7 @@ const Home = () => {
   if (user){
     return (
   <>
-    <div className='HomeHeading'>
+    <div className='homeHeading'>
       <h2>Home </h2>
     </div>
       <TweetBox tweetInput={tweetInput} 
