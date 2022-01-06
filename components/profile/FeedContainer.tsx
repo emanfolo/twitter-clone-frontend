@@ -67,7 +67,7 @@ const FeedContainer = (props: any) => {
   } else if (feed.length == 0) {
     return <> <h2> Please make some tweets </h2></>;
   } else if(loading){
-  return <> <CircularProgress />  </>
+  return <> <div className="homeHeading"><CircularProgress /> </div>  </>
 } else {
   return <> 
   <div className="nothingToSee">

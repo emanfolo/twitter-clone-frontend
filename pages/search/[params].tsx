@@ -65,7 +65,7 @@ const SearchResults = () => {
     </>
   } else if (loading){
     return <>
-    <CircularProgress />
+    <div className="homeHeading"><CircularProgress /> </div> 
     </>
   } else {
     return <> 

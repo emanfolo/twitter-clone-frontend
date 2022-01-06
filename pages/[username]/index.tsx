@@ -55,7 +55,7 @@ const Profile = () => {
     </>
     ); 
   } else if(loading){
-  return <> <CircularProgress />  </>
+  return <><div className="homeHeading"><CircularProgress /> </div>   </>
 } else if (!profile){
   return <> 
   <div className="nothingToSee">

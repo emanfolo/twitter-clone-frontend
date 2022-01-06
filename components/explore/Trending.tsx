@@ -47,7 +47,7 @@ if (trending){
   </div>
   </>
 } else if(loading){
-  return <>  <CircularProgress /> </>
+  return <>  <div className="homeHeading"><CircularProgress /> </div> </>
 } else {
   return <> 
   <div className="nothingToSee">

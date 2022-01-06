@@ -46,7 +46,7 @@ useEffect(() => {
   {tweetInfo?.contents}
   </>
   } else if(loading){
-  return <> <CircularProgress/> </>
+  return <> <div className="homeHeading"><CircularProgress /> </div>  </>
 } else {
   return <> <div className='nothingToSee'>
     <h2>

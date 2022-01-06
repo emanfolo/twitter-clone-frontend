@@ -65,7 +65,7 @@ const HashtagSearch = () => {
   ); 
   }
    else if(loading){
-  return <> <CircularProgress /> </>
+  return <> <div className="homeHeading"><CircularProgress /> </div>  </>
 } else if (!hashtagTweets){
   return <>
   <div className="nothingToSee">

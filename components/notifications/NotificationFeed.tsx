@@ -57,7 +57,7 @@ const NotificationFeed = () => {
     Please log in to view notifications
     </>
   } else if(loading){
-  return <> <CircularProgress /></>
+  return <><div className="homeHeading"><CircularProgress /> </div> </>
 } else if (notifications.length == 0){
   return <>
     <div>
