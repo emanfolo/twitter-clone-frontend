@@ -11,6 +11,8 @@ import LogInForm from '../../components/login/LogInForm';
 
 const Home = () => {
 
+  const router = useRouter()
+
   const {user, setUser} = useContext(UserContext)
 
 
@@ -19,8 +21,6 @@ const Home = () => {
   const [limit, setLimit] = useState(240)
 
   const [stateChanged, setStateChanged] = useState(String)
-
-  console.log(user)
 
   if (user){
     return (
@@ -45,9 +45,9 @@ const Home = () => {
     </div>
   </>
   ); 
-  } else {
+  } else if (!user){
     return <> <LogInForm /></>
-  }
+  } 
     
 }
 

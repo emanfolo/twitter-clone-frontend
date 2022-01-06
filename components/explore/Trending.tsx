@@ -27,12 +27,12 @@ if (trending){
 
   const trendingTopics = Object.keys(trending)
 
-
+  let index = 0
 
   const trendingDisplay = trendingTopics.map((data: any) => {
-    let key = data
+    index += 1
     return <> 
-    <TrendingCard key={key} data={data}/>
+    <TrendingCard key={index} data={data}/>
     </>
   })
   

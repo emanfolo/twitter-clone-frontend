@@ -27,7 +27,7 @@ const LikeButton = (props: Props) => {
 
 
 
-    if (user){
+   
       const retrieveLikeState = () => {
 
         if (likes.find(like => like.userID == user.id) == undefined){
@@ -39,7 +39,7 @@ const LikeButton = (props: Props) => {
       useEffect(() => {
       retrieveLikeState(), [user]
     })
-    }
+    
 
    const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
     
