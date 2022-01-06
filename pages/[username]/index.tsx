@@ -53,9 +53,11 @@ const Profile = () => {
       </div>
     </>
     ); 
-  } else {
-    return <> Hi </>
-  }
+  } else if(loading){
+  return <> Loading...</>
+} else {
+  return <> There&apos;s been an error</>
+}
 
   
 };

@@ -10,6 +10,7 @@ const SingleTweet = () => {
   const { id } = router.query
 
   const [tweetInfo, setTweetInfo] = useState<Tweet>()
+  const [loading, setLoading] = useState(Boolean)
 
 
   const {user, setUser} = useContext(UserContext)
@@ -19,6 +20,7 @@ const SingleTweet = () => {
 
     const getTweet = async () => {
       if (id){
+      setLoading(true)
       const res = await fetch(`${apiURL}/tweet/${id}`, { 
         method: 'GET',
         headers: {
@@ -27,6 +29,7 @@ const SingleTweet = () => {
       });
     const json = await res.json();
     setTweetInfo(json);
+    setLoading(false)
       }
     
     }
@@ -37,10 +40,15 @@ useEffect(() => {
     getTweet();
   }, [tweetInfo])
 
-
-  return <>
+  if (tweetInfo){
+    return <>
   {tweetInfo?.contents}
   </>
+  } else if(loading){
+  return <> Loading...</>
+} else {
+  return <> There&apos;s been an error</>
+}
 }
 
 export default SingleTweet

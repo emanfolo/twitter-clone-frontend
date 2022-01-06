@@ -6,7 +6,6 @@ import { UserContext } from '../../context/UserContext';
 
 const ProfileCreator = (props: any) => {
 
-  const {type} = props
   const {user} = useContext(UserContext)
   const router = useRouter()
 
