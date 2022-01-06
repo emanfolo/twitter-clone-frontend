@@ -50,10 +50,14 @@ const LogInForm = () => {
           password: passwordInputState,
        })
       })
-      const result = await response.json()
-      localStorage.setItem('user', JSON.stringify(result))
-      setUser(result)
-      router.push('/home')
+      try {
+        const result = await response.json()
+        localStorage.setItem('user', JSON.stringify(result))
+        setUser(result)
+        router.push('/home')
+      } catch (e){
+        console.log(e)
+      }
     };
   }
 
