@@ -8,7 +8,7 @@ const AccountsToFollow = () => {
   const [profiles, setProfiles] = useState<Array<User>>()
   const [stateChanged, setStateChanged] = useState("")
 
-  const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
+  const apiURL = process.env.NODE_ENV == "production" ?  "https://twitter-clone-backend-ef.herokuapp.com" : "http://localhost:4000"
 
 
   const getProfiles = async () => {

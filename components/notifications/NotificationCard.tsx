@@ -12,8 +12,6 @@ const NotificationCard = (props: any) => {
 
   const notificationInfo = data[typeOfNotif]
 
-  console.log(notificationInfo)
-
 
   const iconDisplay = () => {
     return typeOfNotif == 'retweet' ? <> <AutorenewIcon/> </> : typeOfNotif == 'like' ? <> <FavoriteTwoToneIcon/></> : <> <AddIcon /></>
