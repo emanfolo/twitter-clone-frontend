@@ -11,6 +11,11 @@ const ProfileCreator = (props: any) => {
 
   console.log(s3Config)
 
+  let id = process.env.accessKeyId
+  console.log(id)
+
+  console.log(process.env.secretAccessKey)
+
   const s3 = new ReactS3Client(s3Config)
 
   const [selectedProfileImage, setSelectedProfileImage] = useState(null)

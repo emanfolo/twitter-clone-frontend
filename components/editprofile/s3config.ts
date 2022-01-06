@@ -5,6 +5,7 @@ declare var process : {
   }
 }
 
+
 export const s3Config = {
         bucketName:  'twitter-clone-image-storage',
         region: 'eu-west-2',
@@ -12,3 +13,4 @@ export const s3Config = {
         secretAccessKey: process.env.secretAccessKey,
         s3Url: 'https://twitter-clone-image-storage.s3.eu-west-2.amazonaws.com' 
     }
+
