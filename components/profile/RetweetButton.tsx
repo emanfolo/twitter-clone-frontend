@@ -23,7 +23,7 @@ const RetweetButton = (props: Props) => {
 
   const {tweetID, notificationRecipient, retweets, setStateChanged} = props
 
-if (user && user.accessToken.length > 1){
+
   const retrieveRetweetState = () => {
 
     if (retweets.find(retweet => retweet.userID == user.id) == undefined){
@@ -35,7 +35,7 @@ if (user && user.accessToken.length > 1){
 useEffect(() => {
     retrieveRetweetState(), [retweets]
   })
-}
+
   
   const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
 

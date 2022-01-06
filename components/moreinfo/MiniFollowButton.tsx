@@ -17,7 +17,7 @@ const MiniFollowButton = (props: any) => {
     const currentUserID = user.id
 
 
-    if (user){
+  
       const retrieveFollowState = () => {
         if (followedBy.find((element: { id: any }) => element.id == currentUserID) == undefined){
           setFollowState(false)
@@ -28,7 +28,7 @@ const MiniFollowButton = (props: any) => {
       useEffect(() => {
       retrieveFollowState(), [stateChanged]
     })
-    }
+    
     
     const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
 

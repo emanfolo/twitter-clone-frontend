@@ -14,7 +14,7 @@ const FollowButton = (props: any) => {
 
     const currentUserID = user.id
 
-    if (user){
+   
       const retrieveFollowState = () => {
         if (profileFollowedBy.find((element: { id: any }) => element.id == currentUserID) == undefined){
           setFollowState(false)
@@ -25,7 +25,7 @@ const FollowButton = (props: any) => {
       useEffect(() => {
       retrieveFollowState(), [user, stateChanged]
     })
-    }
+    
 
     const apiURL = process.env.NODE_ENV == "production" ?  process.env.prodURL : process.env.devURL
 

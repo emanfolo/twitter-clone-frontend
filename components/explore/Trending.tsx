@@ -48,7 +48,7 @@ if (trending){
 } else if(loading){
   return <> Loading...</>
 } else {
-  return <> There's been an error</>
+  return <> There&apos;s been an error</>
 }
 
 
