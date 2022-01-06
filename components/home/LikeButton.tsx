@@ -37,7 +37,7 @@ const LikeButton = (props: Props) => {
         }
       }
       useEffect(() => {
-      retrieveLikeState(), [user]
+      retrieveLikeState(), [likes]
     })
     
 
