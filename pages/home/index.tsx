@@ -20,6 +20,8 @@ const Home = () => {
 
   const [stateChanged, setStateChanged] = useState(String)
 
+  console.log(user)
+
   if (user){
     return (
   <>

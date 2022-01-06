@@ -26,7 +26,6 @@ const MiniFollowButton = (props: any) => {
         }
       }
       useEffect(() => {
-      console.log('resetting follow state')
       retrieveFollowState(), [stateChanged]
     })
     }
@@ -66,7 +65,6 @@ const MiniFollowButton = (props: any) => {
         setFollowState(false)
         }
       } else if (!user){
-        console.log("please log in")
         router.push("/user/login")
       }
     }

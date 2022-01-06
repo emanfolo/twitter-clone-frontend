@@ -20,7 +20,6 @@ const HashtagSearch = () => {
 
   const tweetsByHashtag = async () => {
     if (params != undefined) {
-      console.log(params)
       const response = await fetch(`${apiURL}/hashtag/${params}`)
       const json = await response.json()
       console.log(json)

@@ -21,8 +21,6 @@ const AccountsToFollow = () => {
       getProfiles()
   }, [])
 
-  console.log(profiles)
-
   const profilesDisplay = profiles?.map((data) => {
     const key = data.id
 

@@ -64,7 +64,6 @@ const FollowButton = (props: any) => {
         setFollowState(false)
         }
       } else if (!user){
-        console.log("please log in")
         router.push("/user/login")
       }
     }

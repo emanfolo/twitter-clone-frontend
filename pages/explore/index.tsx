@@ -7,7 +7,6 @@ import AccountsToFollow from '../../components/explore/AccountsToFollow';
 const Explore = () => {
 
   const [searchInput, setSearchInput] = useState(String)
-  console.log(searchInput)
 
   const router = useRouter()
 

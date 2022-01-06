@@ -32,7 +32,6 @@ const FeedContainer = (props: any) => {
 
 
   useEffect(() => {
-      console.log('api call')
       getFeed()
       }, [stateChanged]
   )

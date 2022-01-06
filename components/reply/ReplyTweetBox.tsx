@@ -18,8 +18,6 @@ const ReplyTweetBox = (props:any) => {
   const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit, tweetID, notificationRecipient} = props
   const {setStateChanged, toggleModalClass} = props
 
-  // console.log(notificationRecipient)
-
   const trackTweetButtonState = () => {
     if (tweetInput.length > 0) {
       setTweetButtonActive(true)

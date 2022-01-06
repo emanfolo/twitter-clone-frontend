@@ -76,7 +76,6 @@ useEffect(() => {
 
         }
       } else if (!user){
-        console.log("please log in")
         router.push("/user/login")
       }
     }

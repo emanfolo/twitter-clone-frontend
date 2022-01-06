@@ -45,7 +45,6 @@ const TweetBox = (props:any) => {
     });
     const json = await response.json()
     setTweetInput("")
-    console.log(json)
     setStateChanged(`new tweet${json.id}`)
   }
 

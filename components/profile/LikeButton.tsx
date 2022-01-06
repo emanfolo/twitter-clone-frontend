@@ -78,7 +78,6 @@ const LikeButton = (props: Props) => {
         setLikedState(false)
         }
       } else if (!user){
-        console.log("please log in")
         router.push("/user/login")
       }
     }
