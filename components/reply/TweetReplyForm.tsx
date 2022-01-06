@@ -1,7 +1,7 @@
 import { TweetInfo } from "../../types/Interfaces"
 import TimeAgo from "timeago-react"
 import ReplyRecipientCard from "./ReplyRecipientCard"
-import { UserContext } from "../../pages/UserContext"
+import { UserContext } from "../../context/UserContext"
 import { useContext, useState } from "react"
 import ReplyTweetBox from "./ReplyTweetBox"
 import Link from "next/link"

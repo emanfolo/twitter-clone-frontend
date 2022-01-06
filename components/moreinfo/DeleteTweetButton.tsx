@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../pages/UserContext";
+import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 
 const DeleteTweetButton = (props: any) => {

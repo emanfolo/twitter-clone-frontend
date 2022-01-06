@@ -2,7 +2,7 @@ import ReactS3Client from 'react-aws-s3-typescript';
 import { s3Config } from './s3config';
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { UserContext } from '../../pages/UserContext';
+import { UserContext } from '../../context/UserContext';
 
 const ProfileCreator = (props: any) => {
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { UserContext } from '../../pages/UserContext'
+import { UserContext } from '../../context/UserContext'
 import { useContext } from 'react'
 import { useRouter } from "next/router";
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";

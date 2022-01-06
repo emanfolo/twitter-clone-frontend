@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../pages/UserContext";
+import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 
 const FollowButton = (props: any) => {

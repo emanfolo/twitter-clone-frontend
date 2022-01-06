@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserContext } from '../../pages/UserContext'
+import { UserContext } from '../../context/UserContext'
 import { useContext } from 'react'
 
 // interface Props {

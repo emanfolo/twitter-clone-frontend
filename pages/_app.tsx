@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../context/UserContext";
 import { useState, useMemo, useEffect } from "react";
 import Layout from '../components/Layout'
 

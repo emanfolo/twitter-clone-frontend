@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UserContext } from "../../pages/UserContext";
+import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import DeleteTweetButton from "./DeleteTweetButton";
 import MiniFollowButton from "./MiniFollowButton";

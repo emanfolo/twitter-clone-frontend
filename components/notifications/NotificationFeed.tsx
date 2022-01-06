@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import NotificationCard from "./NotificationCard"
 import { Notification } from "../../types/Interfaces";
-import { UserContext } from "../../pages/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 
   

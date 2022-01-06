@@ -1,7 +1,7 @@
 import TweetCard from './TweetCard'
 import TweetBox from './TweetBox'
 import { useState, useEffect, useContext } from 'react'
-import { UserContext } from '../../pages/UserContext';
+import { UserContext } from '../../context/UserContext';
 
 import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UserContext } from "../pages/UserContext";
+import { UserContext } from "../context/UserContext";
 import { useState, useMemo, useContext } from "react";
 import Sidebar from './sidebar/Sidebar'
 
