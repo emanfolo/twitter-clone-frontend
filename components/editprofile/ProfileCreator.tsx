@@ -10,6 +10,8 @@ const ProfileCreator = (props: any) => {
   const {user} = useContext(UserContext)
   const router = useRouter()
 
+  console.log(s3Config)
+
 
   const s3 = new ReactS3Client(s3Config)
 

@@ -46,7 +46,7 @@ const Home = () => {
   </>
   ); 
   } else if (!user){
-    return <> <LogInForm /></>
+    return <> Please log in</>
   } 
     
 }
