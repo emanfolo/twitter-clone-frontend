@@ -1,12 +1,13 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const EditProfileButton = () => {
-  return <> 
-    <Link href={'/user/editprofile'}>
-      <button className="whiteButton"> Edit</button>
-    </Link>
-    
-  </>
-}
+  return (
+    <>
+      <Link href={"/user/editprofile"}>
+        <button className="whiteButton"> Edit</button>
+      </Link>
+    </>
+  );
+};
 
-export default EditProfileButton
+export default EditProfileButton;

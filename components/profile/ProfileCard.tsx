@@ -1,67 +1,86 @@
-import { useContext, useState, useEffect} from 'react'
-import { UserContext } from '../../pages/UserContext';
+import { useContext, useState, useEffect } from "react";
+import { UserContext } from "../../pages/UserContext";
 import Router, { useRouter } from "next/router";
 
-import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from '../../types/Interfaces';
-import FollowButton from './FollowButton';
-import EditProfileButton from './EditProfileButton';
+import {
+  Like,
+  Hashtag,
+  User,
+  Profile,
+  TweetInfo,
+  Retweet,
+} from "../../types/Interfaces";
+import FollowButton from "./FollowButton";
+import EditProfileButton from "./EditProfileButton";
 
 interface Props {
-  profile: Profile
+  profile: Profile;
 }
 
 const ProfileCard = (props: any) => {
+  const { user, setUser } = useContext(UserContext);
 
-  const {user, setUser} = useContext(UserContext)
+  const { profile, setStateChanged, stateChanged } = props;
 
-  const { profile, setStateChanged, stateChanged } = props
-
-  const profilePicture = profile.profile.image
+  const profilePicture = profile.profile.image;
   const profilePictureDisplay = () => {
-    return profilePicture ? profilePicture : './DefaultImage.jpeg'
-  }
+    return profilePicture ? profilePicture : "./DefaultImage.jpeg";
+  };
   const followOrEdit = () => {
-    if (user.username == profile.username){
-      return <> <EditProfileButton /> </>
+    if (user.username == profile.username) {
+      return (
+        <>
+          {" "}
+          <EditProfileButton />{" "}
+        </>
+      );
     } else {
-      return <> <FollowButton profileFollowing={profile.following} profileFollowedBy={profile.followedBy} profileID={profile.id} setStateChanged={setStateChanged} stateChanged={stateChanged}/> </>
+      return (
+        <>
+          {" "}
+          <FollowButton
+            profileFollowing={profile.following}
+            profileFollowedBy={profile.followedBy}
+            profileID={profile.id}
+            setStateChanged={setStateChanged}
+            stateChanged={stateChanged}
+          />{" "}
+        </>
+      );
     }
-  }
+  };
 
   return (
     <>
-      <div className='profileCardContainer'>
-        <div className='headerImage'> 
-          <img src={profile.profile.header_image}/>
+      <div className="profileCardContainer">
+        <div className="headerImage">
+          <img src={profile.profile.header_image} />
         </div>
-        <div className='profilePicture'>
-          <img src={profilePictureDisplay()}/>
+        <div className="profilePicture">
+          <img src={profilePictureDisplay()} />
         </div>
-        <div className='bottomHalf'>
-            <div className='nameAndFollow'>
-              <div className='name'>
-                <strong>{profile.name} <br/></strong>
-                @{profile.username}
-              </div>
-              <div className='followOrEditButtonContainer'>
-                  {followOrEdit()}
-              </div>
-              
+        <div className="bottomHalf">
+          <div className="nameAndFollow">
+            <div className="name">
+              <strong>
+                {profile.name} <br />
+              </strong>
+              @{profile.username}
             </div>
-            <div className='bioAndFollowers'>
-              <div className='bio'>
-                {profile.profile.bio}
-              </div>
-              <div className='followingFollowers'>
-                  <strong>{profile.following.length} </strong> {`Following `} 
-                  <strong>{profile.followedBy.length} </strong>{`Followers `}
-              </div>
+            <div className="followOrEditButtonContainer">{followOrEdit()}</div>
+          </div>
+          <div className="bioAndFollowers">
+            <div className="bio">{profile.profile.bio}</div>
+            <div className="followingFollowers">
+              <strong>{profile.following.length} </strong> {`Following `}
+              <strong>{profile.followedBy.length} </strong>
+              {`Followers `}
             </div>
+          </div>
         </div>
       </div>
     </>
-    )
+  );
+};
 
-}
-
-export default ProfileCard
+export default ProfileCard;
