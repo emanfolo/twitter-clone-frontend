@@ -5,6 +5,7 @@ import Router, { useRouter } from "next/router";
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from '../../types/Interfaces';
 import ProfileCard from '../../components/profile/ProfileCard'
 import FeedContainer from '../../components/profile/FeedContainer';
+import { CircularProgress } from '@material-ui/core';
 
 const Profile = () => {
 
@@ -54,9 +55,23 @@ const Profile = () => {
     </>
     ); 
   } else if(loading){
-  return <> Loading...</>
+  return <> <CircularProgress />  </>
+} else if (!profile){
+  return <> 
+  <div className="nothingToSee">
+      <h2>
+        No account such exists, please try another username
+      </h2>
+    </div>
+  </>
 } else {
-  return <> There&apos;s been an error</>
+  return <> 
+  <div className="nothingToSee">
+      <h2>
+        There&apos;s been an error
+      </h2>
+    </div>
+  </>
 }
 
   

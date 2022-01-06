@@ -9,12 +9,7 @@ const ProfileCreator = (props: any) => {
   const {user} = useContext(UserContext)
   const router = useRouter()
 
-  console.log(s3Config)
-
   let id = process.env.accessKeyId
-  console.log(id)
-
-  console.log(process.env.secretAccessKey)
 
   const s3 = new ReactS3Client(s3Config)
 

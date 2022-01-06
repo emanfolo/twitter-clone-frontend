@@ -2,6 +2,7 @@ import { User } from "../../types/Interfaces"
 import { useEffect, useState } from "react"
 import ProfileCard from "../profile/ProfileCard"
 import Link from "next/link"
+import { CircularProgress } from "@material-ui/core"
 
 const AccountsToFollow = () => {
 
@@ -41,9 +42,15 @@ const AccountsToFollow = () => {
     </div>
   </>
   }else if(loading){
-  return <> Loading...</>
+  return <> <CircularProgress/> </>
 } else {
-  return <> There&apos;s been an error</>
+  return <> 
+  <div className="nothingToSee">
+      <h2>
+        There&apos;s been an error
+      </h2>
+    </div>
+  </>
 }
   
 }

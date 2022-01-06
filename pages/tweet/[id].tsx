@@ -3,6 +3,7 @@ import { UserContext } from '../../context/UserContext'
 import Router, { useRouter } from "next/router";
 
 import { Tweet } from '../../types/Interfaces';
+import { CircularProgress } from '@material-ui/core';
 
 const SingleTweet = () => {
 
@@ -45,9 +46,11 @@ useEffect(() => {
   {tweetInfo?.contents}
   </>
   } else if(loading){
-  return <> Loading...</>
+  return <> <CircularProgress/> </>
 } else {
-  return <> There&apos;s been an error</>
+  return <> <div className='nothingToSee'>
+    <h2>
+      There&apos;s been an error</h2></div></>
 }
 }
 

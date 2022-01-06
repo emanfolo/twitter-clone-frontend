@@ -5,6 +5,7 @@ import TweetCard from '../../../components/profile/TweetCard'
 
 import { Like, Hashtag, User, Profile, TweetInfo, Retweet, Tweet } from "../../../types/Interfaces";
 import SearchBar from '../../../components/explore/SearchBar';
+import { CircularProgress } from '@material-ui/core';
 
 
 const HashtagSearch = () => {
@@ -59,9 +60,21 @@ const HashtagSearch = () => {
   ); 
   }
    else if(loading){
-  return <> Loading...</>
-} else {
-  return <> There&apos;s been an error</>
+  return <> <CircularProgress /> </>
+} else if (!hashtagTweets){
+  return <>
+  <div className="nothingToSee">
+      <h2>  
+        No results
+      </h2>
+    </div></>
+}else {
+  return <> 
+    <div className="nothingToSee">
+      <h2>
+        There&apos;s been an error
+      </h2>
+    </div></>
 }
 };
 

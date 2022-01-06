@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core"
 import { useState, useEffect } from "react"
 import TrendingCard from "./TrendingCard"
 
@@ -46,9 +47,15 @@ if (trending){
   </div>
   </>
 } else if(loading){
-  return <> Loading...</>
+  return <>  <CircularProgress /> </>
 } else {
-  return <> There&apos;s been an error</>
+  return <> 
+  <div className="nothingToSee">
+      <h2>
+        There&apos;s been an error
+      </h2>
+    </div>
+  </>
 }
 
 

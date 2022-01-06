@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react"
 import NotificationCard from "./NotificationCard"
 import { Notification } from "../../types/Interfaces";
 import { UserContext } from "../../context/UserContext";
+import { CircularProgress } from "@material-ui/core";
 
 
   
@@ -54,8 +55,18 @@ const NotificationFeed = () => {
     Please log in to view notifications
     </>
   } else if(loading){
-  return <> Loading...</>
-} else {
+  return <> <CircularProgress /></>
+} else if (notifications.length == 0){
+  return <>
+    <div>
+      <h2>
+        Nothing to see here!
+      </h2>
+    </div>
+  </>
+}
+
+else {
   return <> There&apos;s been an error</>
 }
   

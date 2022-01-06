@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import SearchBar from "../../components/explore/SearchBar"
@@ -58,12 +59,17 @@ const SearchResults = () => {
     </>
   } else if (loading){
     return <>
-    Loading...
+    <CircularProgress />
     </>
   } else {
     return <> 
     <SearchBar/>
-    No results found 
+    <div className="nothingToSee">
+      <h2>
+        No results found
+      </h2>
+    </div>
+    
     </>
   }
   

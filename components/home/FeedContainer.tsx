@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../../context/UserContext';
 
 import { Like, Hashtag, User, Profile, Tweet, TweetInfo, Retweet } from '../../types/Interfaces';
+import { CircularProgress } from '@material-ui/core';
 
 
 const FeedContainer = (props: any) => {
@@ -56,9 +57,15 @@ if (feed.length > 0){
 } else if (feed.length == 0) {
   return <> <h2> Please make some tweets </h2> </>
 } else if(loading){
-  return <> Loading...</>
+  return <> <CircularProgress /> </>
 } else {
-  return <> There&apos;s been an error</>
+  return <> 
+  <div className="nothingToSee">
+      <h2>
+        There&apos;s been an error
+      </h2>
+    </div>
+  </>
 }
 
 }
