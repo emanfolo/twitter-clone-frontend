@@ -37,6 +37,9 @@ const AccountsToFollow = () => {
 
   if(profiles){
     return <>
+     <div className="homeHeading" >
+      <h2>People you may know</h2>
+    </div>
     <div className="accountsContainer">
       {profilesDisplay}
     </div>

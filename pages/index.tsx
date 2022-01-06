@@ -1,7 +1,12 @@
 const Index = () => {
-  return <>
-  <h2> Welcome to Flitter!</h2>
+  return <> 
+  <div className="nothingToSee">
+      <h2>
+        Welcome to Flitter!
+      </h2>
+    </div>
   </>
 }
+
 
 export default Index

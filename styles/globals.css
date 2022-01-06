@@ -40,7 +40,7 @@ a {
 
 .rightSide{
   border-right: 1px solid;
-  border-color: #aab8c2;
+  border-color: #f1f3f5;
   width: 33%;
   display: flex;
   justify-content: flex-start;
@@ -79,7 +79,7 @@ a {
 
 .rightSide{
   border-right: 1px solid;
-  border-color: #aab8c2;
+  border-color: #f1f3f5;
   width: 33%;
   display: none;
   justify-content: flex-start;
@@ -276,6 +276,7 @@ a {
   width: inherit;
   background-color: white;
   opacity: 85%;
+  z-index: 100;
 }
 
 .homeHeading > h2{
@@ -455,6 +456,7 @@ a {
   flex-direction: column;
   min-height: 100%;
   text-align: center;
+  margin-top: 12%;
 }
 
 .notificationCard {
@@ -463,7 +465,7 @@ a {
   max-height: 140px;
   border-top: 1px solid;
   border-bottom: 1px solid;
-  border-color: #aab8c2;
+  border-color: #f1f3f5;
   text-align: left;
   cursor: pointer;
 }
@@ -508,6 +510,7 @@ a {
 /* Explore */
 
 .accountsContainer {
+  margin-top: 12%;
   padding: 5%;
   display: flex;
   flex-direction: row;
@@ -545,7 +548,7 @@ a {
 
 .tweetCard:last-child {
   border-bottom: 1px solid;
-  border-color: #aab8c2;
+  border-color: #f1f3f5;
 }
 
 .userDetails {
@@ -984,7 +987,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 20vh;
-  width: 30vw;
+  width: 100%;
 }
 
 .nothingToSee > h2 {

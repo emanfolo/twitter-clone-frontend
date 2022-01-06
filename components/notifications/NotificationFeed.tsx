@@ -45,8 +45,10 @@ const NotificationFeed = () => {
 
   if (user){
     return <>
+        <div className='homeHeading'>
+          <h2>Notifications </h2>
+        </div>
       <div className="notificationFeed">
-        <h2>Notifications</h2>
         {notificationDisplay}
       </div>
   </>

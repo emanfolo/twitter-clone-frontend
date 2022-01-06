@@ -55,7 +55,13 @@ const SearchResults = () => {
     )
   });
     return <> 
-    {tweetsDisplay} 
+    <div className="homeHeading" >
+      <h2>Search results</h2>
+    </div>
+    <div style={{marginTop: "12%"}}>
+      {tweetsDisplay} 
+    </div>
+    
     </>
   } else if (loading){
     return <>
@@ -63,7 +69,7 @@ const SearchResults = () => {
     </>
   } else {
     return <> 
-    <SearchBar/>
+    {/* <SearchBar/> */}
     <div className="nothingToSee">
       <h2>
         No results found

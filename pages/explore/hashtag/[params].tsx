@@ -55,7 +55,12 @@ const HashtagSearch = () => {
   if(hashtagTweets){
    return (
   <>
-    <div>{tweetsDisplay}</div>
+   <div className="homeHeading" >
+      <h2>Search results</h2>
+    </div>
+    <div style={{marginTop: "12%"}}>
+      {tweetsDisplay} 
+    </div>
   </>
   ); 
   }
@@ -65,7 +70,7 @@ const HashtagSearch = () => {
   return <>
   <div className="nothingToSee">
       <h2>  
-        No results
+        No results found
       </h2>
     </div></>
 }else {
