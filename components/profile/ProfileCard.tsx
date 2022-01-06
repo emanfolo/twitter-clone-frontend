@@ -63,14 +63,12 @@ const ProfileCard = (props: any) => {
         <div className="bottomHalf">
           <div className="nameAndFollow">
             <Link href={`/${profile.username}`} >
-              <>
               <div className="name">
                 <strong>
                   {profile.name} <br />
                 </strong>
                 @{profile.username}
               </div>
-              </>
             </Link>
             <div className="followOrEditButtonContainer">{followOrEdit()}</div>
           </div>
