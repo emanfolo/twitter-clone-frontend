@@ -30,6 +30,7 @@ const SearchResults = () => {
     const json = await response.json();
     setSearchResults(json)
     setLoading(false)
+
   }
 
 
@@ -63,19 +64,17 @@ const SearchResults = () => {
     </div>
     
     </>
-  } else if (loading){
-    return <>
-    <div className="homeHeading"><CircularProgress /> </div> 
-    </>
-  } else {
+  } else if (!searchResult){
     return <> 
-    {/* <SearchBar/> */}
     <div className="nothingToSee">
       <h2>
         No results found
       </h2>
     </div>
-    
+    </>
+  } else {
+    return <>
+    <div className="loadingSpinner"><CircularProgress /> </div> 
     </>
   }
   
