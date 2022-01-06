@@ -7,7 +7,7 @@ import SidebarLink from './SidebarLink'
 
 
 import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LogoutIcon from '@mui/icons-material/Logout';
