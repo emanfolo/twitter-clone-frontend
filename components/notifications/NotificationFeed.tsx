@@ -29,7 +29,7 @@ const NotificationFeed = () => {
 
   useEffect(() => {
     getNotifications()
-  }, [])
+  }, [user])
 
 
   const notificationDisplay = notifications.map((data) => {

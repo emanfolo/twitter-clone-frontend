@@ -19,7 +19,7 @@ const AccountsToFollow = () => {
 
   useEffect(() => {
       getProfiles()
-  }, [])
+  }, [stateChanged])
 
   const profilesDisplay = profiles?.map((data) => {
     const key = data.id

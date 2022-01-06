@@ -20,7 +20,7 @@ const Trending = () => {
 
   useEffect(() => {
       getTrendingTopics()
-  }, [])
+  }, [trending])
 
 
 if (trending){
