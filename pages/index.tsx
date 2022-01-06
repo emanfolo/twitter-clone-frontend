@@ -1,3 +1,5 @@
+import LogInForm from "../components/login/LogInForm"
+
 const Index = () => {
   return <> 
   <div className="nothingToSee">
@@ -5,6 +7,8 @@ const Index = () => {
         Welcome to Flitter!
       </h2>
     </div>
+
+  <LogInForm />
   </>
 }
 
