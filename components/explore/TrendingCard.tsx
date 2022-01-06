@@ -31,7 +31,6 @@ const TrendingCard = (props: any) => {
 
   return <>
 
-    {/* {linkCreator(data)} */}
       <Link href={linkCreator(data)}>
         <div className="trending">
             <h2>

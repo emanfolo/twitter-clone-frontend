@@ -11,10 +11,12 @@ const NotificationFeed = () => {
   const {user, setUser} = useContext(UserContext)
 
   const [notifications, setNotifications] = useState<Array<Notification>>([])
+  const [loading, setLoading] = useState(Boolean)
 
   const apiURL = process.env.NODE_ENV == "production" ?  "https://twitter-clone-backend-ef.herokuapp.com" : "http://localhost:4000"
 
   const getNotifications = async () => {
+    setLoading(true)
     const authToken: string = user.accessToken
     const res = await fetch(`${apiURL}/notification/all`, { 
         method: 'GET',
@@ -25,6 +27,7 @@ const NotificationFeed = () => {
       });
     const json = await res.json();
     setNotifications(json);
+    setLoading(false)
   } 
 
   useEffect(() => {
@@ -46,11 +49,15 @@ const NotificationFeed = () => {
         {notificationDisplay}
       </div>
   </>
-  } else {
+  } else if (!user){
     return <>
     Please log in to view notifications
     </>
-  }
+  } else if(loading){
+  return <> Loading...</>
+} else {
+  return <> There&apos;s been an error</>
+}
   
 }
 

@@ -1,8 +1,4 @@
-import Link from "next/link";
-import { UserContext } from "../context/UserContext";
-import { useState, useMemo, useContext } from "react";
 import Sidebar from './sidebar/Sidebar'
-
 import { useRouter } from "next/router";
 import Trending from "./explore/Trending";
 import SearchBar from "./explore/SearchBar";

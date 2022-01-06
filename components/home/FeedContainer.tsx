@@ -10,6 +10,7 @@ const FeedContainer = (props: any) => {
 
   const {user, setUser} = useContext(UserContext)
   const [feed, setFeed] = useState(Array)
+  const [loading, setLoading] = useState(Boolean)
   
 
   const {stateChanged, setStateChanged} = props
@@ -18,6 +19,7 @@ const FeedContainer = (props: any) => {
 
 
   const getFeed = async () => {
+    setLoading(true)
     const authToken: string = user.accessToken
     const res = await fetch(`${apiURL}/feed`, { 
         method: 'GET',
@@ -28,6 +30,7 @@ const FeedContainer = (props: any) => {
       });
     const json = await res.json();
     setFeed(json);
+    setLoading(false)
   }
 
 
@@ -50,8 +53,12 @@ if (feed.length > 0){
     {tweetsDisplay}
   </div>
   </>
+} else if (feed.length == 0) {
+  return <> <h2> Please make some tweets </h2> </>
+} else if(loading){
+  return <> Loading...</>
 } else {
-  return <> Please make some tweets</>
+  return <> There&apos;s been an error</>
 }
 
 }
