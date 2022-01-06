@@ -28,12 +28,9 @@ const AccountsToFollow = () => {
     const key = data.id
 
     return <>
-      <Link href={`/${data.username}`}>
         <div>
           <ProfileCard profile={data} key={data.id} setStateChanged={setStateChanged} />
-        </div>
-      </Link>
-      
+        </div>      
     </>
   })
 
