@@ -4,7 +4,7 @@ import Trending from "./explore/Trending";
 import SearchBar from "./explore/SearchBar";
 
 
-const Layout = ({children}: any, props: any) => {
+const Layout = ({children}: any) => {
 
   const router = useRouter()
 
