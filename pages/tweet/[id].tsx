@@ -4,7 +4,7 @@ import Router, { useRouter } from "next/router";
 
 import { Tweet } from "../../types/Interfaces";
 import { CircularProgress } from "@material-ui/core";
-import TweetCard from "../../components/home/TweetCard";
+import TweetCard from "../../components/profile/TweetCard";
 
 const SingleTweet = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ const SingleTweet = () => {
 
   useEffect(() => {
     getTweet();
-  }, [tweetInfo, stateChanged]);
+  }, [stateChanged]);
 
   if (tweetInfo) {
     return (
@@ -64,7 +64,7 @@ const SingleTweet = () => {
       <>
         {" "}
         <div className="nothingToSee">
-          <h2>There&apos;s been an error</h2>
+          <h2>Nothing to see here</h2>
         </div>
       </>
     );

@@ -91,6 +91,101 @@ a {
   }
 }
 
+@media (min-device-width : 480px) and (max-width: 768px) {
+  .LayoutDiv {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .middle {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: #f1f3f5;
+    width: 65%;
+    margin-left: 35%;
+  }
+
+  .leftSide {
+    border-left: 1px solid;
+    border-color: #e9f6ff;
+    width: 35%;
+    overflow: auto;
+    text-overflow: ellipsis;
+    max-height: 100vh;
+    position: fixed;
+    float: left;
+  }
+
+  .rightSide {
+    border-right: 1px solid;
+    border-color: #f1f3f5;
+    width: 33%;
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: fixed;
+    overflow: auto;
+    max-height: 100vh;
+    margin-left: 67%;
+    float: right;
+  }
+
+  .tweetCardImage {
+  margin-left: 3%;
+  margin-right: 1%;
+}
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .LayoutDiv {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  .middle {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: #f1f3f5;
+    width: 82vw;
+    margin-left: 18vw;
+  }
+
+  .leftSide {
+    border-left: 1px solid;
+    border-color: #e9f6ff;
+    width: 18vw;
+    overflow: -moz-hidden-unscrollable;
+    text-overflow: ellipsis;
+    max-height: 100vh;
+    position: fixed;
+    float: left;
+  }
+
+  .rightSide {
+    border-right: 1px solid;
+    border-color: #f1f3f5;
+    width: 33%;
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: fixed;
+    overflow: auto;
+    max-height: 100vh;
+    margin-left: 67%;
+    float: right;
+  }
+
+  .tweetCardImage {
+  margin-left: 4%;
+  margin-right: 3%;
+}
+
+}
+
+
+
 /* Log in  */
 
 .logInHeader {
@@ -224,6 +319,8 @@ a {
 
 /* Sidebar */
 
+
+
 .sidebar {
   width: 70%;
   overflow: hidden;
@@ -262,6 +359,8 @@ a {
   font-weight: 700;
   text-transform: inherit;
 }
+
+
 
 /* HomeTweetBox */
 
@@ -385,6 +484,20 @@ a {
 .TweetButton:hover {
   background: #0d8bd9;
   color: #fff;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+
+.sidebar {
+  width: 70%;
+  justify-content: left;
+  position: sticky;
+}
+
+.wrapper { 
+  margin-top: 20%;
+}
 }
 
 /* TrendingAndSearch */
@@ -624,6 +737,46 @@ a {
 
 .replyModalClosed {
   display: none;
+}
+
+#replyButton:hover {
+  color: #999999;
+}
+
+.likeButtonActive {
+  color: red;
+}
+
+.likeButtonActive:hover {
+  color: red;
+  opacity: 70%;
+  transition: color 100ms ease-out;
+
+}
+
+.likeButton:hover {
+  color: red;
+  opacity: 80%;
+  transition: color 100ms ease-out;
+
+}
+
+.retweetButtonActive {
+  color: green;
+}
+
+.retweetButtonActive:hover {
+  color: green;
+  opacity: 80%;
+  transition: color 100ms ease-out;
+
+}
+
+.retweetButton:hover {
+  color: green;
+  opacity: 80%;
+  transition: color 100ms ease-out;
+
 }
 
 .replyModalOpen {

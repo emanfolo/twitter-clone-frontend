@@ -58,7 +58,7 @@ const LikeButton = (props: Props) => {
             notificationRecipient: notificationRecipient,
           }),
         });
-        setStateChanged("Post liked");
+        setStateChanged(`Post ${tweetID} liked`);
         setLikedState(true);
       } else if (likedState) {
         const response = await fetch(`${apiURL}/like/delete`, {
@@ -72,7 +72,7 @@ const LikeButton = (props: Props) => {
             notificationRecipient: notificationRecipient,
           }),
         });
-        setStateChanged("Post unliked");
+        setStateChanged(`Post ${tweetID} unliked`);
         setLikedState(false);
       }
     } else if (!user) {
@@ -84,13 +84,13 @@ const LikeButton = (props: Props) => {
     <>
       {likedState ? (
         <button
-          style={{ color: "red", cursor: "pointer" }}
+          className="likeButtonActive"
           onClick={() => toggleLike()}
         >
           <FavoriteBorderOutlinedIcon /> {likes.length}
         </button>
       ) : (
-        <button style={{ cursor: "pointer" }} onClick={() => toggleLike()}>
+        <button className="likeButton" onClick={() => toggleLike()}>
           <FavoriteBorderOutlinedIcon /> {likes.length}
         </button>
       )}

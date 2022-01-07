@@ -57,7 +57,8 @@ const CreateUser = () => {
 
   const sendParams = async () => {
     if (checkInputs()) {
-      const response = await fetch(`${apiURL}/user/register`, {
+      try {
+        const response = await fetch(`${apiURL}/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +73,12 @@ const CreateUser = () => {
       });
       const result = await response.json();
       setUser(result);
-      router.push("/user/createprofile");
+      router.push("/user/editprofile");
+      } catch(e) {
+        console.log("Invalid params, please enter a unique username and email address")
+        setErrorMessage("Invalid params, please enter a unique username and email address");
+        toggleModalClass();
+      }
     }
   };
 

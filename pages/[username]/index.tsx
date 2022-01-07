@@ -46,7 +46,7 @@ const Profile = () => {
 
   useEffect(() => {
     getProfile();
-  }, [stateChanged]);
+  }, [stateChanged, username]);
 
   if (profile) {
     return (

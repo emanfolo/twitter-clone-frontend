@@ -6,9 +6,6 @@ const Index = () => {
   if (!user) {
     return (
       <>
-        <div className="nothingToSee">
-          <h2>Welcome to Flitter!</h2>
-        </div>
         <LogInForm />
       </>
     );

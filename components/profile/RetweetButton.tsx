@@ -59,7 +59,7 @@ const RetweetButton = (props: Props) => {
             notificationRecipient: notificationRecipient,
           }),
         });
-        setStateChanged("Post retweeted");
+        setStateChanged(`Post ${tweetID} retweeted`);
         setRetweetedState(true);
       } else if (retweetedState) {
         const response = await fetch(`${apiURL}/retweet/delete`, {
@@ -73,7 +73,7 @@ const RetweetButton = (props: Props) => {
             notificationRecipient: notificationRecipient,
           }),
         });
-        setStateChanged("Post unretweeted");
+        setStateChanged(`Post ${tweetID} unretweeted`);
         setRetweetedState(false);
       }
     } else if (!user) {
@@ -85,13 +85,13 @@ const RetweetButton = (props: Props) => {
     <>
       {retweetedState ? (
         <button
-          style={{ color: "green", cursor: "pointer" }}
+          className="retweetButtonActive"
           onClick={() => toggleRetweet()}
         >
           <AutorenewIcon /> {retweets.length}
         </button>
       ) : (
-        <button style={{ cursor: "pointer" }} onClick={() => toggleRetweet()}>
+        <button className="retweetButton" onClick={() => toggleRetweet()}>
           <AutorenewIcon /> {retweets.length}
         </button>
       )}

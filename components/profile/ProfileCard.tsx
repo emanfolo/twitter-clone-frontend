@@ -27,6 +27,10 @@ const ProfileCard = (props: any) => {
   const profilePictureDisplay = () => {
     return profilePicture ? profilePicture : "./DefaultImage.jpeg";
   };
+  const headerImage = profile.profile.header_image
+  const headerDisplay = () => {
+    return headerImage ? headerImage : "https://twitter-clone-image-storage.s3.eu-west-2.amazonaws.com/084f78c13c722c81811f234ce88cd644.png"
+  }
   const followOrEdit = () => {
     if (user.username == profile.username) {
       return (
@@ -55,7 +59,7 @@ const ProfileCard = (props: any) => {
     <>
       <div className="profileCardContainer">
         <div className="headerImage">
-          <img src={profile.profile.header_image} />
+          <img src={headerDisplay()} />
         </div>
         <div className="profilePicture">
           <img src={profilePictureDisplay()} />

@@ -15,17 +15,23 @@ const NotificationCard = (props: any) => {
     return typeOfNotif == "retweet" ? (
       <>
         {" "}
-        <AutorenewIcon />{" "}
+        <div style={{color:'green'}} >
+          <AutorenewIcon />{" "}
+        </div>
+        
       </>
     ) : typeOfNotif == "like" ? (
       <>
         {" "}
-        <FavoriteTwoToneIcon />
+        <div style={{color:'red'}} >
+          <FavoriteTwoToneIcon />
+        </div>
       </>
     ) :  typeOfNotif == "reply" ? (
       <>
       {" "}
-      <ReplyOutlinedIcon /> 
+      
+        <ReplyOutlinedIcon /> 
       </> 
     ) : (
       <>

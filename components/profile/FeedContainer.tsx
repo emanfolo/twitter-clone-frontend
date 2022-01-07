@@ -43,7 +43,7 @@ const FeedContainer = (props: any) => {
 
   useEffect(() => {
     getFeed();
-  }, [stateChanged]);
+  }, [stateChanged, username]);
 
   if (feed.length > 0) {
     const tweetsDisplay = feed.map((data: any) => {
@@ -68,7 +68,9 @@ const FeedContainer = (props: any) => {
     return (
       <>
         {" "}
+        <div className="nothingToSee" >
         <h2> Please make some tweets </h2>
+        </div>
       </>
     );
   } else if (loading) {

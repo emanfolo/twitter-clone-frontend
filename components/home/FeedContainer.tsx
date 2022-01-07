@@ -45,6 +45,8 @@ const FeedContainer = (props: any) => {
     getFeed();
   }, [stateChanged]);
 
+
+  
   if (feed.length > 0) {
     const tweetsDisplay = feed.map((data: any) => {
       const key = `tweet-${data.id}`;
@@ -65,7 +67,16 @@ const FeedContainer = (props: any) => {
         </div>
       </>
     );
-  } else if (loading) {
+  } else if (feed == null) {
+    return (
+      <>
+        {" "}
+        <div className="nothingToSee" >
+        <h2> Please make some tweets </h2>
+        </div>{" "}
+      </>
+    );
+  } else {
     return (
       <>
         {" "}
@@ -73,23 +84,7 @@ const FeedContainer = (props: any) => {
           <CircularProgress />{" "}
         </div>{" "}
       </>
-    );
-  } else if (feed.length == 0) {
-    return (
-      <>
-        {" "}
-        <h2> Please make some tweets </h2>{" "}
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div className="nothingToSee">
-          <h2>There&apos;s been an error</h2>
-        </div>
-      </>
-    );
-  }
+    );}
 };
 
 export default FeedContainer;

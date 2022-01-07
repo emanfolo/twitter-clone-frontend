@@ -48,7 +48,7 @@ const MiniFollowButton = (props: any) => {
             followRecipient: tweetCreatorID,
           }),
         });
-        setStateChanged("Followed");
+        setStateChanged(`User ${tweetCreatorID} followed`);
         setFollowState(true);
       } else if (followState) {
         const response = await fetch(`${apiURL}/follow/delete`, {
@@ -61,7 +61,7 @@ const MiniFollowButton = (props: any) => {
             followRecipient: tweetCreatorID,
           }),
         });
-        setStateChanged("Unfollowed");
+        setStateChanged(`User ${tweetCreatorID} unfollowed`);
         setFollowState(false);
       }
     } else if (!user) {
