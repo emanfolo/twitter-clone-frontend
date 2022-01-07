@@ -23,8 +23,10 @@ const Trending = () => {
       getTrendingTopics()
   }, [])
 
+if(loading){
+  return <>  <div className="loadingSpinner"><CircularProgress /> </div> </>
 
-if (trending){
+}else if (trending){
 
   const trendingTopics = Object.keys(trending)
 
@@ -46,8 +48,6 @@ if (trending){
     {trendingDisplay}
   </div>
   </>
-} else if(loading){
-  return <>  <div className="loadingSpinner"><CircularProgress /> </div> </>
 } else {
   return <> 
   <div className="nothingToSee">

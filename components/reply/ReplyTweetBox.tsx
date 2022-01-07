@@ -1,16 +1,11 @@
 import React from 'react'
 import { UserContext } from '../../context/UserContext'
 import { useContext } from 'react'
-
-// interface Props {
-  
-// }
-
-
-
-
+import { useRouter } from 'next/router'
 
 const ReplyTweetBox = (props:any) => {
+
+  const router = useRouter()
 
   const {user, setUser} = useContext(UserContext)
 
@@ -39,7 +34,8 @@ const ReplyTweetBox = (props:any) => {
 
 
   const sendTweet = async (authToken: string) => {
-    const response = await fetch(`${apiURL}/tweet/new`, {
+    if (user){
+      const response = await fetch(`${apiURL}/tweet/new`, {
       method: 'POST',
       headers: {
           "Content-Type": "application/json",
@@ -57,6 +53,10 @@ const ReplyTweetBox = (props:any) => {
     console.log(json)
     setStateChanged(`new tweet${json.id}`)
     toggleModalClass() 
+    } else if (!user) {
+      router.push('/user/login')
+    }
+    
   }
 
   return (

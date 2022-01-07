@@ -44,7 +44,7 @@ const TweetCard = (props: any) => {
 
   const {tweetInfo, retweetInfo, setStateChanged} = props
 
-  const profilePage = `http://localhost:3000/${tweetInfo.user.username}`
+  const profilePage = `/${tweetInfo.user.username}`
   const profilePicture = tweetInfo.user.profile.image
   const profilePictureDisplay = () => {
     return profilePicture ? profilePicture : './DefaultImage.jpeg'

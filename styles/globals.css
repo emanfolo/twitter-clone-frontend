@@ -166,7 +166,7 @@ a {
 .errorModalOpen {
   display: flex; 
   position: fixed; 
-  z-index: 1; 
+  z-index: 3; 
   left: 0;
   top: 0;
   width: 100%; 
@@ -188,7 +188,7 @@ a {
 }
 
 .errorModalContent {
-  
+  z-index: 3;
   border-radius: 12px;
   padding: 5%;
   height: 100%;
@@ -276,7 +276,7 @@ a {
   width: inherit;
   background-color: white;
   opacity: 85%;
-  z-index: 100;
+  z-index: 2;
 }
 
 .homeHeading > h2{
@@ -636,7 +636,7 @@ a {
 .replyModalOpen {
   display: flex; 
   position: fixed; 
-  z-index: 1; 
+  z-index: 10; 
   left: 0;
   top: 0;
   width: 100%; 

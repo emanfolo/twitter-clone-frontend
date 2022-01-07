@@ -4,6 +4,7 @@ import Router, { useRouter } from "next/router";
 
 import { Tweet } from '../../types/Interfaces';
 import { CircularProgress } from '@material-ui/core';
+import TweetCard from '../../components/home/TweetCard';
 
 const SingleTweet = () => {
 
@@ -12,6 +13,7 @@ const SingleTweet = () => {
 
   const [tweetInfo, setTweetInfo] = useState<Tweet>()
   const [loading, setLoading] = useState(Boolean)
+  const [stateChanged, setStateChanged] = useState("")
 
 
   const {user, setUser} = useContext(UserContext)
@@ -39,11 +41,13 @@ const SingleTweet = () => {
 
 useEffect(() => {
     getTweet();
-  }, [tweetInfo])
+  }, [tweetInfo, stateChanged])
 
   if (tweetInfo){
     return <>
-  {tweetInfo?.contents}
+    <TweetCard tweetInfo={tweetInfo}
+          setStateChanged={setStateChanged}
+          stateChanged={stateChanged}/>
   </>
   } else if(loading){
   return <> <div className="loadingSpinner"><CircularProgress /> </div>  </>

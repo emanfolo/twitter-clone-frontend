@@ -54,24 +54,8 @@ const Profile = () => {
       </div>
     </>
     ); 
-  } else if(loading){
+  }  else {
   return <><div className="loadingSpinner"><CircularProgress /> </div>   </>
-} else if (!profile){
-  return <> 
-  <div className="nothingToSee">
-      <h2>
-        No account such exists, please try another username
-      </h2>
-    </div>
-  </>
-} else {
-  return <> 
-  <div className="nothingToSee">
-      <h2>
-        There&apos;s been an error
-      </h2>
-    </div>
-  </>
 }
 
   

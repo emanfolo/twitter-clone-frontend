@@ -35,7 +35,7 @@ const AccountsToFollow = () => {
     </>
   })
 
-  if(profiles){
+if(profiles){
     return <>
      <div className="homeHeading" >
       <h2>People you may know</h2>
@@ -44,18 +44,10 @@ const AccountsToFollow = () => {
       {profilesDisplay}
     </div>
   </>
-  }else if(loading){
+  } else {
   return <> <div className="loadingSpinner"><CircularProgress /> </div> </>
-} else {
-  return <> 
-  <div className="nothingToSee">
-      <h2>
-        There&apos;s been an error
-      </h2>
-    </div>
-  </>
 }
-  
+
 }
 
 export default AccountsToFollow

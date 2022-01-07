@@ -1,13 +1,12 @@
-import Link from "next/link";
 import { UserContext } from "../../context/UserContext";
-import { useState, useMemo, useContext } from "react";
+import {useContext } from "react";
+import { useRouter } from "next/router";
 
 
 import SidebarLink from './SidebarLink'
 
 
 import HomeIcon from "@material-ui/icons/Home";
-// import SearchIcon from "@material-ui/icons/Search";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -20,6 +19,8 @@ import { Button } from "@material-ui/core"
 const Sidebar = () => {
 
   const {user, setUser} = useContext(UserContext)
+
+  const router = useRouter()
 
 
   return (
@@ -36,7 +37,7 @@ const Sidebar = () => {
           <SidebarLink text="Notifications" Icon={NotificationsNoneIcon} Route="/notifications"/>
           <SidebarLink text="Profile" Icon={PermIdentityIcon} Route={`/${user.username}`}/>
           <SidebarLink text="Logout" Icon={LogoutIcon} Route="/user/logout"/>
-          <Button id="tweet">
+          <Button id="tweet" onClick={(()=> router.push('/home'))}>
               Tweet
           </Button>
           </>
