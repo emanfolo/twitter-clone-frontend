@@ -62,7 +62,7 @@ const ProfileCard = (props: any) => {
         </div>
         <div className="bottomHalf">
           <div className="nameAndFollow">
-            <Link href={`/${profile.username}`} >
+            <Link href={`/${profile.username}`}>
               <div className="name">
                 <strong>
                   {profile.name} <br />

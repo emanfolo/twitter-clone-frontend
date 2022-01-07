@@ -1,35 +1,27 @@
-import Sidebar from './sidebar/Sidebar'
+import Sidebar from "./sidebar/Sidebar";
 import { useRouter } from "next/router";
 import Trending from "./explore/Trending";
 import SearchBar from "./explore/SearchBar";
 
+const Layout = ({ children }: any) => {
+  const router = useRouter();
 
-const Layout = ({children}: any) => {
+  return (
+    <>
+      <div className="LayoutDiv">
+        <div style={{}} className="leftSide">
+          <Sidebar />
+        </div>
 
-  const router = useRouter()
+        <div className="middle">{children}</div>
 
-  return ( 
-  <> 
-  <div className="LayoutDiv" >
-  <div style={{}} className="leftSide">
-    <Sidebar />
-  </div>
-  
-  <div className="middle" >
-    { children }
-  </div>
-  
-  <div className="rightSide" >
-    <SearchBar />
-    <Trending />
-  </div>
-    
-  </div>
-  
-  </> 
+        <div className="rightSide">
+          <SearchBar />
+          <Trending />
+        </div>
+      </div>
+    </>
   );
+};
 
-
-}
-
-export default Layout
+export default Layout;

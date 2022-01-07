@@ -1,41 +1,41 @@
-import { useContext, useState} from 'react'
+import { useContext, useState } from "react";
 import Router, { useRouter } from "next/router";
 
-
-
 const SearchBar = () => {
+  const [searchInput, setSearchInput] = useState(String);
 
-    const [searchInput, setSearchInput] = useState(String)
-
-  const router = useRouter()
+  const router = useRouter();
 
   const handleKeyPress = (event: any) => {
-  if(event.key === 'Enter'){
-    search()
+    if (event.key === "Enter") {
+      search();
     }
-  }
-
+  };
 
   const search = () => {
-    if (searchInput.length > 0){
-      router.push(`/search/${searchInput}`)
+    if (searchInput.length > 0) {
+      router.push(`/search/${searchInput}`);
     } else {
-      console.log('please enter correct params')
+      console.log("please enter correct params");
     }
-  }
+  };
 
   return (
-  <>
-    <div className='searchBar' >        
-        <input type="text" 
-        placeholder="Search Flitter" 
-        onChange={((e)=> {setSearchInput(e.target.value)})}
-        onKeyPress={((e)=> {handleKeyPress(e)})}
+    <>
+      <div className="searchBar">
+        <input
+          type="text"
+          placeholder="Search Flitter"
+          onChange={(e) => {
+            setSearchInput(e.target.value);
+          }}
+          onKeyPress={(e) => {
+            handleKeyPress(e);
+          }}
         />
-    </div>
-  </>
-  ); 
+      </div>
+    </>
+  );
+};
 
-}
-
-export default SearchBar
+export default SearchBar;

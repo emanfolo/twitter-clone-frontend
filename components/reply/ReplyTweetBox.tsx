@@ -1,89 +1,108 @@
-import React from 'react'
-import { UserContext } from '../../context/UserContext'
-import { useContext } from 'react'
-import { useRouter } from 'next/router'
+import React from "react";
+import { UserContext } from "../../context/UserContext";
+import { useContext } from "react";
+import { useRouter } from "next/router";
 
-const ReplyTweetBox = (props:any) => {
+const ReplyTweetBox = (props: any) => {
+  const router = useRouter();
 
-  const router = useRouter()
+  const { user, setUser } = useContext(UserContext);
 
-  const {user, setUser} = useContext(UserContext)
-
-
-  const {tweetInput, setTweetInput, tweetButtonActive, setTweetButtonActive, limit, setLimit, tweetID, notificationRecipient} = props
-  const {setStateChanged, toggleModalClass} = props
+  const {
+    tweetInput,
+    setTweetInput,
+    tweetButtonActive,
+    setTweetButtonActive,
+    limit,
+    setLimit,
+    tweetID,
+    notificationRecipient,
+  } = props;
+  const { setStateChanged, toggleModalClass } = props;
 
   const trackTweetButtonState = () => {
     if (tweetInput.length > 0) {
-      setTweetButtonActive(true)
+      setTweetButtonActive(true);
     } else if (tweetInput.length == 0) {
-      setTweetButtonActive(false)
+      setTweetButtonActive(false);
     }
-  }
-  
+  };
+
   trackTweetButtonState();
 
   const trackWordLimit = () => {
-    let remainingWords = (240 - tweetInput.length)
-    setLimit(remainingWords)
-  }
-  
-  trackWordLimit()
+    let remainingWords = 240 - tweetInput.length;
+    setLimit(remainingWords);
+  };
 
-  const apiURL = process.env.NODE_ENV == "production" ?  "https://twitter-clone-backend-ef.herokuapp.com" : "http://localhost:4000"
+  trackWordLimit();
 
+  const apiURL =
+    process.env.NODE_ENV == "production"
+      ? "https://twitter-clone-backend-ef.herokuapp.com"
+      : "http://localhost:4000";
 
   const sendTweet = async (authToken: string) => {
-    if (user){
+    if (user) {
       const response = await fetch(`${apiURL}/tweet/new`, {
-      method: 'POST',
-      headers: {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${authToken}`
+          Authorization: `Bearer ${authToken}`,
         },
-      body: JSON.stringify( {
+        body: JSON.stringify({
           contents: tweetInput,
           image: null,
           replyTo: tweetID,
           notificationRecipient: notificationRecipient,
-       })
-    });
-    const json = await response.json()
-    setTweetInput("")
-    console.log(json)
-    setStateChanged(`new tweet${json.id}`)
-    toggleModalClass() 
+        }),
+      });
+      const json = await response.json();
+      setTweetInput("");
+      console.log(json);
+      setStateChanged(`new tweet${json.id}`);
+      toggleModalClass();
     } else if (!user) {
-      router.push('/user/login')
+      router.push("/user/login");
     }
-    
-  }
+  };
 
   return (
     <>
-    <div className="wrapper">
-      <div className='tweet-area'>
-        <div className='tweet-area-input'>
-          <textarea placeholder="Tweet your reply" maxLength={240} value={tweetInput} onChange={(e)=> {setTweetInput(e.target.value)}}>
-          </textarea>
+      <div className="wrapper">
+        <div className="tweet-area">
+          <div className="tweet-area-input">
+            <textarea
+              placeholder="Tweet your reply"
+              maxLength={240}
+              value={tweetInput}
+              onChange={(e) => {
+                setTweetInput(e.target.value);
+              }}
+            ></textarea>
+          </div>
+        </div>
+
+        <div className="bottom">
+          <div className="content">
+            <span className="counter">{limit}</span>
+            {tweetButtonActive ? (
+              <button
+                className="TweetButton active"
+                onClick={() => {
+                  sendTweet(user.accessToken);
+                }}
+              >
+                Tweet
+              </button>
+            ) : (
+              <button className="TweetButton">Reply</button>
+            )}
+          </div>
         </div>
       </div>
-      
-    <div className="bottom">
-      <div className="content">
-        <span className="counter">{limit}</span>
-        {
-        tweetButtonActive ? 
-        (<button className="TweetButton active" onClick={()=> {sendTweet(user.accessToken)}}>Tweet</button>) 
-        :
-        (<button className="TweetButton">Reply</button>
-        )}
-      </div>
-      
-    </div>
-  </div>
-  </>
-  )
-}
+    </>
+  );
+};
 
-export default ReplyTweetBox
+export default ReplyTweetBox;

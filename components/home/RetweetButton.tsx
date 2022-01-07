@@ -1,95 +1,104 @@
 import { useState, useEffect } from "react";
-import { UserContext } from '../../context/UserContext'
-import { useContext } from 'react'
+import { UserContext } from "../../context/UserContext";
+import { useContext } from "react";
 import { useRouter } from "next/router";
-import { Like, Hashtag, User, Profile, TweetInfo, Retweet } from "../../types/Interfaces";
-import AutorenewIcon from '@mui/icons-material/Autorenew';
+import {
+  Like,
+  Hashtag,
+  User,
+  Profile,
+  TweetInfo,
+  Retweet,
+} from "../../types/Interfaces";
+import AutorenewIcon from "@mui/icons-material/Autorenew";
 
 interface Props {
   tweetID: number;
   notificationRecipient: number;
-  retweets: Array<Retweet>
+  retweets: Array<Retweet>;
   setStateChanged: Function;
 }
 
 const RetweetButton = (props: Props) => {
+  const router = useRouter();
 
-  const router = useRouter()
+  const { user, setUser } = useContext(UserContext);
 
-  const {user, setUser} = useContext(UserContext)
+  const [retweetedState, setRetweetedState] = useState(Boolean);
 
-  const [retweetedState, setRetweetedState] = useState(Boolean)
-
-  const {tweetID, notificationRecipient, retweets, setStateChanged} = props
-
+  const { tweetID, notificationRecipient, retweets, setStateChanged } = props;
 
   const retrieveRetweetState = () => {
-
-    if (retweets.find(retweet => retweet.userID == user.id) == undefined){
-      setRetweetedState(false)
+    if (retweets.find((retweet) => retweet.userID == user.id) == undefined) {
+      setRetweetedState(false);
     } else {
-      setRetweetedState(true)
+      setRetweetedState(true);
     }
-  }
+  };
 
   useEffect(() => {
-    retrieveRetweetState(), [retweets]
-  })
+    retrieveRetweetState(), [retweets];
+  });
 
-  const apiURL = process.env.NODE_ENV == "production" ?  "https://twitter-clone-backend-ef.herokuapp.com" : "http://localhost:4000"
-
+  const apiURL =
+    process.env.NODE_ENV == "production"
+      ? "https://twitter-clone-backend-ef.herokuapp.com"
+      : "http://localhost:4000";
 
   const toggleRetweet = async () => {
-    if (user){
-      const authToken = user.accessToken
-        if (!retweetedState){
-          const response = await fetch(`${apiURL}/retweet/new`, {
-          method: 'POST',
+    if (user) {
+      const authToken = user.accessToken;
+      if (!retweetedState) {
+        const response = await fetch(`${apiURL}/retweet/new`, {
+          method: "POST",
           headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${authToken}`
-            },
-          body: JSON.stringify( {
-              tweetID: tweetID,
-              notificationRecipient: notificationRecipient
-          })
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: JSON.stringify({
+            tweetID: tweetID,
+            notificationRecipient: notificationRecipient,
+          }),
         });
-        setStateChanged('Retweet')
-        setRetweetedState(true)
-
-        } else if (retweetedState) {
-          const response = await fetch(`${apiURL}/retweet/delete`, {
-          method: 'POST',
+        setStateChanged("Retweet");
+        setRetweetedState(true);
+      } else if (retweetedState) {
+        const response = await fetch(`${apiURL}/retweet/delete`, {
+          method: "POST",
           headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${authToken}`
-            },
-          body: JSON.stringify( {
-              tweetID: tweetID,
-              notificationRecipient: notificationRecipient
-          })
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: JSON.stringify({
+            tweetID: tweetID,
+            notificationRecipient: notificationRecipient,
+          }),
         });
-        setStateChanged('Unretweet')
-        setRetweetedState(false)
-
-        }
-      } else if (!user){
-        console.log("please log in")
-        router.push("/user/login")
+        setStateChanged("Unretweet");
+        setRetweetedState(false);
       }
+    } else if (!user) {
+      console.log("please log in");
+      router.push("/user/login");
     }
-
-
+  };
 
   return (
     <>
-      {retweetedState ? <button style={{color: 'green', cursor: 'pointer'}} onClick={(()=> toggleRetweet())}> 
-      <AutorenewIcon/> {retweets.length} 
-      </button> : <button style={{cursor: 'pointer'}}  onClick={(()=> toggleRetweet())}> 
-      <AutorenewIcon/> {retweets.length} 
-      </button> }
+      {retweetedState ? (
+        <button
+          style={{ color: "green", cursor: "pointer" }}
+          onClick={() => toggleRetweet()}
+        >
+          <AutorenewIcon /> {retweets.length}
+        </button>
+      ) : (
+        <button style={{ cursor: "pointer" }} onClick={() => toggleRetweet()}>
+          <AutorenewIcon /> {retweets.length}
+        </button>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default RetweetButton
+export default RetweetButton;

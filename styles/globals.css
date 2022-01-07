@@ -11,7 +11,6 @@ a {
   text-decoration: none;
 }
 
-
 /* Layout */
 
 .LayoutDiv {
@@ -20,7 +19,7 @@ a {
   min-height: 100vh;
 }
 
-.middle{
+.middle {
   border-left: 1px solid;
   border-right: 1px solid;
   border-color: #f1f3f5;
@@ -28,7 +27,7 @@ a {
   margin-left: 25%;
 }
 
-.leftSide{
+.leftSide {
   border-left: 1px solid;
   border-color: #e9f6ff;
   width: 25%;
@@ -38,7 +37,7 @@ a {
   float: left;
 }
 
-.rightSide{
+.rightSide {
   border-right: 1px solid;
   border-color: #f1f3f5;
   width: 33%;
@@ -52,45 +51,44 @@ a {
   float: right;
 }
 
-@media(max-width: 1080px){
+@media (max-width: 1080px) {
   .LayoutDiv {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-}
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
 
-.middle{
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-color: #f1f3f5;
-  width: 60%;
-  margin-left: 40%;
-}
+  .middle {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: #f1f3f5;
+    width: 60%;
+    margin-left: 40%;
+  }
 
-.leftSide{
-  border-left: 1px solid;
-  border-color: #e9f6ff;
-  width: 40%;
-  overflow: auto;
-  max-height: 100vh;
-  position: fixed;
-  float: left;
-}
+  .leftSide {
+    border-left: 1px solid;
+    border-color: #e9f6ff;
+    width: 40%;
+    overflow: auto;
+    max-height: 100vh;
+    position: fixed;
+    float: left;
+  }
 
-.rightSide{
-  border-right: 1px solid;
-  border-color: #f1f3f5;
-  width: 33%;
-  display: none;
-  justify-content: flex-start;
-  flex-direction: column;
-  position: fixed;
-  overflow: auto;
-  max-height: 100vh;
-  margin-left: 67%;
-  float: right;
-}
-
+  .rightSide {
+    border-right: 1px solid;
+    border-color: #f1f3f5;
+    width: 33%;
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: fixed;
+    overflow: auto;
+    max-height: 100vh;
+    margin-left: 67%;
+    float: right;
+  }
 }
 
 /* Log in  */
@@ -118,7 +116,6 @@ a {
 .logInButton {
   display: flex;
   justify-content: center;
-
 }
 
 .logInButton > button {
@@ -132,10 +129,10 @@ a {
   font-size: 13pt;
 }
 
-.logInButton > button:hover{
+.logInButton > button:hover {
   background-color: #000000;
   opacity: 80%;
-  transition:ease-out;
+  transition: ease-out;
 }
 
 .logInInputDiv {
@@ -160,22 +157,21 @@ a {
 }
 
 .errorModalClosed {
-  display: none; 
+  display: none;
 }
 
 .errorModalOpen {
-  display: flex; 
-  position: fixed; 
-  z-index: 3; 
+  display: flex;
+  position: fixed;
+  z-index: 3;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: hidden; 
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
-
 }
 
 .errorModal {
@@ -183,7 +179,7 @@ a {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  width: 300px; 
+  width: 300px;
   height: 300px;
 }
 
@@ -223,19 +219,19 @@ a {
   opacity: 80%;
   text-decoration: none;
   cursor: pointer;
-  transition:ease-out;
+  transition: ease-out;
 }
 
 /* Sidebar */
 
-.sidebar{
+.sidebar {
   width: 70%;
   overflow: hidden;
   padding: 20px 20px;
   margin: 20px auto 0 auto;
 }
 
-.sidebarlink{
+.sidebarlink {
   display: flex;
   overflow: hidden;
   align-items: cover;
@@ -243,22 +239,21 @@ a {
   border-radius: 30px;
   margin-bottom: 5px;
 }
-.sidebarlink:hover{
+.sidebarlink:hover {
   background-color: #e8f5fe;
   color: #50b7f5;
   transition: color 100ms ease-out;
 }
-.sidebarlink > h2{
+.sidebarlink > h2 {
   font-weight: 700;
   font-size: 20px;
   margin-right: 20px;
-  
 }
 .sidebarlink > .MuiSvgIcon-root {
   padding: 20px;
 }
 
-#tweet{
+#tweet {
   width: 100%;
   height: 50px;
   background-color: hsl(203, 89%, 64%);
@@ -279,24 +274,22 @@ a {
   z-index: 2;
 }
 
-.homeHeading > h2{
+.homeHeading > h2 {
   margin-left: 20px;
 }
 
-
-::selection{
+::selection {
   color: #fff;
   background: #1da1f2;
 }
 
-.wrapper{
+.wrapper {
   background: #fff;
   width: 100%;
   border-radius: 15px;
-  margin-bottom:5%;
+  margin-bottom: 5%;
   margin-top: 12%;
 }
-
 
 .tweet-area {
   display: flex;
@@ -316,7 +309,7 @@ a {
   margin-right: 2%;
 }
 
-.tweet-area-input > textarea{
+.tweet-area-input > textarea {
   resize: none;
   min-height: fit-content;
   max-height: max-content;
@@ -328,7 +321,7 @@ a {
   word-break: break-all;
   border: none;
 }
-.tweet-area::-webkit-scrollbar{
+.tweet-area::-webkit-scrollbar {
   width: 0px;
 }
 
@@ -345,15 +338,14 @@ a {
   border-radius: 50%;
 }
 
-
-.bottom{
+.bottom {
   display: flex;
   margin-top: 13px;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
 }
 
-.bottom .content{
+.bottom .content {
   width: 100%;
   display: flex;
   align-items: center;
@@ -362,7 +354,7 @@ a {
   padding-right: 2%;
 }
 
-.bottom .counter{
+.bottom .counter {
   color: #333;
   width: 4%;
   font-weight: 500;
@@ -390,7 +382,7 @@ a {
   pointer-events: auto;
 }
 
-.TweetButton:hover{
+.TweetButton:hover {
   background: #0d8bd9;
   color: #fff;
 }
@@ -403,7 +395,6 @@ a {
   align-items: center;
   align-content: center;
   justify-content: center;
-  
 }
 
 .searchBar > input {
@@ -420,7 +411,7 @@ a {
   transition: color 100ms ease-out;
 }
 
-.trendingHeader{
+.trendingHeader {
   font-size: 150%;
   text-align: center;
   margin: 5%;
@@ -430,21 +421,21 @@ a {
   margin: 5%;
 }
 
-.trending{
+.trending {
   display: flex;
   overflow: hidden;
   cursor: pointer;
   border-radius: 30px;
 }
 
-.trending:hover{
+.trending:hover {
   background-color: #e8f5fe;
   color: #50b7f5;
   transition: color 100ms ease-out;
 }
-.trending > h2{
+.trending > h2 {
   font-weight: 700;
-  font-size:110%;
+  font-size: 110%;
   text-align: center;
   margin-left: 5%;
 }
@@ -483,7 +474,6 @@ a {
 .notification .headline > div:hover {
   color: #50b7f5;
 }
-
 
 .notification .contentFollow {
   margin-left: 10%;
@@ -543,7 +533,6 @@ a {
   border-color: #f1f3f5;
   width: 100%;
   height: max-content;
-  
 }
 
 .tweetCard:last-child {
@@ -562,7 +551,7 @@ a {
   display: flex;
   justify-content: left;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
   cursor: pointer;
   width: 85%;
 }
@@ -598,7 +587,7 @@ a {
   padding: 2%;
 }
 
-.tweetCardContents > a:hover{
+.tweetCardContents > a:hover {
   color: #50b7f5;
 }
 
@@ -613,7 +602,6 @@ a {
 .retweetInfo:hover {
   color: #50b7f5;
 }
-
 
 /* TweetCardButtons */
 
@@ -630,27 +618,26 @@ a {
 }
 
 .replyModalClosed {
-  display: none; 
+  display: none;
 }
 
 .replyModalOpen {
-  display: flex; 
-  position: fixed; 
-  z-index: 10; 
+  display: flex;
+  position: fixed;
+  z-index: 10;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: hidden; 
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
-
 }
 
 .replyModal {
   padding: 20px;
-  width: 500px; 
+  width: 500px;
   height: 300px;
 }
 
@@ -683,8 +670,7 @@ a {
   white-space: pre-wrap;
   height: 80%;
   grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row3-start-row3-end] 50% [row3-end];
-  grid-template-columns: [first] 60px [line2] auto [end]
-
+  grid-template-columns: [first] 60px [line2] auto [end];
 }
 
 .replyRecipientInfo {
@@ -694,7 +680,6 @@ a {
   flex-direction: column;
   width: 80%;
 }
-
 
 .replyNameAndTime {
   display: flex;
@@ -718,7 +703,7 @@ a {
 
 .tweetReplyForm {
   grid-row: 2;
-  grid-column: 2
+  grid-column: 2;
 }
 
 .tweetReplyFormCurrentUser {
@@ -737,9 +722,9 @@ a {
 .dividerLine {
   grid-row: 2;
   grid-column: 1;
-  width: 50%; 
-  margin: auto; 
-  transform: rotate(90deg); 
+  width: 50%;
+  margin: auto;
+  transform: rotate(90deg);
   justify-self: center;
   margin-left: 10%;
 }
@@ -784,9 +769,8 @@ a {
   position: absolute;
   background-color: white;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  
 }
 
 .dropdown-content button {
@@ -809,12 +793,10 @@ a {
   align-content: center;
 }
 
-
 .dropdown:hover .dropbtn {
   color: #50b7f5;
   transition: color 100ms ease-out;
 }
-
 
 /* ProfileCard */
 
@@ -825,13 +807,12 @@ a {
   flex-direction: column;
 }
 
-
-.headerImage > img{
-  width: 100%;  
+.headerImage > img {
+  width: 100%;
   height: 100%;
 }
 
-.profilePicture{
+.profilePicture {
   height: 10px;
   width: 60%;
   display: flex;
@@ -846,7 +827,7 @@ a {
   border-radius: 50%;
 }
 
-.nameAndFollow{
+.nameAndFollow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -855,13 +836,12 @@ a {
   margin-top: 2%;
 }
 
-.name  {
+.name {
   align-self: center;
   margin-top: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 }
 
 .followOrEditButtonContainer {
@@ -875,7 +855,6 @@ a {
   font-weight: 700;
   border-width: 1px;
   cursor: pointer;
-
 }
 
 .blackButton {
@@ -883,10 +862,10 @@ a {
   color: white;
 }
 
-.blackButton:hover{
+.blackButton:hover {
   background-color: #000000;
   opacity: 80%;
-  transition:ease-out;
+  transition: ease-out;
 }
 
 .whiteButton {
@@ -921,7 +900,7 @@ a {
 
 /* ProfileEditor */
 
-.profileCreator{
+.profileCreator {
   display: flex;
   flex-direction: column;
   margin: 5%;
@@ -942,7 +921,6 @@ a {
   margin-top: 5vh;
   resize: none;
   height: 10vh;
-
 }
 .profileCreator > textarea:hover,
 .profileCreator > textarea:focus {
@@ -970,14 +948,12 @@ a {
   cursor: pointer;
   background-color: black;
   color: white;
-
 }
 
 .logOut > button:hover {
   background-color: #000000;
   opacity: 80%;
-  transition:ease-out;
-
+  transition: ease-out;
 }
 
 /* Nothing to see */

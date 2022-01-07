@@ -15,7 +15,7 @@ import { CircularProgress } from "@material-ui/core";
 
 const FeedContainer = (props: any) => {
   const [feed, setFeed] = useState(Array);
-  const [loading, setLoading] = useState(Boolean)
+  const [loading, setLoading] = useState(Boolean);
 
   const router = useRouter();
   const { username } = router.query;
@@ -28,7 +28,7 @@ const FeedContainer = (props: any) => {
       : "http://localhost:4000";
 
   const getFeed = async () => {
-    setLoading(true)
+    setLoading(true);
     const url = `${apiURL}/feed/${username}`;
     const res = await fetch(url, {
       method: "GET",
@@ -38,7 +38,7 @@ const FeedContainer = (props: any) => {
     });
     const json = await res.json();
     setFeed(json);
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -65,18 +65,30 @@ const FeedContainer = (props: any) => {
       </>
     );
   } else if (feed.length == 0) {
-    return <> <h2> Please make some tweets </h2></>;
-  } else if(loading){
-  return <> <div className="loadingSpinner"><CircularProgress /> </div>  </>
-} else {
-  return <> 
-  <div className="nothingToSee">
-      <h2>
-        There&apos;s been an error
-      </h2>
-    </div>
-  </>
-}
+    return (
+      <>
+        {" "}
+        <h2> Please make some tweets </h2>
+      </>
+    );
+  } else if (loading) {
+    return (
+      <>
+        {" "}
+        <div className="loadingSpinner">
+          <CircularProgress />{" "}
+        </div>{" "}
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="nothingToSee">
+          <h2>There&apos;s been an error</h2>
+        </div>
+      </>
+    );
+  }
 };
 
 export default FeedContainer;

@@ -1,16 +1,14 @@
-import { useContext, useState} from 'react'
-import { UserContext } from '../../context/UserContext'
+import { useContext, useState } from "react";
+import { UserContext } from "../../context/UserContext";
 import Router, { useRouter } from "next/router";
-import AccountsToFollow from '../../components/explore/AccountsToFollow';
-
+import AccountsToFollow from "../../components/explore/AccountsToFollow";
 
 const Explore = () => {
-
   return (
-  <>
-    <AccountsToFollow />
-  </>
-  ); 
+    <>
+      <AccountsToFollow />
+    </>
+  );
 };
 
 export default Explore;

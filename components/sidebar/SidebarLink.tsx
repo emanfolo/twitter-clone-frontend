@@ -3,24 +3,23 @@
 import Link from "next/link";
 
 interface props {
-  active?: boolean,
-  Route: string,
-  text: string,
-  Icon: any,
+  active?: boolean;
+  Route: string;
+  text: string;
+  Icon: any;
 }
 
 function SidebarLink(props: props) {
+  const { text, Icon, Route } = props;
 
-  const { text, Icon, Route } = props
-
-  return(
+  return (
     <>
-    <Link href={Route} >
-      <div className="sidebarlink" >
-        <Icon />
-        <h2>{text}</h2>
-      </div>
-    </Link>
+      <Link href={Route}>
+        <div className="sidebarlink">
+          <Icon />
+          <h2>{text}</h2>
+        </div>
+      </Link>
     </>
   );
 }

@@ -1,43 +1,44 @@
-import React, { useContext} from 'react'
-import { UserContext } from '../../context/UserContext'
+import React, { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 import Router, { useRouter } from "next/router";
 
-
 const LogOut = () => {
+  const apiURL =
+    process.env.NODE_ENV == "production"
+      ? "https://twitter-clone-backend-ef.herokuapp.com"
+      : "http://localhost:4000";
 
-  const apiURL = process.env.NODE_ENV == "production" ?  "https://twitter-clone-backend-ef.herokuapp.com" : "http://localhost:4000"
+  const router = useRouter();
 
-  const router = useRouter()
-
-  const {user, setUser} = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext);
 
   const logOut = async () => {
     if (user) {
       const response = await fetch(`${apiURL}/user/logout`, {
-        method: 'DELETE',
-        headers : { 
-        'Content-Type': 'application/json'
-       },
-        body: JSON.stringify( {
-          token: user.refreshToken
-       })
-      })
-      setUser("")
-      router.push('/user/login')
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: user.refreshToken,
+        }),
+      });
+      setUser("");
+      router.push("/user/login");
+    }
   };
-}
 
   return (
     <>
-      <div className='logOut' >
+      <div className="logOut">
         <h2>Are you sure you want to log out</h2>
-      
-      
-        <button onClick = {() => {
-          logOut()
-        }}>
-          
-            Log out
+
+        <button
+          onClick={() => {
+            logOut();
+          }}
+        >
+          Log out
         </button>
       </div>
     </>

@@ -1,10 +1,11 @@
-import NotificationFeed from "../../components/notifications/NotificationFeed"
+import NotificationFeed from "../../components/notifications/NotificationFeed";
 
 const NotificationsPage = () => {
+  return (
+    <>
+      <NotificationFeed />
+    </>
+  );
+};
 
-  return <>
-    <NotificationFeed/>
-  </>
-}
-
-export default NotificationsPage
+export default NotificationsPage;

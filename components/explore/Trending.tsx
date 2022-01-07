@@ -1,66 +1,66 @@
-import { CircularProgress } from "@material-ui/core"
-import { useState, useEffect } from "react"
-import TrendingCard from "./TrendingCard"
+import { CircularProgress } from "@material-ui/core";
+import { useState, useEffect } from "react";
+import TrendingCard from "./TrendingCard";
 
 const Trending = () => {
+  const [loading, setLoading] = useState(Boolean);
+  const [trending, setTrending] = useState(Object);
 
-  const [loading, setLoading] = useState(Boolean)
-  const [trending, setTrending] = useState(Object)
-
-  const apiURL = process.env.NODE_ENV == "production" ?  "https://twitter-clone-backend-ef.herokuapp.com" : "http://localhost:4000"
-
-
+  const apiURL =
+    process.env.NODE_ENV == "production"
+      ? "https://twitter-clone-backend-ef.herokuapp.com"
+      : "http://localhost:4000";
 
   const getTrendingTopics = async () => {
-    setLoading(true)
-    const response = await fetch (`${apiURL}/trending`)
-    const json = await response.json()
-    setTrending(json)
-    setLoading(false)
-  }
+    setLoading(true);
+    const response = await fetch(`${apiURL}/trending`);
+    const json = await response.json();
+    setTrending(json);
+    setLoading(false);
+  };
 
   useEffect(() => {
-      getTrendingTopics()
-  }, [])
+    getTrendingTopics();
+  }, []);
 
-if(loading){
-  return <>  <div className="loadingSpinner"><CircularProgress /> </div> </>
+  if (loading) {
+    return (
+      <>
+        {" "}
+        <div className="loadingSpinner">
+          <CircularProgress />{" "}
+        </div>{" "}
+      </>
+    );
+  } else if (trending) {
+    const trendingTopics = Object.keys(trending);
 
-}else if (trending){
+    let index = 0;
 
-  const trendingTopics = Object.keys(trending)
+    const trendingDisplay = trendingTopics.map((data: any) => {
+      index += 1;
+      return (
+        <>
+          <TrendingCard key={index} data={data} />
+        </>
+      );
+    });
 
-  let index = 0
+    return (
+      <>
+        <div className="trendingHeader">Trending topics</div>
+        <div className="trendingContainer">{trendingDisplay}</div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="nothingToSee">
+          <h2>There&apos;s been an error</h2>
+        </div>
+      </>
+    );
+  }
+};
 
-  const trendingDisplay = trendingTopics.map((data: any) => {
-    index += 1
-    return <> 
-    <TrendingCard key={index} data={data}/>
-    </>
-  })
-  
-
-  return <>
-  <div className="trendingHeader">
-    Trending topics
-  </div>
-  <div className="trendingContainer">
-    {trendingDisplay}
-  </div>
-  </>
-} else {
-  return <> 
-  <div className="nothingToSee">
-      <h2>
-        There&apos;s been an error
-      </h2>
-    </div>
-  </>
-}
-
-
-
-  
-}
-
-export default Trending 
+export default Trending;

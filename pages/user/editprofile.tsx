@@ -1,11 +1,13 @@
-import ProfileCreator from "../../components/editprofile/ProfileCreator"
+import ProfileCreator from "../../components/editprofile/ProfileCreator";
 
 const CreateProfile = () => {
-  return <>
-    <div>
-      <ProfileCreator />
-    </div>
-  </>
-}
+  return (
+    <>
+      <div>
+        <ProfileCreator />
+      </div>
+    </>
+  );
+};
 
-export default CreateProfile
+export default CreateProfile;
