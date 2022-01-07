@@ -479,6 +479,11 @@ a {
   margin-left: 10%;
 }
 
+.notification .content {
+  margin-left: 4px;
+}
+
+
 .notification > img {
   min-height: 5vh;
   min-width: 5vh;

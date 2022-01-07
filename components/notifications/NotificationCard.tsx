@@ -2,6 +2,8 @@ import Link from "next/link";
 import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 import AddIcon from "@mui/icons-material/Add";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
+import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
+
 const NotificationCard = (props: any) => {
   const { data } = props;
 
@@ -20,6 +22,11 @@ const NotificationCard = (props: any) => {
         {" "}
         <FavoriteTwoToneIcon />
       </>
+    ) :  typeOfNotif == "reply" ? (
+      <>
+      {" "}
+      <ReplyOutlinedIcon /> 
+      </> 
     ) : (
       <>
         {" "}
@@ -32,9 +39,13 @@ const NotificationCard = (props: any) => {
     return typeOfNotif == "follow" ? notificationInfo : notificationInfo.user;
   };
 
+  console.log(notificationInfo)
+
   const link = () => {
     return typeOfNotif == "follow"
       ? `/${notificationInfo.username}`
+      : typeOfNotif == "reply" 
+      ? `/tweet/${notificationInfo.id}`
       : `/tweet/${notificationInfo.tweet.id}`;
   };
 
@@ -43,12 +54,16 @@ const NotificationCard = (props: any) => {
       ? " followed you"
       : typeOfNotif == "retweet"
       ? "retweeted your tweet"
-      : "liked your tweet";
+      : typeOfNotif == "like" 
+      ? "liked your tweet" 
+      : "replied to your tweet"
   };
 
   const contents = () => {
     return typeOfNotif == "follow" ? (
       <></>
+    ) : typeOfNotif == "reply" ? ( 
+    <> {notificationInfo.contents} </>
     ) : (
       <> {notificationInfo.tweet.contents}</>
     );
