@@ -65,7 +65,7 @@ const FeedContainer = (props: any) => {
         </div>
       </>
     );
-  } else if (feed == null) {
+  } else if (feed == []) {
     return (
       <>
         {" "}

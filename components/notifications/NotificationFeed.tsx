@@ -61,11 +61,11 @@ const NotificationFeed = () => {
         </div>{" "}
       </>
     );
-  } else if (!notifications) {
+  } else if (notifications == []) {
     return (
       <>
         <div>
-          <h2>Nothing to see here!</h2>
+          <h2>Nothing to see here yet!</h2>
         </div>
       </>
     );
