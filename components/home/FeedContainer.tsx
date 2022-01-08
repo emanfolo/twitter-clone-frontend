@@ -27,9 +27,7 @@ const FeedContainer = (props: any) => {
       : "http://localhost:4000";
 
   const getFeed = async () => {
-    try{
-      if (user){
-        setLoading(true);
+      setLoading(true);
       const authToken: string = user.accessToken;
       const res = await fetch(`${apiURL}/feed`, {
         method: "GET",
@@ -41,10 +39,6 @@ const FeedContainer = (props: any) => {
       const json = await res.json();
       setFeed(json);
       setLoading(false);
-      }
-    } catch (err) {
-      console.log(err)
-    }
   };
 
   useEffect(() => {
