@@ -9,9 +9,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     // getting stored value
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem(key);
-      if (saved) {
+      if (saved !== undefined && saved) {
         const initial = JSON.parse(saved);
-        return initial || defaultValue;
+        return initial
+      } else {
+        return defaultValue;
       }
     }
   }

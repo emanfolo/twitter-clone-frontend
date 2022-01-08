@@ -44,8 +44,6 @@ const FeedContainer = (props: any) => {
   useEffect(() => {
     getFeed();
   }, [stateChanged]);
-
-
   
   if (feed.length > 0) {
     const tweetsDisplay = feed.map((data: any) => {
