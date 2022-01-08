@@ -61,7 +61,7 @@ const NotificationFeed = () => {
         </div>{" "}
       </>
     );
-  } else if (notifications == []) {
+  } else if (notifications.length == 0) {
     return (
       <>
         <div>
