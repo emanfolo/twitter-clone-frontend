@@ -27,18 +27,22 @@ const FeedContainer = (props: any) => {
       : "http://localhost:4000";
 
   const getFeed = async () => {
-    setLoading(true);
-    const authToken: string = user.accessToken;
-    const res = await fetch(`${apiURL}/feed`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
-      },
-    });
-    const json = await res.json();
-    setFeed(json);
-    setLoading(false);
+    try{
+      setLoading(true);
+      const authToken: string = user.accessToken;
+      const res = await fetch(`${apiURL}/feed`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      const json = await res.json();
+      setFeed(json);
+      setLoading(false);
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   useEffect(() => {
